@@ -4,15 +4,15 @@ Easing functions for smooth animation. Largely based on [Robert Penner’s easin
 
 ### “in”
 
-![in](https://cloud.githubusercontent.com/assets/230541/7928155/2e21c40c-08a0-11e5-9e6d-cdc5dead16ea.png)
+[![in](https://cloud.githubusercontent.com/assets/230541/7928155/2e21c40c-08a0-11e5-9e6d-cdc5dead16ea.png)](http://bl.ocks.org/mbostock/3fad0a71418216b74444)
 
 ### “out”
 
-![out](https://cloud.githubusercontent.com/assets/230541/7928156/2e21be30-08a0-11e5-8d4c-d003f6a0ad7f.png)
+[![out](https://cloud.githubusercontent.com/assets/230541/7928156/2e21be30-08a0-11e5-8d4c-d003f6a0ad7f.png)](http://bl.ocks.org/mbostock/5cf917540c86082abf36)
 
 ### “in-out”
 
-![in-out](https://cloud.githubusercontent.com/assets/230541/7928157/2e223e1e-08a0-11e5-858c-cd1325729ab6.png)
+[![in-out](https://cloud.githubusercontent.com/assets/230541/7928157/2e223e1e-08a0-11e5-858c-cd1325729ab6.png)](http://bl.ocks.org/mbostock/9e7296f5c3f02c8b77f7)
 
 This code is currently EXPERIMENTAL and represents the in-development D3 4.0 API. The 4.0 API is largely backwards-compatible, but differs from 3.x in several ways:
 
