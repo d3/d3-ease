@@ -1,7 +1,7 @@
 var tape = require("tape"),
     ease = require("../");
 
-require("./in-delta");
+require("./inDelta");
 
 tape('ease("back") returns the expected results', function(test) {
   var e = ease("back");

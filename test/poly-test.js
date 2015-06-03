@@ -1,7 +1,7 @@
 var tape = require("tape"),
     ease = require("../");
 
-require("./in-delta");
+require("./inDelta");
 
 tape('ease("poly") is an alias for ease("cubic")', function(test) {
   test.equal(ease("poly"), ease("cubic"));
