@@ -2,6 +2,19 @@
   "name": "d3-ease",
   "version": "0.0.2",
   "description": "Easing functions for smooth animation.",
+  "keywords": [
+    "d3",
+    "ease",
+    "easing",
+    "animation",
+    "transition"
+  ],
+  "homepage": "https://github.com/d3/d3-ease",
+  "license": "BSD-3-Clause",
+  "author": {
+    "name": "Mike Bostock",
+    "url": "http://bost.ocks.org/mike"
+  },
   "main": "build/ease",
   "jsnext:main": "index",
   "repository": {
@@ -9,13 +22,14 @@
     "url": "https://github.com/d3/d3-ease.git"
   },
   "scripts": {
-    "pretest": "mkdir -p build && d3-bundler --format=cjs -- index.js > build/ease.js",
+    "pretest": "mkdir -p build && d3-bundler --polyfill-map --format=umd --name=ease -- index.js > build/ease.js",
     "test": "faucet `find test -name '*-test.js'`",
-    "prepublish": "npm run test"
+    "prepublish": "npm run test && uglifyjs build/ease.js -c -m -o build/ease.min.js"
   },
   "devDependencies": {
     "d3-bundler": "~0.2.5",
     "faucet": "0.0",
-    "tape": "4"
+    "tape": "4",
+    "uglifyjs": "2"
   }
 }
