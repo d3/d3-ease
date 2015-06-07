@@ -77,9 +77,9 @@ Raises 2 to the power *t*.
 
 Produces a quarter circle.
 
-<a name="elastic" href="#elastic">#</a> <b>ease</b>("elastic-in"[, <i>a</i>[, <i<br>>p<
-<br><a href="#elastic">#</a> <b>ease</b>("elastic-out"[, <i>a</i>[, <i>p<
-<a href="#elastic">#</a> <b>ease</b>("elastic-in-out"[, <i>a</i>[, <i>p</i>]])
+<a name="elastic" href="#elastic">#</a> <b>ease</b>("elastic-in"[, <i>a</i>[, <i>p</i>]])
+<br><a href="#elastic">#</a> <b>ease</b>("elastic-out"[, <i>a</i>[, <i>p</i>]])
+<br><a href="#elastic">#</a> <b>ease</b>("elastic-in-out"[, <i>a</i>[, <i>p</i>]])
 
 Simulates an elastic band with parameters *a* and *p*</b> (defaults to 1 and .3, respectively).
 
