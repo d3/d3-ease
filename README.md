@@ -51,7 +51,7 @@ The identity function; returns *t*.
 <br><a href="#poly">#</a> <b>ease</b>("poly-out"[, <i>k</i>])
 <br><a href="#poly">#</a> <b>ease</b>("poly-in-out"[, <i>k</i>])
 
-Raises *t* to the specified power *k* (defaults to 3; maybe fractional).
+Raises *t* to the specified power *k* (defaults to 3; which is equivalent to [cubic](#cubic)). Note the power *k* need not be an integer, or positive.
 
 [![poly-in](https://cloud.githubusercontent.com/assets/230541/8026046/ea926706-0d1c-11e5-915f-dad2ab2bea7c.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#poly-in)
 [![poly-out](https://cloud.githubusercontent.com/assets/230541/8026047/ea94a390-0d1c-11e5-88bd-6d51052d084a.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#poly-out)
