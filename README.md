@@ -128,7 +128,7 @@ Simulates an elastic band with parameters *a* and *p*</b> (defaults to 1 and .3,
 <br><a href="#back">#</a> <b>ease</b>("back-out"[, <i>s</i>])
 <br><a href="#back">#</a> <b>ease</b>("back-in-out"[, <i>s</i>])
 
-Simulates backing into a parking space with parameter *s* (defaults to 1.70158).
+Simulates a car backing into a parking space (???) with parameter *s* (defaults to 1.70158).
 
 [![back-in](https://cloud.githubusercontent.com/assets/230541/8026025/ea4f94a8-0d1c-11e5-9073-1300e05f7315.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#back-in)
 [![back-out](https://cloud.githubusercontent.com/assets/230541/8026028/ea597ec8-0d1c-11e5-82c7-2bd1b8c993b6.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#back-out)
