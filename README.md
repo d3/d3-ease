@@ -4,7 +4,7 @@ Easing functions for smooth animation, largely based on [Robert Penner’s easin
 
 Changes from from D3 3.x:
 
-* The *elastic* and *bounce* easing functions have been inverted for consistency with Penner’s original design: `"elastic-in"` is now `"elastic-out"`, `"elastic-out"` is now `"elastic-in"`, `"elastic-out-in"` is now `"elastic-in-out"`, `"bounce-in"` is now `"bounce-out"`, `"bounce-out"` is now `"bounce-in"`, and `"bounce-out-in"` is now `"bounce-in-out"`.
+* For `"elastic"` and `"bounce"` easing, the easing modes have been inverted for consistency with Penner’s original design: `"-in"` is now `"-out"`, `"-out"` is now `"-in"`, and `"-out-in"` is now `"-in-out"`.
 
 * The interpretation of optional parameters to the `"elastic-in"`, `"elastic-out"`, `"elastic-in-out"` and `"back-in-out"` easing functions has been fixed.
 
