@@ -4,11 +4,11 @@ Easing functions for smooth animation, largely based on [Robert Penner’s easin
 
 Changes from from D3 3.x:
 
-* For `"elastic"` and `"bounce"` easing, the easing modes have been inverted for consistency with Penner’s original design: `"-in"` is now `"-out"`, `"-out"` is now `"-in"`, and `"-out-in"` is now `"-in-out"`.
+* For `"elastic"` and `"bounce"` easing, the easing modes have been inverted for consistency with Penner’s original design: `"*-in"` is now `"*-out"`, `"*-out"` is now `"*-in"`, and `"*-out-in"` is now `"*-in-out"`.
 
 * The interpretation of optional parameters to the `"elastic-in"`, `"elastic-out"`, `"elastic-in-out"` and `"back-in-out"` easing functions has been fixed.
 
-* The `"-out-in"` easing mode has been removed. It didn’t make sense (except for `"elastic"` and `"bounce"`, which was a bug).
+* The `"*-out-in"` easing mode has been removed. It didn’t make sense (except for `"elastic"` and `"bounce"`, which was a bug).
 
 * Easing functions no longer clamp the output to 0 and 1 when *t* is less than or equal to 0 or greater than or equal to 1, respectively. (Note: transitions are still guaranteed to end at *t* = 1 if not interrupted, regardless of easing.)
 
@@ -31,11 +31,11 @@ The returned easing function takes a normalized time *t*, typically in the range
 * `"back"` - simulates backing into a parking space with parameter *s* (defaults to 1.70158).
 * `"bounce"` - simulates a bouncy ball.
 
-Each built-in *type* may be extended with one of three modes. For example, `"cubic-in-out"` has the type `"cubic"` and mode `"-in-out"`. If a mode is not specified, it defaults to `"-in"`.
+Each built-in *type* may be extended with one of three modes. For example, `"cubic-in-out"` has the type `"cubic"` and mode `"*-in-out"`. If a mode is not specified, it defaults to `"*-in"`.
 
-* `"-in"` - the identity function.
-* `"-out"` - reverses the easing direction to [1,0].
-* `"-in-out"` - copies and mirrors the easing function from [0,.5] and [.5,1].
+* `"*-in"` - the identity function.
+* `"*-out"` - reverses the easing direction to [1,0].
+* `"*-in-out"` - copies and mirrors the easing function from [0,.5] and [.5,1].
 
 <a name="_ease" href="#_ease">#</a> <i>ease</i>(<i>t</i>)
 
