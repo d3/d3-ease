@@ -1,5 +1,5 @@
 var tape = require("tape"),
-    ease = require("../");
+    ease = require("../").ease;
 
 require("./inDelta");
 

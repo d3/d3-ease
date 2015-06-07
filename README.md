@@ -24,6 +24,17 @@ Returns an easing function of the specified *type*. Some easing types may also t
 
 The returned function takes a normalized time *t*, typically in the range [0,1], and returns an eased time *tʹ*, also typically in the range [0,1]. Note that some types, such as `"elastic"` may return eased values substantially outside the range [0,1].
 
+<a name="_ease" href="#_ease">#</a> <i>ease</i>(<i>t</i>)
+
+Given a normalized time *t*, typically in the range [0,1], returns the eased time *tʹ*, also typically in the range [0,1]. Note that some easing types, such as `"elastic"` may return eased values substantially outside the range [0,1].
+
+```js
+var e = ease("cubic-in-out");
+console.log(e(.2)); // 0.03200000000000001
+```
+
+Note: *ease* here (in italics) refers to an easing function returned by the [ease constructor](#ease), not the ease constructor itself.
+
 <a name="linear" href="#linear">#</a> <b>ease</b>("linear")
 
 The identity function; returns *t*.
@@ -63,10 +74,6 @@ Simulates backing into a parking space with parameter *s* (defaults to 1.70158).
 <a name="bounce" href="#bounce">#</a> <b>ease</b>("bounce")
 
 Simulates a bouncy ball.
-
-<a name="_ease" href="#_ease">#</a> <i>ease</i>(<i>t</i>)
-
-Given a normalized time *t*, typically in the range [0,1], returns the eased time *tʹ*, also typically in the range [0,1]. Note that some easing types, such as `"elastic"` may return eased values substantially outside the range [0,1].
 
 [![in](https://cloud.githubusercontent.com/assets/230541/7928155/2e21c40c-08a0-11e5-9e6d-cdc5dead16ea.png)](http://bl.ocks.org/mbostock/3fad0a71418216b74444)
 
