@@ -6,9 +6,9 @@ Changes from from D3 3.x:
 
 * For `"elastic"` and `"bounce"` easing, the easing modes have been inverted for consistency with Penner’s original design: `"in"` is now `"out"`, `"out"` is now `"in"`, and `"out-in"` is now `"in-out"`.
 
-* The interpretation of optional parameters to the `"elastic-in"`, `"elastic-out"`, `"elastic-in-out"` and `"back-in-out"` easing functions has been fixed.
-
 * The `"out-in"` easing mode has been removed. It didn’t make sense (except for `"elastic"` and `"bounce"`, which was a bug).
+
+* The interpretation of optional parameters to the `"elastic"` and `"back"` easing functions has been fixed.
 
 * Easing functions no longer clamp the output to 0 and 1 when *t* is less than or equal to 0 or greater than or equal to 1, respectively. (Note: transitions are still guaranteed to end at *t* = 1 if not interrupted, regardless of easing.)
 
