@@ -36,62 +36,62 @@ console.log(e(.2)); // 0.03200000000000001
 Note: *ease* here (in italics) refers to an easing function returned by the [ease constructor](#ease), not the ease constructor itself.
 
 <a name="linear" href="#linear">#</a> <b>ease</b>("linear-in")
-<a href="#linear">#</a> <b>ease</b>("linear-out")
-<a href="#linear">#</a> <b>ease</b>("linear-in-out")
+<br><a href="#linear">#</a> <b>ease</b>("linear-out")
+<br><a href="#linear">#</a> <b>ease</b>("linear-in-out")
 
 The identity function; returns *t*.
 
 <a name="poly" href="#poly">#</a> <b>ease</b>("poly-in"[, <i>k</i>])
-<a href="#poly">#</a> <b>ease</b>("poly-out"[, <i>k</i>])
-<a href="#poly">#</a> <b>ease</b>("poly-in-out"[, <i>k</i>])
+<br><a href="#poly">#</a> <b>ease</b>("poly-out"[, <i>k</i>])
+<br><a href="#poly">#</a> <b>ease</b>("poly-in-out"[, <i>k</i>])
 
 Raises *t* to the specified power *k* (defaults to 3; maybe fractional).
 
 <a name="quad" href="#quad">#</a> <b>ease</b>("quad-in")
-<a href="#quad">#</a> <b>ease</b>("quad-out")
-<a href="#quad">#</a> <b>ease</b>("quad-in-out")
+<br><a href="#quad">#</a> <b>ease</b>("quad-out")
+<br><a href="#quad">#</a> <b>ease</b>("quad-in-out")
 
 Equivalent to [ease("poly", 2)](#poly).
 
 <a name="cubic" href="#cubic">#</a> <b>ease</b>("cubic-in")
-<a href="#cubic">#</a> <b>ease</b>("cubic-out")
-<a href="#cubic">#</a> <b>ease</b>("cubic-in-out")
+<br><a href="#cubic">#</a> <b>ease</b>("cubic-out")
+<br><a href="#cubic">#</a> <b>ease</b>("cubic-in-out")
 
 Equivalent to [ease("poly", 3)](#poly).
 
 <a name="sin" href="#sin">#</a> <b>ease</b>("sin-in")
-<a href="#sin">#</a> <b>ease</b>("sin-out")
-<a href="#sin">#</a> <b>ease</b>("sin-in-out")
+<br><a href="#sin">#</a> <b>ease</b>("sin-out")
+<br><a href="#sin">#</a> <b>ease</b>("sin-in-out")
 
 Applies the sine trigonometric function.
 
 <a name="exp" href="#exp">#</a> <b>ease</b>("exp-in")
-<a href="#exp">#</a> <b>ease</b>("exp-out")
-<a href="#exp">#</a> <b>ease</b>("exp-in-out")
+<br><a href="#exp">#</a> <b>ease</b>("exp-out")
+<br><a href="#exp">#</a> <b>ease</b>("exp-in-out")
 
 Raises 2 to the power *t*.
 
 <a name="circle" href="#circle">#</a> <b>ease</b>("circle-in")
-<a href="#circle">#</a> <b>ease</b>("circle-out")
-<a href="#circle">#</a> <b>ease</b>("circle-in-out")
+<br><a href="#circle">#</a> <b>ease</b>("circle-out")
+<br><a href="#circle">#</a> <b>ease</b>("circle-in-out")
 
 Produces a quarter circle.
 
-<a name="elastic" href="#elastic">#</a> <b>ease</b>("elastic-in"[, <i>a</i>[, <i>p<
-<a href="#elastic">#</a> <b>ease</b>("elastic-out"[, <i>a</i>[, <i>p<
+<a name="elastic" href="#elastic">#</a> <b>ease</b>("elastic-in"[, <i>a</i>[, <i<br>>p<
+<br><a href="#elastic">#</a> <b>ease</b>("elastic-out"[, <i>a</i>[, <i>p<
 <a href="#elastic">#</a> <b>ease</b>("elastic-in-out"[, <i>a</i>[, <i>p</i>]])
 
 Simulates an elastic band with parameters *a* and *p*</b> (defaults to 1 and .3, respectively).
 
 <a name="back" href="#back">#</a> <b>ease</b>("back-in"[, <i>s</i>])
-<a href="#back">#</a> <b>ease</b>("back-out"[, <i>s</i>])
-<a href="#back">#</a> <b>ease</b>("back-in-out"[, <i>s</i>])
+<br><a href="#back">#</a> <b>ease</b>("back-out"[, <i>s</i>])
+<br><a href="#back">#</a> <b>ease</b>("back-in-out"[, <i>s</i>])
 
 Simulates backing into a parking space with parameter *s* (defaults to 1.70158).
 
 <a name="bounce" href="#bounce">#</a> <b>ease</b>("bounce-in")
-<a href="#bounce">#</a> <b>ease</b>("bounce-out")
-<a href="#bounce">#</a> <b>ease</b>("bounce-in-out")
+<br><a href="#bounce">#</a> <b>ease</b>("bounce-out")
+<br><a href="#bounce">#</a> <b>ease</b>("bounce-in-out")
 
 Simulates a bouncy ball.
 
