@@ -18,18 +18,7 @@ Changes from from D3 3.x:
 
 Returns an easing function of the specified *type*. Some easing types may also take optional *arguments*, as described below.
 
-The returned easing function takes a normalized time *t*, typically in the range [0,1], and returns an eased time *tʹ*, also typically in the range [0,1]. Note that some easing types, such as `"elastic"` may return eased values substantially outside the range [0,1]. The following easing types are supported:
-
-* `"linear"` - the identity function; returns *t*.
-* `"poly"` - raises *t* to the specified power *k* (defaults to 3; maybe fractional).
-* `"quad"` - equivalent to `"poly"` with *k* = 2.
-* `"cubic"` - equivalent to `"poly"` with *k* = 3.
-* `"sin"` - applies the sine trigonometric function.
-* `"exp"` - raises 2 to the power *t*.
-* `"circle"` - produces a quarter circle.
-* `"elastic"` - simulates an elastic band with parameters *a* and *p* (defaults to 1 and .3, respectively).
-* `"back"` - simulates backing into a parking space with parameter *s* (defaults to 1.70158).
-* `"bounce"` - simulates a bouncy ball.
+The returned function takes a normalized time *t*, typically in the range [0,1], and returns an eased time *tʹ*, also typically in the range [0,1]. Note that some types, such as `"elastic"` may return eased values substantially outside the range [0,1]. See below for supported types.
 
 Each built-in *type* may be extended with one of three modes. For example, `"cubic-in-out"` has the type `"cubic"` and mode `"in-out"`. If a mode is not specified, it defaults to `"in"`.
 
@@ -40,6 +29,46 @@ Each built-in *type* may be extended with one of three modes. For example, `"cub
 <a name="_ease" href="#_ease">#</a> <i>ease</i>(<i>t</i>)
 
 Given a normalized time *t*, typically in the range [0,1], returns the eased time *tʹ*, also typically in the range [0,1]. Note that some easing types, such as `"elastic"` may return eased values substantially outside the range [0,1].
+
+<a name="linear" href="#linear"#</a> <b>ease("linear")</b>
+
+The identity function; returns *t*.
+
+<a name="poly" href="#poly"#</a> <b>ease("poly"[, <i>k</i>])</b>
+
+Raises *t* to the specified power *k* (defaults to 3; maybe fractional).
+
+<a name="quad" href="#quad"#</a> <b>ease("quad")</b>
+
+Equivalent to [ease("poly", 2)](#poly).
+
+<a name="cubic" href="#cubic"#</a> <b>ease("cubic")</b>
+
+Equivalent to [ease("poly", 3)](#poly).
+
+<a name="sin" href="#sin"#</a> <b>ease("sin")</b>
+
+Applies the sine trigonometric function.
+
+<a name="exp" href="#exp"#</a> <b>ease("exp")</b>
+
+Raises 2 to the power *t*.
+
+<a name="circle" href="#circle"#</a> <b>ease("circle")</b>
+
+Produces a quarter circle.
+
+<a name="elastic" href="#elastic"#</a> <b>ease("elastic"[, <i>a</i>[, <i>p</i>]])</b>
+
+Simulates an elastic band with parameters *a* and *p* (defaults to 1 and .3, respectively).
+
+<a name="back" href="#back"#</a> <b>ease("back"[, <i>s</i>])</b>
+
+Simulates backing into a parking space with parameter *s* (defaults to 1.70158).
+
+<a name="bounce" href="#bounce"#</a> <b>ease("bounce")</b>
+
+Simulates a bouncy ball.
 
 [![in](https://cloud.githubusercontent.com/assets/230541/7928155/2e21c40c-08a0-11e5-9e6d-cdc5dead16ea.png)](http://bl.ocks.org/mbostock/3fad0a71418216b74444)
 
