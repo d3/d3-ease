@@ -16,15 +16,13 @@ Changes from from D3 3.x:
 
 <a name="ease" href="#ease">#</a> <b>ease</b>(<i>type</i>[, <i>arguments…</i>])
 
-Returns an easing function of the specified *type*. Some easing types may also take optional *arguments*, as described below.
-
-The returned function takes a normalized time *t*, typically in the range [0,1], and returns an eased time *tʹ*, also typically in the range [0,1]. Note that some types, such as `"elastic"` may return eased values substantially outside the range [0,1]. See below for supported types.
-
-Each built-in *type* may be extended with one of three modes. For example, `"cubic-in-out"` has the type `"cubic"` and mode `"in-out"`. If a mode is not specified, it defaults to `"in"`.
+Returns an easing function of the specified *type*. Some easing types may also take optional *arguments*, as described below. Each built-in *type* may be extended with one of three modes. For example, `"cubic-in-out"` has the type `"cubic"` and mode `"in-out"`. If a mode is not specified, it defaults to `"in"`.
 
 * `"in"` - the identity function.
 * `"out"` - reverses the easing direction to [1,0].
 * `"in-out"` - copies and mirrors the easing function from [0,.5] and [.5,1].
+
+The returned function takes a normalized time *t*, typically in the range [0,1], and returns an eased time *tʹ*, also typically in the range [0,1]. Note that some types, such as `"elastic"` may return eased values substantially outside the range [0,1].
 
 <a name="_ease" href="#_ease">#</a> <i>ease</i>(<i>t</i>)
 
