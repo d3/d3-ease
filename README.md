@@ -40,9 +40,9 @@ Note: *ease* here (in italics) refers to an easing function returned by the [eas
 <br><a href="#linear">#</a> <b>ease</b>("linear-out")
 <br><a href="#linear">#</a> <b>ease</b>("linear-in-out")
 
-![linear-in](https://cloud.githubusercontent.com/assets/230541/8025988/294c1b8c-0d1c-11e5-983f-b44acc089603.png)
-![linear-out](https://cloud.githubusercontent.com/assets/230541/8025989/294daa88-0d1c-11e5-8785-6f4aadd8d3d6.png)
-![linear-in-out](https://cloud.githubusercontent.com/assets/230541/8025987/29493f02-0d1c-11e5-9364-1ace0a4ea4d5.png)
+[![linear-in](https://cloud.githubusercontent.com/assets/230541/8026043/ea835e1e-0d1c-11e5-80f2-dc0d1f82500a.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#linear-in)
+[![linear-out](https://cloud.githubusercontent.com/assets/230541/8026044/ea8eb3e0-0d1c-11e5-8535-c067797be248.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#linear-out)
+[![linear-in-out](https://cloud.githubusercontent.com/assets/230541/8026040/ea807690-0d1c-11e5-8e27-92f7a893d8db.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#linear-in-out)
 
 The identity function; returns *t*.
 
