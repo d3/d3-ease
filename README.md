@@ -24,10 +24,6 @@ Returns an easing function of the specified *type*. Some easing types may also t
 
 The returned function takes a normalized time *t*, typically in the range [0,1], and returns an eased time *tʹ*, also typically in the range [0,1]. Note that some types, such as `"elastic"` may return eased values substantially outside the range [0,1].
 
-<a name="_ease" href="#_ease">#</a> <i>ease</i>(<i>t</i>)
-
-Given a normalized time *t*, typically in the range [0,1], returns the eased time *tʹ*, also typically in the range [0,1]. Note that some easing types, such as `"elastic"` may return eased values substantially outside the range [0,1].
-
 <a name="linear" href="#linear">#</a> <b>ease</b>("linear")
 
 The identity function; returns *t*.
@@ -56,7 +52,7 @@ Raises 2 to the power *t*.
 
 Produces a quarter circle.
 
-<a name="elastic" href="#elastic">#</a> <b>ease("elastic"[, <i>a</i>[, <i>p</i>]])
+<a name="elastic" href="#elastic">#</a> <b>ease</b>("elastic"[, <i>a</i>[, <i>p</i>]])
 
 Simulates an elastic band with parameters *a* and *p*</b> (defaults to 1 and .3, respectively).
 
@@ -67,6 +63,10 @@ Simulates backing into a parking space with parameter *s* (defaults to 1.70158).
 <a name="bounce" href="#bounce">#</a> <b>ease</b>("bounce")
 
 Simulates a bouncy ball.
+
+<a name="_ease" href="#_ease">#</a> <i>ease</i>(<i>t</i>)
+
+Given a normalized time *t*, typically in the range [0,1], returns the eased time *tʹ*, also typically in the range [0,1]. Note that some easing types, such as `"elastic"` may return eased values substantially outside the range [0,1].
 
 [![in](https://cloud.githubusercontent.com/assets/230541/7928155/2e21c40c-08a0-11e5-9e6d-cdc5dead16ea.png)](http://bl.ocks.org/mbostock/3fad0a71418216b74444)
 
