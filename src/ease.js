@@ -52,7 +52,7 @@ var customEases = {
     "elastic-in": elasticIn,
     "elastic-out": elasticOut,
     "elastic-in-out": elasticInOut
-}
+};
 
 export default function(type, a, b) {
   var i = (type += "").indexOf("-");
