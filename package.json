@@ -1,6 +1,6 @@
 {
   "name": "d3-ease",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Easing functions for smooth animation.",
   "keywords": [
     "d3",
@@ -22,7 +22,7 @@
     "url": "https://github.com/d3/d3-ease.git"
   },
   "scripts": {
-    "pretest": "mkdir -p build && d3-bundler --polyfill-map --format=umd --name=ease -- index.js > build/ease.js",
+    "pretest": "mkdir -p build && d3-bundler --format=umd --name=ease -- index.js > build/ease.js",
     "test": "faucet `find test -name '*-test.js'`",
     "prepublish": "npm run test && uglifyjs build/ease.js -c -m -o build/ease.min.js && rm -f build/ease.zip && zip -j build/ease.zip -- LICENSE README.md build/ease.js build/ease.min.js"
   },

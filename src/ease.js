@@ -9,53 +9,55 @@ import {bounceIn, bounceOut, bounceInOut} from "./bounce";
 import {backIn, backOut, backInOut} from "./back";
 import {elasticIn, elasticOut, elasticInOut} from "./elastic";
 
-var standardEases = (new Map)
-    .set("linear-in", linearIn)
-    .set("linear-out", linearOut)
-    .set("linear-in-out", linearInOut)
-    .set("quad-in", quadIn)
-    .set("quad-out", quadOut)
-    .set("quad-in-out", quadInOut)
-    .set("cubic-in", cubicIn)
-    .set("cubic-out", cubicOut)
-    .set("cubic-in-out", cubicInOut)
-    .set("poly-in", cubicIn)
-    .set("poly-out", cubicOut)
-    .set("poly-in-out", cubicInOut)
-    .set("sin-in", sinIn)
-    .set("sin-out", sinOut)
-    .set("sin-in-out", sinInOut)
-    .set("exp-in", expIn)
-    .set("exp-out", expOut)
-    .set("exp-in-out", expInOut)
-    .set("circle-in", circleIn)
-    .set("circle-out", circleOut)
-    .set("circle-in-out", circleInOut)
-    .set("bounce-in", bounceIn)
-    .set("bounce-out", bounceOut)
-    .set("bounce-in-out", bounceInOut)
-    .set("back-in", backIn())
-    .set("back-out", backOut())
-    .set("back-in-out", backInOut())
-    .set("elastic-in", elasticIn())
-    .set("elastic-out", elasticOut())
-    .set("elastic-in-out", elasticInOut());
+var standardEases = {
+  "linear-in": linearIn,
+  "linear-out": linearOut,
+  "linear-in-out": linearInOut,
+  "quad-in": quadIn,
+  "quad-out": quadOut,
+  "quad-in-out": quadInOut,
+  "cubic-in": cubicIn,
+  "cubic-out": cubicOut,
+  "cubic-in-out": cubicInOut,
+  "poly-in": cubicIn,
+  "poly-out": cubicOut,
+  "poly-in-out": cubicInOut,
+  "sin-in": sinIn,
+  "sin-out": sinOut,
+  "sin-in-out": sinInOut,
+  "exp-in": expIn,
+  "exp-out": expOut,
+  "exp-in-out": expInOut,
+  "circle-in": circleIn,
+  "circle-out": circleOut,
+  "circle-in-out": circleInOut,
+  "bounce-in": bounceIn,
+  "bounce-out": bounceOut,
+  "bounce-in-out": bounceInOut,
+  "back-in": backIn(),
+  "back-out": backOut(),
+  "back-in-out": backInOut(),
+  "elastic-in": elasticIn(),
+  "elastic-out": elasticOut(),
+  "elastic-in-out": elasticInOut()
+};
 
-var customEases = (new Map)
-    .set("poly-in", polyIn)
-    .set("poly-out", polyOut)
-    .set("poly-in-out", polyInOut)
-    .set("back-in", backIn)
-    .set("back-out", backOut)
-    .set("back-in-out", backInOut)
-    .set("elastic-in", elasticIn)
-    .set("elastic-out", elasticOut)
-    .set("elastic-in-out", elasticInOut);
+var customEases = {
+  "poly-in": polyIn,
+  "poly-out": polyOut,
+  "poly-in-out": polyInOut,
+  "back-in": backIn,
+  "back-out": backOut,
+  "back-in-out": backInOut,
+  "elastic-in": elasticIn,
+  "elastic-out": elasticOut,
+  "elastic-in-out": elasticInOut
+};
 
 export default function(type, a, b) {
   var i = (type += "").indexOf("-");
   if (i < 0) type += "-in";
-  return arguments.length > 1 && customEases.has(type)
-      ? customEases.get(type)(a, b)
-      : standardEases.get(type) || linearIn;
+  return arguments.length > 1 && customEases.hasOwnProperty(type) ? customEases[type](a, b)
+      : standardEases.hasOwnProperty(type) ? standardEases[type]
+      : linearIn;
 };
