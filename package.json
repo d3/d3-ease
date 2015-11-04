@@ -1,6 +1,6 @@
 {
   "name": "d3-ease",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Easing functions for smooth animation.",
   "keywords": [
     "d3",
@@ -15,19 +15,19 @@
     "name": "Mike Bostock",
     "url": "http://bost.ocks.org/mike"
   },
-  "main": "build/ease",
+  "main": "build/ease.cjs",
   "jsnext:main": "index",
   "repository": {
     "type": "git",
     "url": "https://github.com/d3/d3-ease.git"
   },
   "scripts": {
-    "pretest": "mkdir -p build && d3-bundler --format=umd --name=ease -- index.js > build/ease.js",
+    "pretest": "mkdir -p build && d3-bundler -x -f cjs -o build/ease.cjs.js",
     "test": "faucet `find test -name '*-test.js'`",
-    "prepublish": "npm run test && uglifyjs build/ease.js -c -m -o build/ease.min.js && rm -f build/ease.zip && zip -j build/ease.zip -- LICENSE README.md build/ease.js build/ease.min.js"
+    "prepublish": "npm run test && d3-bundler -n ease -o build/ease.js && uglifyjs build/ease.js -c -m -o build/ease.min.js && rm -f build/ease.zip && zip -j build/ease.zip -- LICENSE README.md build/ease.js build/ease.min.js"
   },
   "devDependencies": {
-    "d3-bundler": "~0.2.5",
+    "d3-bundler": "~0.4.0",
     "faucet": "0.0",
     "tape": "4",
     "uglify-js": "2"
