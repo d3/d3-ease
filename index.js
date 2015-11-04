@@ -1,5 +1,1 @@
-import ease from "./src/ease";
-
-export {
-  ease
-};
+export {default as ease} from "./src/ease";
