@@ -104,26 +104,42 @@ Symmetric sinusoidal easing; scales [sinIn](#sinIn) for *t* in [0, 0.5] and [sin
 
 [![sin-in-out](https://cloud.githubusercontent.com/assets/230541/8026050/ea9f6f3c-0d1c-11e5-8176-363214626a2f.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#sin-in-out)
 
-<a name="exp" href="#exp">#</a> <b>ease</b>("exp")
-<br><a href="#exp">#</a> <b>ease</b>("exp-in")
-<br><a href="#exp">#</a> <b>ease</b>("exp-out")
-<br><a href="#exp">#</a> <b>ease</b>("exp-in-out")
+<a name="exp" href="#exp">#</a> <b>exp</b>(<i>t</i>)
+<br><a name="expIn" href="#expIn">#</a> <b>expIn</b>(<i>t</i>)
 
-Raises 2 to the power *t*.
+Exponential easing; raises 2 to the power *t*.
 
 [![exp-in](https://cloud.githubusercontent.com/assets/230541/8026041/ea80aef8-0d1c-11e5-9427-4748a2b23268.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#exp-in)
+
+<a name="expOut" href="#expOut">#</a> <b>expOut</b>(<i>t</i>)
+
+Reverse exponential easing; equivalent to 1 - [expIn](#expIn)(1 - *t*).
+
 [![exp-out](https://cloud.githubusercontent.com/assets/230541/8026039/ea7e241c-0d1c-11e5-8f8d-4015e9872a8f.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#exp-out)
+
+<a name="expInOut" href="#expInOut">#</a> <b>expInOut</b>(<i>t</i>[, <i>e</i>])
+
+Symmetric exponential easing; scales [expIn](#expIn) for *t* in [0, 0.5] and [expOut](#expOut) for *t* in [0.5, 1].
+
 [![exp-in-out](https://cloud.githubusercontent.com/assets/230541/8026042/ea810236-0d1c-11e5-812c-c81cf25f44c6.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#exp-in-out)
 
-<a name="circle" href="#circle">#</a> <b>ease</b>("circle")
-<br><a href="#circle">#</a> <b>ease</b>("circle-in")
-<br><a href="#circle">#</a> <b>ease</b>("circle-out")
-<br><a href="#circle">#</a> <b>ease</b>("circle-in-out")
+<a name="circle" href="#circle">#</a> <b>circle</b>(<i>t</i>)
+<br><a name="circleIn" href="#circleIn">#</a> <b>circleIn</b>(<i>t</i>)
 
-Produces a quarter circle.
+Circular easing.
 
 [![circle-in](https://cloud.githubusercontent.com/assets/230541/8026031/ea5ff320-0d1c-11e5-8671-6046a0084b63.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#circle-in)
+
+<a name="circleOut" href="#circleOut">#</a> <b>circleOut</b>(<i>t</i>)
+
+Reverse Circular easing; equivalent to 1 - [circleIn](#circleIn)(1 - *t*).
+
 [![circle-out](https://cloud.githubusercontent.com/assets/230541/8026033/ea6cb0ba-0d1c-11e5-982e-b67daebe7cb1.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#circle-out)
+
+<a name="circleInOut" href="#circleInOut">#</a> <b>circleInOut</b>(<i>t</i>[, <i>e</i>])
+
+Symmetric Circular easing; scales [circleIn](#circleIn) for *t* in [0, 0.5] and [circleOut](#circleOut) for *t* in [0.5, 1].
+
 [![circle-in-out](https://cloud.githubusercontent.com/assets/230541/8026030/ea5b424e-0d1c-11e5-9ea4-cc63017251e6.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#circle-in-out)
 
 <a name="elastic" href="#elastic">#</a> <b>ease</b>("elastic"[, <i>a</i>[, <i>p</i>]])
