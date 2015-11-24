@@ -8,31 +8,21 @@ If you use NPM, `npm install d3-ease`. Otherwise, download the [latest release](
 
 ## API Reference
 
-<a name="ease" href="#ease">#</a> <b>ease</b>(<i>type</i>[, <i>arguments…</i>])
+<a name="ease" href="#ease">#</a> <b>ease</b>(<i>type</i>[, <i>parameters…</i>])
 
-Returns an easing function of the specified *type*. Some easing types may also take optional *arguments*, as described below. Each built-in *type* may be extended with one of three modes. For example, `"cubic-in-out"` has the type `"cubic"` and mode `"in-out"`. If a mode is not specified, it defaults to `"in"`.
-
-* `"in"` - the identity function.
-* `"out"` - reverses the easing direction to [1,0].
-* `"in-out"` - copies and mirrors the easing function from [0,.5] and [.5,1].
-
-The returned function takes a normalized time *t*, typically in the range [0,1], and returns an eased time *tʹ*, also typically in the range [0,1]. Note that some types, such as `"elastic"` may return eased values substantially outside the range [0,1].
-
-<a name="_ease" href="#_ease">#</a> <i>ease</i>(<i>t</i>)
-
-Given a normalized time *t*, typically in the range [0,1], returns the eased time *tʹ*, also typically in the range [0,1]. Note that some easing types, such as `"elastic"` may return eased values substantially outside the range [0,1].
+A convenience function for binding zero or more *parameters* to the specified easing function *type*. For example:
 
 ```js
-var e = ease("cubic-in-out");
-console.log(e(.2)); // 0.03200000000000001
+var e = ease(polyIn, 3);
+e(0.2); // 0.008000000000000002
 ```
 
-Note: *ease* here (in italics) refers to an easing function returned by the [ease constructor](#ease), not the ease constructor itself.
+The returned function takes a single argument: the normalized time *t*, typically in the range [0,1]. It returns an eased time *tʹ*, also typically in the range [0,1]. Note that some easing methods, such as [elastic](#elastic), may return eased values outside the range [0,1].
 
-<a name="linear" href="#linear">#</a> <b>ease</b>("linear")
-<br><a href="#linear">#</a> <b>ease</b>("linear-in")
-<br><a href="#linear">#</a> <b>ease</b>("linear-out")
-<br><a href="#linear">#</a> <b>ease</b>("linear-in-out")
+<a name="linear" href="#linear">#</a> <b>linear</b>(<i>t</i>)
+<br><a href="#linear">#</a> <b>linearIn</b>(<i>t</i>)
+<br><a href="#linear">#</a> <b>linearOut</b>(<i>t</i>)
+<br><a href="#linear">#</a> <b>linearInOut</b>(<i>t</i>)
 
 The identity function; returns *t*.
 
@@ -40,26 +30,42 @@ The identity function; returns *t*.
 [![linear-out](https://cloud.githubusercontent.com/assets/230541/8026044/ea8eb3e0-0d1c-11e5-8535-c067797be248.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#linear-out)
 [![linear-in-out](https://cloud.githubusercontent.com/assets/230541/8026040/ea807690-0d1c-11e5-8e27-92f7a893d8db.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#linear-in-out)
 
-<a name="poly" href="#poly">#</a> <b>ease</b>("poly"[, <i>k</i>])
-<br><a href="#poly">#</a> <b>ease</b>("poly-in"[, <i>k</i>])
-<br><a href="#poly">#</a> <b>ease</b>("poly-out"[, <i>k</i>])
-<br><a href="#poly">#</a> <b>ease</b>("poly-in-out"[, <i>k</i>])
+<a name="poly" href="#poly">#</a> <b>poly</b>(<i>t</i>[, <i>e</i>])
+<br><a name="polyIn" href="#polyIn">#</a> <b>polyIn</b>(<i>t</i>[, <i>e</i>])
 
-Raises *t* to the specified power *k* (defaults to 3; which is equivalent to [cubic](#cubic)). Note the power *k* need not be an integer, or positive.
+Raises *t* to the specified power *e* (defaults to 3; which is equivalent to [cubic](#cubic)). Note the power *e* need not be an integer, or positive. Implemented as `Math.pow(t, e)`.
 
 [![poly-in](https://cloud.githubusercontent.com/assets/230541/8026046/ea926706-0d1c-11e5-915f-dad2ab2bea7c.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#poly-in)
+
+<a name="polyOut" href="#polyOut">#</a> <b>polyOut</b>(<i>t</i>[, <i>e</i>])
+
+Reverse [polyIn](#polyIn); equivalent to 1 - polyIn(1 - *t*, *e*).
+
 [![poly-out](https://cloud.githubusercontent.com/assets/230541/8026047/ea94a390-0d1c-11e5-88bd-6d51052d084a.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#poly-out)
+
+<a name="polyInOut" href="#polyInOut">#</a> <b>polyInOut</b>(<i>t</i>[, <i>e</i>])
+
+Symmetric [polyIn](#polyIn); Scales [polyIn](#polyIn) for *t* in [0, 0.5] and [polyOut](#polyOut) for *t* in [0.5, 1].
+
 [![poly-in-out](https://cloud.githubusercontent.com/assets/230541/8026045/ea8ebe58-0d1c-11e5-9399-c03f2467bc3b.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#poly-in-out)
 
-<a name="quad" href="#quad">#</a> <b>ease</b>("quad")
-<br><a href="#quad">#</a> <b>ease</b>("quad-in")
-<br><a href="#quad">#</a> <b>ease</b>("quad-out")
-<br><a href="#quad">#</a> <b>ease</b>("quad-in-out")
+<a name="quad" href="#quad">#</a> <b>quad</b>(<i>t</i>)
+<br><a name="quadIn" href="#quadIn">#</a> <b>quadIn</b>(<i>t</i>)
 
-Equivalent to [ease("poly", 2)](#poly).
+Equivalent to [polyIn](#polyIn)(*t*, 2).
 
 [![quad-in](https://cloud.githubusercontent.com/assets/230541/8026049/ea967288-0d1c-11e5-906b-10b575160854.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#quad-in)
+
+<a name="quadOut" href="#quadOut">#</a> <b>quadOut</b>(<i>t</i>)
+
+Reverse [quadIn](#quadIn); equivalent to 1 - quadIn(1 - *t*).
+
 [![quad-out](https://cloud.githubusercontent.com/assets/230541/8026051/eaa14f64-0d1c-11e5-8242-64a93513b7c7.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#quad-out)
+
+<a name="quadInOut" href="#quadInOut">#</a> <b>quadInOut</b>(<i>t</i>[, <i>e</i>])
+
+Symmetric [quadIn](#quadIn); Scales [quadIn](#quadIn) for *t* in [0, 0.5] and [quadOut](#quadOut) for *t* in [0.5, 1].
+
 [![quad-in-out](https://cloud.githubusercontent.com/assets/230541/8026048/ea96521c-0d1c-11e5-9bae-fec6b91de07e.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#quad-in-out)
 
 <a name="cubic" href="#cubic">#</a> <b>ease</b>("cubic")
