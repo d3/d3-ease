@@ -24,70 +24,84 @@ The returned function takes a single argument: the normalized time *t*, typicall
 <br><a href="#linear">#</a> <b>linearOut</b>(<i>t</i>)
 <br><a href="#linear">#</a> <b>linearInOut</b>(<i>t</i>)
 
-The identity function; returns *t*.
+Linear easing; the identity function. Returns *t*.
 
 [![linear-in](https://cloud.githubusercontent.com/assets/230541/8026043/ea835e1e-0d1c-11e5-80f2-dc0d1f82500a.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#linear-in)
-[![linear-out](https://cloud.githubusercontent.com/assets/230541/8026044/ea8eb3e0-0d1c-11e5-8535-c067797be248.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#linear-out)
-[![linear-in-out](https://cloud.githubusercontent.com/assets/230541/8026040/ea807690-0d1c-11e5-8e27-92f7a893d8db.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#linear-in-out)
 
 <a name="poly" href="#poly">#</a> <b>poly</b>(<i>t</i>[, <i>e</i>])
 <br><a name="polyIn" href="#polyIn">#</a> <b>polyIn</b>(<i>t</i>[, <i>e</i>])
 
-Raises *t* to the specified power *e* (defaults to 3; which is equivalent to [cubic](#cubic)). Note the power *e* need not be an integer, or positive. Implemented as `Math.pow(t, e)`.
+Polynomial easing; raises *t* to the specified power *e*. If *e* is not specified, it defaults to 3, which is equivalent to [cubicIn](#cubicIn).
 
 [![poly-in](https://cloud.githubusercontent.com/assets/230541/8026046/ea926706-0d1c-11e5-915f-dad2ab2bea7c.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#poly-in)
 
 <a name="polyOut" href="#polyOut">#</a> <b>polyOut</b>(<i>t</i>[, <i>e</i>])
 
-Reverse [polyIn](#polyIn); equivalent to 1 - polyIn(1 - *t*, *e*).
+Reverse [polyIn](#polyIn); equivalent to 1 - polyIn(1 - *t*, *e*). If *e* is not specified, it defaults to 3, which is equivalent to [cubicOut](#cubicOut).
 
 [![poly-out](https://cloud.githubusercontent.com/assets/230541/8026047/ea94a390-0d1c-11e5-88bd-6d51052d084a.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#poly-out)
 
 <a name="polyInOut" href="#polyInOut">#</a> <b>polyInOut</b>(<i>t</i>[, <i>e</i>])
 
-Symmetric [polyIn](#polyIn); Scales [polyIn](#polyIn) for *t* in [0, 0.5] and [polyOut](#polyOut) for *t* in [0.5, 1].
+Symmetric [polyIn](#polyIn); Scales [polyIn](#polyIn) for *t* in [0, 0.5] and [polyOut](#polyOut) for *t* in [0.5, 1]. If *e* is not specified, it defaults to 3, which is equivalent to [cubicInOut](#cubicInOut).
 
 [![poly-in-out](https://cloud.githubusercontent.com/assets/230541/8026045/ea8ebe58-0d1c-11e5-9399-c03f2467bc3b.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#poly-in-out)
 
 <a name="quad" href="#quad">#</a> <b>quad</b>(<i>t</i>)
 <br><a name="quadIn" href="#quadIn">#</a> <b>quadIn</b>(<i>t</i>)
 
-Equivalent to [polyIn](#polyIn)(*t*, 2).
+Quadratic easing; equivalent to [polyIn](#polyIn)(*t*, 2).
 
 [![quad-in](https://cloud.githubusercontent.com/assets/230541/8026049/ea967288-0d1c-11e5-906b-10b575160854.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#quad-in)
 
 <a name="quadOut" href="#quadOut">#</a> <b>quadOut</b>(<i>t</i>)
 
-Reverse [quadIn](#quadIn); equivalent to 1 - quadIn(1 - *t*).
+Reverse [quadIn](#quadIn); equivalent to 1 - quadIn(1 - *t*). Also equivalent to polyOut(*t*, 2).
 
 [![quad-out](https://cloud.githubusercontent.com/assets/230541/8026051/eaa14f64-0d1c-11e5-8242-64a93513b7c7.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#quad-out)
 
 <a name="quadInOut" href="#quadInOut">#</a> <b>quadInOut</b>(<i>t</i>[, <i>e</i>])
 
-Symmetric [quadIn](#quadIn); Scales [quadIn](#quadIn) for *t* in [0, 0.5] and [quadOut](#quadOut) for *t* in [0.5, 1].
+Symmetric [quadIn](#quadIn); Scales [quadIn](#quadIn) for *t* in [0, 0.5] and [quadOut](#quadOut) for *t* in [0.5, 1]. Also equivalent to polyInOut(*t*, 2).
 
 [![quad-in-out](https://cloud.githubusercontent.com/assets/230541/8026048/ea96521c-0d1c-11e5-9bae-fec6b91de07e.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#quad-in-out)
 
-<a name="cubic" href="#cubic">#</a> <b>ease</b>("cubic")
-<br><a href="#cubic">#</a> <b>ease</b>("cubic-in")
-<br><a href="#cubic">#</a> <b>ease</b>("cubic-out")
-<br><a href="#cubic">#</a> <b>ease</b>("cubic-in-out")
+<a name="cubic" href="#cubic">#</a> <b>cubic</b>(t)
+<br><a name="cubicIn" href="#cubicIn">#</a> <b>cubicIn</b>(<i>t</i>)
 
-Equivalent to [ease("poly", 3)](#poly).
+Cubic easing; equivalent to [polyIn](#polyIn)(*t*, 3).
 
 [![cubic-in](https://cloud.githubusercontent.com/assets/230541/8026036/ea6dc23e-0d1c-11e5-83e3-6a09c6134554.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#cubic-in)
+
+<a name="cubicOut" href="#cubicOut">#</a> <b>cubicOut</b>(<i>t</i>)
+
+Reverse [cubicIn](#cubicIn); equivalent to 1 - cubicIn(1 - *t*). Also equivalent to polyOut(*t*, 3).
+
 [![cubic-out](https://cloud.githubusercontent.com/assets/230541/8026035/ea6d26da-0d1c-11e5-8d46-04d163704bb0.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#cubic-out)
+
+<a name="cubicInOut" href="#cubicInOut">#</a> <b>cubicInOut</b>(<i>t</i>[, <i>e</i>])
+
+Symmetric [cubicIn](#cubicIn); Scales [cubicIn](#cubicIn) for *t* in [0, 0.5] and [cubicOut](#cubicOut) for *t* in [0.5, 1]. Also equivalent to polyInOut(*t*, 3).
+
 [![cubic-in-out](https://cloud.githubusercontent.com/assets/230541/8026032/ea6a027a-0d1c-11e5-99bc-c7366bbebf7b.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#cubic-in-out)
 
-<a name="sin" href="#sin">#</a> <b>ease</b>("sin")
-<br><a href="#sin">#</a> <b>ease</b>("sin-in")
-<br><a href="#sin">#</a> <b>ease</b>("sin-out")
-<br><a href="#sin">#</a> <b>ease</b>("sin-in-out")
+<a name="sin" href="#sin">#</a> <b>sin</b>(<i>t</i>)
+<br><a name="sinIn" href="#sinIn">#</a> <b>sinIn</b>(<i>t</i>)
 
-Applies the sine trigonometric function.
+Sinusoidal easing; returns sin(*t*).
 
 [![sin-in](https://cloud.githubusercontent.com/assets/230541/8026052/eaa218a4-0d1c-11e5-8243-4829d87bfdf6.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#sin-in)
+
+<a name="sinOut" href="#sinOut">#</a> <b>sinOut</b>(<i>t</i>)
+
+Reverse [sinIn](#sinIn); equivalent to 1 - sinIn(1 - *t*).
+
 [![sin-out](https://cloud.githubusercontent.com/assets/230541/8026053/eaa79f18-0d1c-11e5-846d-6bf846207cad.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#sin-out)
+
+<a name="sinInOut" href="#sinInOut">#</a> <b>sinInOut</b>(<i>t</i>[, <i>e</i>])
+
+Symmetric [sinIn](#sinIn); Scales [sinIn](#sinIn) for *t* in [0, 0.5] and [sinOut](#sinOut) for *t* in [0.5, 1].
+
 [![sin-in-out](https://cloud.githubusercontent.com/assets/230541/8026050/ea9f6f3c-0d1c-11e5-8176-363214626a2f.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#sin-in-out)
 
 <a name="exp" href="#exp">#</a> <b>ease</b>("exp")
