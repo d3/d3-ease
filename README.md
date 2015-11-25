@@ -1,6 +1,10 @@
 # d3-ease
 
-Easing functions for smooth animation, largely based on [Robert Penner’s](http://robertpenner.com/easing/). *Easing* is a method of distorting time to control apparent motion in animated transitions, most commonly for  realistic [“slow-in, slow-out”](https://en.wikipedia.org/wiki/12_basic_principles_of_animation#Slow_In_and_Slow_Out). Easing is typically used in conjunction with interpolation and [transitions](https://github.com/d3/d3-transition).
+*Easing* is a method of distorting time to control apparent motion in animated transitions. It is most commonly used for [slow-in, slow-out](https://en.wikipedia.org/wiki/12_basic_principles_of_animation#Slow_In_and_Slow_Out). By easing time, [animated transitions](https://github.com/d3/d3-transition) are smoother and exhibit more plausible motion.
+
+An easing function takes a single argument: the time *t*, typically in the normalized range [0,1]. The easing function returns the “eased” time *tʹ*, typically in the same range [0,1]. (Though note that some easing methods, such as [elastic](#elastic), may return eased values somewhat outside the range [0,1].)
+
+These easing functions are largely based on work by [Robert Penner](http://robertpenner.com/easing/).
 
 ## Installing
 
@@ -8,143 +12,201 @@ If you use NPM, `npm install d3-ease`. Otherwise, download the [latest release](
 
 ## API Reference
 
-<a name="ease" href="#ease">#</a> <b>ease</b>(<i>type</i>[, <i>arguments…</i>])
+<a name="ease" href="#ease">#</a> <b>ease</b>(<i>type</i>[, <i>parameters…</i>])
 
-Returns an easing function of the specified *type*. Some easing types may also take optional *arguments*, as described below. Each built-in *type* may be extended with one of three modes. For example, `"cubic-in-out"` has the type `"cubic"` and mode `"in-out"`. If a mode is not specified, it defaults to `"in"`.
-
-* `"in"` - the identity function.
-* `"out"` - reverses the easing direction to [1,0].
-* `"in-out"` - copies and mirrors the easing function from [0,.5] and [.5,1].
-
-The returned function takes a normalized time *t*, typically in the range [0,1], and returns an eased time *tʹ*, also typically in the range [0,1]. Note that some types, such as `"elastic"` may return eased values substantially outside the range [0,1].
-
-<a name="_ease" href="#_ease">#</a> <i>ease</i>(<i>t</i>)
-
-Given a normalized time *t*, typically in the range [0,1], returns the eased time *tʹ*, also typically in the range [0,1]. Note that some easing types, such as `"elastic"` may return eased values substantially outside the range [0,1].
+A convenience function for binding zero or more *parameters* to the specified easing function *type*. For example:
 
 ```js
-var e = ease("cubic-in-out");
-console.log(e(.2)); // 0.03200000000000001
+var e = ease(polyIn, 3);
+e(0.2); // 0.008000000000000002
 ```
 
-Note: *ease* here (in italics) refers to an easing function returned by the [ease constructor](#ease), not the ease constructor itself.
+<a name="linear" href="#linear">#</a> <b>linear</b>(<i>t</i>)
+<br><a href="#linear">#</a> <b>linearIn</b>(<i>t</i>)
+<br><a href="#linear">#</a> <b>linearOut</b>(<i>t</i>)
+<br><a href="#linear">#</a> <b>linearInOut</b>(<i>t</i>)
 
-<a name="linear" href="#linear">#</a> <b>ease</b>("linear")
-<br><a href="#linear">#</a> <b>ease</b>("linear-in")
-<br><a href="#linear">#</a> <b>ease</b>("linear-out")
-<br><a href="#linear">#</a> <b>ease</b>("linear-in-out")
+Linear easing; the identity function. Returns *t*.
 
-The identity function; returns *t*.
+[![linearin](https://cloud.githubusercontent.com/assets/230541/11385023/b862a592-92c9-11e5-986e-c531426ac525.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#linear-in)
 
-[![linear-in](https://cloud.githubusercontent.com/assets/230541/8026043/ea835e1e-0d1c-11e5-80f2-dc0d1f82500a.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#linear-in)
-[![linear-out](https://cloud.githubusercontent.com/assets/230541/8026044/ea8eb3e0-0d1c-11e5-8535-c067797be248.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#linear-out)
-[![linear-in-out](https://cloud.githubusercontent.com/assets/230541/8026040/ea807690-0d1c-11e5-8e27-92f7a893d8db.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#linear-in-out)
+<a name="poly" href="#poly">#</a> <b>poly</b>(<i>t</i>[, <i>e</i>])
+<br><a name="polyIn" href="#polyIn">#</a> <b>polyIn</b>(<i>t</i>[, <i>e</i>])
 
-<a name="poly" href="#poly">#</a> <b>ease</b>("poly"[, <i>k</i>])
-<br><a href="#poly">#</a> <b>ease</b>("poly-in"[, <i>k</i>])
-<br><a href="#poly">#</a> <b>ease</b>("poly-out"[, <i>k</i>])
-<br><a href="#poly">#</a> <b>ease</b>("poly-in-out"[, <i>k</i>])
+Polynomial easing; raises *t* to the specified power *e*. If *e* is not specified, it defaults to 3, equivalent to [cubicIn](#cubicIn).
 
-Raises *t* to the specified power *k* (defaults to 3; which is equivalent to [cubic](#cubic)). Note the power *k* need not be an integer, or positive.
+[![cubicin](https://cloud.githubusercontent.com/assets/230541/11385019/b85665de-92c9-11e5-883e-84f769bfb34d.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#poly-in)
 
-[![poly-in](https://cloud.githubusercontent.com/assets/230541/8026046/ea926706-0d1c-11e5-915f-dad2ab2bea7c.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#poly-in)
-[![poly-out](https://cloud.githubusercontent.com/assets/230541/8026047/ea94a390-0d1c-11e5-88bd-6d51052d084a.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#poly-out)
-[![poly-in-out](https://cloud.githubusercontent.com/assets/230541/8026045/ea8ebe58-0d1c-11e5-9399-c03f2467bc3b.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#poly-in-out)
+<a name="polyOut" href="#polyOut">#</a> <b>polyOut</b>(<i>t</i>[, <i>e</i>])
 
-<a name="quad" href="#quad">#</a> <b>ease</b>("quad")
-<br><a href="#quad">#</a> <b>ease</b>("quad-in")
-<br><a href="#quad">#</a> <b>ease</b>("quad-out")
-<br><a href="#quad">#</a> <b>ease</b>("quad-in-out")
+Reverse polynomial easing; equivalent to 1 - [polyIn](#polyIn)(1 - *t*, *e*). If *e* is not specified, it defaults to 3, equivalent to [cubicOut](#cubicOut).
 
-Equivalent to [ease("poly", 2)](#poly).
+[![cubicout](https://cloud.githubusercontent.com/assets/230541/11385018/b84e363e-92c9-11e5-8402-084bba9a48fd.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#poly-out)
 
-[![quad-in](https://cloud.githubusercontent.com/assets/230541/8026049/ea967288-0d1c-11e5-906b-10b575160854.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#quad-in)
-[![quad-out](https://cloud.githubusercontent.com/assets/230541/8026051/eaa14f64-0d1c-11e5-8242-64a93513b7c7.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#quad-out)
-[![quad-in-out](https://cloud.githubusercontent.com/assets/230541/8026048/ea96521c-0d1c-11e5-9bae-fec6b91de07e.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#quad-in-out)
+<a name="polyInOut" href="#polyInOut">#</a> <b>polyInOut</b>(<i>t</i>[, <i>e</i>])
 
-<a name="cubic" href="#cubic">#</a> <b>ease</b>("cubic")
-<br><a href="#cubic">#</a> <b>ease</b>("cubic-in")
-<br><a href="#cubic">#</a> <b>ease</b>("cubic-out")
-<br><a href="#cubic">#</a> <b>ease</b>("cubic-in-out")
+Symmetric polynomial easing; scales [polyIn](#polyIn) for *t* in [0, 0.5] and [polyOut](#polyOut) for *t* in [0.5, 1]. If *e* is not specified, it defaults to 3, equivalent to [cubicInOut](#cubicInOut).
 
-Equivalent to [ease("poly", 3)](#poly).
+[![cubicinout](https://cloud.githubusercontent.com/assets/230541/11385017/b84d8054-92c9-11e5-9c72-7c0071a7e821.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#poly-in-out)
 
-[![cubic-in](https://cloud.githubusercontent.com/assets/230541/8026036/ea6dc23e-0d1c-11e5-83e3-6a09c6134554.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#cubic-in)
-[![cubic-out](https://cloud.githubusercontent.com/assets/230541/8026035/ea6d26da-0d1c-11e5-8d46-04d163704bb0.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#cubic-out)
-[![cubic-in-out](https://cloud.githubusercontent.com/assets/230541/8026032/ea6a027a-0d1c-11e5-99bc-c7366bbebf7b.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#cubic-in-out)
+<a name="quad" href="#quad">#</a> <b>quad</b>(<i>t</i>)
+<br><a name="quadIn" href="#quadIn">#</a> <b>quadIn</b>(<i>t</i>)
 
-<a name="sin" href="#sin">#</a> <b>ease</b>("sin")
-<br><a href="#sin">#</a> <b>ease</b>("sin-in")
-<br><a href="#sin">#</a> <b>ease</b>("sin-out")
-<br><a href="#sin">#</a> <b>ease</b>("sin-in-out")
+Quadratic easing; equivalent to [polyIn](#polyIn)(*t*, 2).
 
-Applies the sine trigonometric function.
+[![quadin](https://cloud.githubusercontent.com/assets/230541/11385022/b85cefe4-92c9-11e5-84bf-42fc3e094b11.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#quad-in)
 
-[![sin-in](https://cloud.githubusercontent.com/assets/230541/8026052/eaa218a4-0d1c-11e5-8243-4829d87bfdf6.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#sin-in)
-[![sin-out](https://cloud.githubusercontent.com/assets/230541/8026053/eaa79f18-0d1c-11e5-846d-6bf846207cad.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#sin-out)
-[![sin-in-out](https://cloud.githubusercontent.com/assets/230541/8026050/ea9f6f3c-0d1c-11e5-8176-363214626a2f.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#sin-in-out)
+<a name="quadOut" href="#quadOut">#</a> <b>quadOut</b>(<i>t</i>)
 
-<a name="exp" href="#exp">#</a> <b>ease</b>("exp")
-<br><a href="#exp">#</a> <b>ease</b>("exp-in")
-<br><a href="#exp">#</a> <b>ease</b>("exp-out")
-<br><a href="#exp">#</a> <b>ease</b>("exp-in-out")
+Reverse quadratic easing; equivalent to 1 - [quadIn](#quadIn)(1 - *t*). Also equivalent to [polyOut](#polyOut)(*t*, 2).
 
-Raises 2 to the power *t*.
+[![quadout](https://cloud.githubusercontent.com/assets/230541/11385021/b85ab2ce-92c9-11e5-9293-a0a54476c4fa.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#quad-out)
 
-[![exp-in](https://cloud.githubusercontent.com/assets/230541/8026041/ea80aef8-0d1c-11e5-9427-4748a2b23268.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#exp-in)
-[![exp-out](https://cloud.githubusercontent.com/assets/230541/8026039/ea7e241c-0d1c-11e5-8f8d-4015e9872a8f.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#exp-out)
-[![exp-in-out](https://cloud.githubusercontent.com/assets/230541/8026042/ea810236-0d1c-11e5-812c-c81cf25f44c6.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#exp-in-out)
+<a name="quadInOut" href="#quadInOut">#</a> <b>quadInOut</b>(<i>t</i>)
 
-<a name="circle" href="#circle">#</a> <b>ease</b>("circle")
-<br><a href="#circle">#</a> <b>ease</b>("circle-in")
-<br><a href="#circle">#</a> <b>ease</b>("circle-out")
-<br><a href="#circle">#</a> <b>ease</b>("circle-in-out")
+Symmetric quadratic easing; scales [quadIn](#quadIn) for *t* in [0, 0.5] and [quadOut](#quadOut) for *t* in [0.5, 1]. Also equivalent to [polyInOut](#polyInOut)(*t*, 2).
 
-Produces a quarter circle.
+[![quadinout](https://cloud.githubusercontent.com/assets/230541/11385020/b85950fa-92c9-11e5-9c83-7caf28a56487.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#quad-in-out)
 
-[![circle-in](https://cloud.githubusercontent.com/assets/230541/8026031/ea5ff320-0d1c-11e5-8671-6046a0084b63.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#circle-in)
-[![circle-out](https://cloud.githubusercontent.com/assets/230541/8026033/ea6cb0ba-0d1c-11e5-982e-b67daebe7cb1.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#circle-out)
-[![circle-in-out](https://cloud.githubusercontent.com/assets/230541/8026030/ea5b424e-0d1c-11e5-9ea4-cc63017251e6.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#circle-in-out)
+<a name="cubic" href="#cubic">#</a> <b>cubic</b>(t)
+<br><a name="cubicIn" href="#cubicIn">#</a> <b>cubicIn</b>(<i>t</i>)
 
-<a name="elastic" href="#elastic">#</a> <b>ease</b>("elastic"[, <i>a</i>[, <i>p</i>]])
-<br><a href="#elastic">#</a> <b>ease</b>("elastic-in"[, <i>a</i>[, <i>p</i>]])
-<br><a href="#elastic">#</a> <b>ease</b>("elastic-out"[, <i>a</i>[, <i>p</i>]])
-<br><a href="#elastic">#</a> <b>ease</b>("elastic-in-out"[, <i>a</i>[, <i>p</i>]])
+Cubic easing; equivalent to [polyIn](#polyIn)(*t*, 3).
 
-Simulates an elastic band with parameters *a* and *p*</b> (defaults to 1 and .3, respectively).
+[![cubicin](https://cloud.githubusercontent.com/assets/230541/11385019/b85665de-92c9-11e5-883e-84f769bfb34d.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#cubic-in)
 
-[![elastic-in](https://cloud.githubusercontent.com/assets/230541/8026037/ea71d90a-0d1c-11e5-84fb-d03873f70ced.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#elastic-in)
-[![elastic-out](https://cloud.githubusercontent.com/assets/230541/8026038/ea7c651e-0d1c-11e5-9cdc-208ad6d78a26.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#elastic-out)
-[![elastic-in-out](https://cloud.githubusercontent.com/assets/230541/8026034/ea6d045c-0d1c-11e5-844b-3846dc138fda.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#elastic-in-out)
+<a name="cubicOut" href="#cubicOut">#</a> <b>cubicOut</b>(<i>t</i>)
 
-<a name="back" href="#back">#</a> <b>ease</b>("back"[, <i>s</i>])
-<br><a href="#back">#</a> <b>ease</b>("back-in"[, <i>s</i>])
-<br><a href="#back">#</a> <b>ease</b>("back-out"[, <i>s</i>])
-<br><a href="#back">#</a> <b>ease</b>("back-in-out"[, <i>s</i>])
+Reverse cubic easing; equivalent to 1 - [cubicIn](#cubicIn)(1 - *t*). Also equivalent to [polyOut](#polyOut)(*t*, 3).
 
-Simulates a car backing into a parking space (???) with parameter *s* (defaults to 1.70158).
+[![cubicout](https://cloud.githubusercontent.com/assets/230541/11385018/b84e363e-92c9-11e5-8402-084bba9a48fd.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#cubic-out)
 
-[![back-in](https://cloud.githubusercontent.com/assets/230541/8026025/ea4f94a8-0d1c-11e5-9073-1300e05f7315.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#back-in)
-[![back-out](https://cloud.githubusercontent.com/assets/230541/8026028/ea597ec8-0d1c-11e5-82c7-2bd1b8c993b6.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#back-out)
-[![back-in-out](https://cloud.githubusercontent.com/assets/230541/8026024/ea3bb050-0d1c-11e5-8a79-e61004a395f2.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#back-in-out)
+<a name="cubicInOut" href="#cubicInOut">#</a> <b>cubicInOut</b>(<i>t</i>)
 
-<a name="bounce" href="#bounce">#</a> <b>ease</b>("bounce")
-<br><a href="#bounce">#</a> <b>ease</b>("bounce-in")
-<br><a href="#bounce">#</a> <b>ease</b>("bounce-out")
-<br><a href="#bounce">#</a> <b>ease</b>("bounce-in-out")
+Symmetric cubic easing; scales [cubicIn](#cubicIn) for *t* in [0, 0.5] and [cubicOut](#cubicOut) for *t* in [0.5, 1]. Also equivalent to [polyInOut](#polyInOut)(*t*, 3).
 
-Simulates a bouncy ball.
+[![cubicinout](https://cloud.githubusercontent.com/assets/230541/11385017/b84d8054-92c9-11e5-9c72-7c0071a7e821.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#cubic-in-out)
 
-[![bounce-in](https://cloud.githubusercontent.com/assets/230541/8026029/ea5a8782-0d1c-11e5-8862-8fc1594bf74f.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#bounce-in)
-[![bounce-out](https://cloud.githubusercontent.com/assets/230541/8026027/ea597c98-0d1c-11e5-8849-80418fb818c9.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#bounce-out)
-[![bounce-in-out](https://cloud.githubusercontent.com/assets/230541/8026026/ea59356c-0d1c-11e5-97f1-2b5de30d282d.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#bounce-in-out)
+<a name="sin" href="#sin">#</a> <b>sin</b>(<i>t</i>)
+<br><a name="sinIn" href="#sinIn">#</a> <b>sinIn</b>(<i>t</i>)
+
+Sinusoidal easing; returns sin(*t*).
+
+[![sinin](https://cloud.githubusercontent.com/assets/230541/11385015/b846cf98-92c9-11e5-864d-a85357a5e8c4.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#sin-in)
+
+<a name="sinOut" href="#sinOut">#</a> <b>sinOut</b>(<i>t</i>)
+
+Reverse sinusoidal easing; equivalent to 1 - [sinIn](#sinIn)(1 - *t*).
+
+[![sinout](https://cloud.githubusercontent.com/assets/230541/11385016/b848e60c-92c9-11e5-865e-9fc918a54e19.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#sin-out)
+
+<a name="sinInOut" href="#sinInOut">#</a> <b>sinInOut</b>(<i>t</i>)
+
+Symmetric sinusoidal easing; scales [sinIn](#sinIn) for *t* in [0, 0.5] and [sinOut](#sinOut) for *t* in [0.5, 1].
+
+[![sininout](https://cloud.githubusercontent.com/assets/230541/11385014/b8468510-92c9-11e5-9be2-006b5eefa234.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#sin-in-out)
+
+<a name="exp" href="#exp">#</a> <b>exp</b>(<i>t</i>)
+<br><a name="expIn" href="#expIn">#</a> <b>expIn</b>(<i>t</i>)
+
+Exponential easing; raises 2 to the power *t*.
+
+[![expin](https://cloud.githubusercontent.com/assets/230541/11385013/b8413038-92c9-11e5-9f91-0478e280f68b.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#exp-in)
+
+<a name="expOut" href="#expOut">#</a> <b>expOut</b>(<i>t</i>)
+
+Reverse exponential easing; equivalent to 1 - [expIn](#expIn)(1 - *t*).
+
+[![expout](https://cloud.githubusercontent.com/assets/230541/11385012/b83ba3b6-92c9-11e5-9117-007ef1c067d5.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#exp-out)
+
+<a name="expInOut" href="#expInOut">#</a> <b>expInOut</b>(<i>t</i>)
+
+Symmetric exponential easing; scales [expIn](#expIn) for *t* in [0, 0.5] and [expOut](#expOut) for *t* in [0.5, 1].
+
+[![expinout](https://cloud.githubusercontent.com/assets/230541/11385011/b8387146-92c9-11e5-8208-2cf8a9eb29da.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#exp-in-out)
+
+<a name="circle" href="#circle">#</a> <b>circle</b>(<i>t</i>)
+<br><a name="circleIn" href="#circleIn">#</a> <b>circleIn</b>(<i>t</i>)
+
+Circular easing.
+
+[![circlein](https://cloud.githubusercontent.com/assets/230541/11385009/b8320496-92c9-11e5-8292-fe703e467f89.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#circle-in)
+
+<a name="circleOut" href="#circleOut">#</a> <b>circleOut</b>(<i>t</i>)
+
+Reverse circular easing; equivalent to 1 - [circleIn](#circleIn)(1 - *t*).
+
+[![circleout](https://cloud.githubusercontent.com/assets/230541/11385008/b831d6a6-92c9-11e5-9331-c8d64011103f.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#circle-out)
+
+<a name="circleInOut" href="#circleInOut">#</a> <b>circleInOut</b>(<i>t</i>)
+
+Symmetric circular easing; scales [circleIn](#circleIn) for *t* in [0, 0.5] and [circleOut](#circleOut) for *t* in [0.5, 1].
+
+[![circleinout](https://cloud.githubusercontent.com/assets/230541/11385010/b832d510-92c9-11e5-9170-32e8eb96a2ed.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#circle-in-out)
+
+<a name="elastic" href="#elastic">#</a> <b>elastic</b>(<i>t</i>[, <i>a</i>[, <i>p</i>]])
+<br><a name="elasticIn" href="#elasticIn">#</a> <b>elasticIn</b>(<i>t</i>[, <i>a</i>[, <i>p</i>]])
+
+Elastic easing, like a rubber band. The parameters *a* and *p* determine the tension of the band; if not specified, they default to 1 and 0.3, respectively.
+
+[![elasticin](https://cloud.githubusercontent.com/assets/230541/11385002/b81c5416-92c9-11e5-804e-0cdc7bc4fce7.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#elastic-in)
+
+<a name="elasticOut" href="#elasticOut">#</a> <b>elasticOut</b>(<i>t</i>[, <i>a</i>[, <i>p</i>]])
+
+Reverse elastic easing; equivalent to 1 - [elasticIn](#elasticIn)(1 - *t*).
+
+[![elasticout](https://cloud.githubusercontent.com/assets/230541/11385000/b81564a8-92c9-11e5-90d0-2116b2499a0c.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#elastic-out)
+
+<a name="elasticInOut" href="#elasticInOut">#</a> <b>elasticInOut</b>(<i>t</i>[, <i>a</i>[, <i>p</i>]])
+
+Symmetric elastic easing; scales [elasticIn](#elasticIn) for *t* in [0, 0.5] and [elasticOut](#elasticOut) for *t* in [0.5, 1].
+
+[![elasticinout](https://cloud.githubusercontent.com/assets/230541/11384999/b802d324-92c9-11e5-8031-0e6aaf75f03a.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#elastic-in-out)
+
+<a name="back" href="#back">#</a> <b>back</b>(<i>t</i>[, <i>s</i>])
+<br><a name="backIn" href="#backIn">#</a> <b>backIn</b>(<i>t</i>[, <i>s</i>])
+
+[Anticipatory](https://en.wikipedia.org/wiki/12_basic_principles_of_animation#Anticipation) easing, like a dancer bending his knees before jumping off the floor. The amount of anticipation (“backing up”) is determined by the parameter *s*; it not specified, it defaults to 1.70158.
+
+[![backin](https://cloud.githubusercontent.com/assets/230541/11385003/b81cb104-92c9-11e5-9f94-d20d28406a57.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#back-in)
+
+<a name="backOut" href="#backOut">#</a> <b>backOut</b>(<i>t</i>[, <i>a</i>[, <i>p</i>]])
+
+Reverse anticipatory easing; equivalent to 1 - [backIn](#backIn)(1 - *t*).
+
+[![backout](https://cloud.githubusercontent.com/assets/230541/11385004/b81dce22-92c9-11e5-8ab7-5ecec92aac14.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#back-out)
+
+<a name="backInOut" href="#backInOut">#</a> <b>backInOut</b>(<i>t</i>[, <i>a</i>[, <i>p</i>]])
+
+Symmetric anticipatory easing; scales [backIn](#backIn) for *t* in [0, 0.5] and [backOut](#backOut) for *t* in [0.5, 1].
+
+[![backinout](https://cloud.githubusercontent.com/assets/230541/11385001/b81acd62-92c9-11e5-8023-43c281e991d3.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#back-in-out)
+
+<a name="bounce" href="#bounce">#</a> <b>bounce</b>(<i>t</i>)
+<br><a name="bounceIn" href="#bounceIn">#</a> <b>bounceIn</b>(<i>t</i>)
+
+Bounce easing, like a rubber ball.
+
+[![bouncein](https://cloud.githubusercontent.com/assets/230541/11385007/b82c6126-92c9-11e5-93f6-71ed872e43ae.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#bounce-in)
+
+<a name="bounceOut" href="#bounceOut">#</a> <b>bounceOut</b>(<i>t</i>[, <i>a</i>[, <i>p</i>]])
+
+Reverse bounce easing; equivalent to 1 - [bounceIn](#bounceIn)(1 - *t*).
+
+[![bounceout](https://cloud.githubusercontent.com/assets/230541/11385006/b827f9d8-92c9-11e5-8ab2-3c52e1923362.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#bounce-out)
+
+<a name="bounceInOut" href="#bounceInOut">#</a> <b>bounceInOut</b>(<i>t</i>[, <i>a</i>[, <i>p</i>]])
+
+Symmetric bounce easing; scales [bounceIn](#bounceIn) for *t* in [0, 0.5] and [bounceOut](#bounceOut) for *t* in [0.5, 1].
+
+[![bounceinout](https://cloud.githubusercontent.com/assets/230541/11385005/b81edca4-92c9-11e5-9511-0f50d6a83fd8.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#bounce-in-out)
 
 ## Changes from from D3 3.x:
 
-* The `"elastic"` and `"bounce"` easing types have been reversed for consistency with Penner: `"in"` is now `"out"`, `"out"` is now `"in"`, and `"out-in"` is now `"in-out"`.
+* Easing functions are now referenced symbolically (such as [cubicInOut](#cubicInOut)), rather than by string (`cubic-in-out`).
 
-* The `"out-in"` easing mode has been removed. It didn’t make sense (except for `"elastic"` and `"bounce"`, which was a bug).
+* The [elastic](#elastic) and [bounce](#bounce) easing types have been reversed for consistency with Penner: in is now out, out is now in, and out-in is now in-out. The out-in easing mode has been removed: it made no sense (except for elastic and bounce, which were reversed).
 
-* The interpretation of optional parameters to the `"elastic"` and `"back"` easing functions has been fixed.
+* The interpretation of optional parameters to the elastic and back easing functions has been corrected.
 
-* Easing functions no longer clamp the output to 0 and 1 when *t* is less than or equal to 0 or greater than or equal to 1, respectively. (Note: transitions are still guaranteed to end at *t* = 1 if not interrupted, regardless of easing.)
+* Easing functions no longer clamp the output to 0 and 1 when *t* is less than or equal to 0 or greater than or equal to 1, respectively. (Note: [transitions](https://github.com/d3/d3-transition) are still guaranteed to end at *t* = 1 if not interrupted, regardless of easing.)

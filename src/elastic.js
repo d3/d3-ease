@@ -1,29 +1,22 @@
-import number from "./number";
+var tau = 2 * Math.PI;
 
-var k = 1 / (2 * Math.PI);
-
-export function elasticIn(a, p) {
-  a = Math.max(1, number(a, 1)), p = number(p, .3) * k;
-  var s = p * Math.asin(1 / a);
-  return function(t) {
-    return a * Math.pow(2, 10 * --t) * Math.sin((s - t) / p);
-  };
+export function elasticIn(t, a, p) {
+  a = a == null ? 1 : Math.max(1, a);
+  p = (p == null ? 0.3 : p) / tau;
+  return a * Math.pow(2, 10 * --t) * Math.sin((p * Math.asin(1 / a) - t) / p);
 };
 
-export function elasticOut(a, p) {
-  a = Math.max(1, number(a, 1)), p = number(p, .3) * k;
-  var s = p * Math.asin(1 / a);
-  return function(t) {
-    return a * Math.pow(2, -10 * t) * Math.sin((t - s) / p) + 1;
-  };
+export function elasticOut(t, a, p) {
+  a = a == null ? 1 : Math.max(1, a);
+  p = (p == null ? 0.3 : p) / tau;
+  return a * Math.pow(2, -10 * t) * Math.sin((t - p * Math.asin(1 / a)) / p) + 1;
 };
 
-export function elasticInOut(a, p) {
-  a = Math.max(1, number(a, 1)), p = number(p, .3) * 1.5 * k; // Note: treatment differs from Penner!
+export function elasticInOut(t, a, p) {
+  a = a == null ? 1 : Math.max(1, a);
+  p = (p == null ? 0.3 : p) * 1.5 / tau; // Note: treatment differs from Penner!
   var s = p * Math.asin(1 / a);
-  return function(t) {
-    return a * ((t = t * 2 - 1) < 0
-        ? Math.pow(2, 10 * t) * Math.sin((s - t) / p)
-        : Math.pow(2, -10 * t) * Math.sin((t - s) / p) + 2) / 2;
-  };
+  return a * ((t = t * 2 - 1) < 0
+      ? Math.pow(2, 10 * t) * Math.sin((s - t) / p)
+      : Math.pow(2, -10 * t) * Math.sin((t - s) / p) + 2) / 2;
 };

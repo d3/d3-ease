@@ -1,1 +1,11 @@
 export {default as ease} from "./src/ease";
+export {linearIn as linear, linearIn, linearOut, linearInOut} from "./src/linear";
+export {quadIn as quad, quadIn, quadOut, quadInOut} from "./src/quad";
+export {cubicIn as cubic, cubicIn, cubicOut, cubicInOut} from "./src/cubic";
+export {polyIn as poly, polyIn, polyOut, polyInOut} from "./src/poly";
+export {sinIn as sin, sinIn, sinOut, sinInOut} from "./src/sin";
+export {expIn as exp, expIn, expOut, expInOut} from "./src/exp";
+export {circleIn as circle, circleIn, circleOut, circleInOut} from "./src/circle";
+export {bounceIn as bounce, bounceIn, bounceOut, bounceInOut} from "./src/bounce";
+export {backIn as back, backIn, backOut, backInOut} from "./src/back";
+export {elasticIn as elastic, elasticIn, elasticOut, elasticInOut} from "./src/elastic";
