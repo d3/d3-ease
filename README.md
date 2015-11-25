@@ -111,7 +111,7 @@ Symmetric sinusoidal easing; scales [sinIn](#sinIn) for *t* in [0, 0.5] and [sin
 <a name="exp" href="#exp">#</a> <b>exp</b>(<i>t</i>)
 <br><a name="expIn" href="#expIn">#</a> <b>expIn</b>(<i>t</i>)
 
-Exponential easing; raises 2 to the power *t*.
+Exponential easing; raises 2 to the power 10 \* (*t* - 1).
 
 [![expin](https://cloud.githubusercontent.com/assets/230541/11385013/b8413038-92c9-11e5-9f91-0478e280f68b.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#expIn)
 
