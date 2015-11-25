@@ -170,13 +170,13 @@ Symmetric elastic easing; scales [elasticIn](#elasticIn) for *t* in [0, 0.5] and
 
 [![backin](https://cloud.githubusercontent.com/assets/230541/11385003/b81cb104-92c9-11e5-9f94-d20d28406a57.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#backIn)
 
-<a name="backOut" href="#backOut">#</a> <b>backOut</b>(<i>t</i>[, <i>a</i>[, <i>p</i>]])
+<a name="backOut" href="#backOut">#</a> <b>backOut</b>(<i>t</i>[, <i>s</i>])
 
 Reverse anticipatory easing; equivalent to 1 - [backIn](#backIn)(1 - *t*).
 
 [![backout](https://cloud.githubusercontent.com/assets/230541/11385004/b81dce22-92c9-11e5-8ab7-5ecec92aac14.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#backOut)
 
-<a name="backInOut" href="#backInOut">#</a> <b>backInOut</b>(<i>t</i>[, <i>a</i>[, <i>p</i>]])
+<a name="backInOut" href="#backInOut">#</a> <b>backInOut</b>(<i>t</i>[, <i>s</i>])
 
 Symmetric anticipatory easing; scales [backIn](#backIn) for *t* in [0, 0.5] and [backOut](#backOut) for *t* in [0.5, 1].
 
@@ -189,13 +189,13 @@ Bounce easing, like a rubber ball.
 
 [![bouncein](https://cloud.githubusercontent.com/assets/230541/11385007/b82c6126-92c9-11e5-93f6-71ed872e43ae.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#bounceIn)
 
-<a name="bounceOut" href="#bounceOut">#</a> <b>bounceOut</b>(<i>t</i>[, <i>a</i>[, <i>p</i>]])
+<a name="bounceOut" href="#bounceOut">#</a> <b>bounceOut</b>(<i>t</i>)
 
 Reverse bounce easing; equivalent to 1 - [bounceIn](#bounceIn)(1 - *t*).
 
 [![bounceout](https://cloud.githubusercontent.com/assets/230541/11385006/b827f9d8-92c9-11e5-8ab2-3c52e1923362.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#bounceOut)
 
-<a name="bounceInOut" href="#bounceInOut">#</a> <b>bounceInOut</b>(<i>t</i>[, <i>a</i>[, <i>p</i>]])
+<a name="bounceInOut" href="#bounceInOut">#</a> <b>bounceInOut</b>(<i>t</i>)
 
 Symmetric bounce easing; scales [bounceIn](#bounceIn) for *t* in [0, 0.5] and [bounceOut](#bounceOut) for *t* in [0.5, 1].
 
