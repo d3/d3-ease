@@ -201,10 +201,12 @@ Symmetric bounce easing; scales [bounceIn](#bounceIn) for *t* in [0, 0.5] and [b
 
 ## Changes from from D3 3.x:
 
-* The `"elastic"` and `"bounce"` easing types have been reversed for consistency with Penner: `"in"` is now `"out"`, `"out"` is now `"in"`, and `"out-in"` is now `"in-out"`.
+* Easing functions are now referenced symbolically (such as [cubicInOut](#cubicInOut)), rather than by string (`cubic-in-out`).
 
-* The `"out-in"` easing mode has been removed. It didn’t make sense (except for `"elastic"` and `"bounce"`, which was a bug).
+* The [elastic](#elastic) and [bounce](#bounce) easing types have been reversed for consistency with Penner: in is now out, out is now in, and out-in is now in-out.
 
-* The interpretation of optional parameters to the `"elastic"` and `"back"` easing functions has been fixed.
+* The out-in easing mode has been removed. It didn’t make sense (except for elastic and bounce, which was a bug because they were reversed).
 
-* Easing functions no longer clamp the output to 0 and 1 when *t* is less than or equal to 0 or greater than or equal to 1, respectively. (Note: transitions are still guaranteed to end at *t* = 1 if not interrupted, regardless of easing.)
+* The interpretation of optional parameters to the elastic and back easing functions has been corrected.
+
+* Easing functions no longer clamp the output to 0 and 1 when *t* is less than or equal to 0 or greater than or equal to 1, respectively. (Note: [transitions](https://github.com/d3/d3-transition) are still guaranteed to end at *t* = 1 if not interrupted, regardless of easing.)
