@@ -1,6 +1,10 @@
 # d3-ease
 
-Easing functions for smooth animation, largely based on [Robert Penner’s](http://robertpenner.com/easing/). *Easing* is a method of distorting time to control apparent motion in animated transitions, most commonly for  realistic [“slow-in, slow-out”](https://en.wikipedia.org/wiki/12_basic_principles_of_animation#Slow_In_and_Slow_Out). Easing is typically used in conjunction with interpolation and [transitions](https://github.com/d3/d3-transition).
+*Easing* is a method of distorting time to control apparent motion in animated transitions, most commonly for realistic [“slow-in, slow-out”](https://en.wikipedia.org/wiki/12_basic_principles_of_animation#Slow_In_and_Slow_Out).
+
+An easing function takes a single argument: the time *t*, typically in the normalized range [0,1]. The easing function returns the “eased” time *tʹ*, typically in the same range [0,1]. (Though note that some easing methods, such as [elastic](#elastic), may return eased values outside the range [0,1].) By distorting time, smooth, more-plausible motion can be achieved during [animated transitions](https://github.com/d3/d3-transition).
+
+These easing functions are largely based on work by [Robert Penner](http://robertpenner.com/easing/).
 
 ## Installing
 
@@ -16,8 +20,6 @@ A convenience function for binding zero or more *parameters* to the specified ea
 var e = ease(polyIn, 3);
 e(0.2); // 0.008000000000000002
 ```
-
-The returned function takes a single argument: the normalized time *t*, typically in the range [0,1]. It returns an eased time *tʹ*, also typically in the range [0,1]. Note that some easing methods, such as [elastic](#elastic), may return eased values outside the range [0,1].
 
 <a name="linear" href="#linear">#</a> <b>linear</b>(<i>t</i>)
 <br><a href="#linear">#</a> <b>linearIn</b>(<i>t</i>)
