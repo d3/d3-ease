@@ -17,10 +17,10 @@ If you use NPM, `npm install d3-ease`. Otherwise, download the [latest release](
 A convenience function for binding zero or more *parameters* to the specified easing function *type*. If no *parameters* are specified, this function simply returns *type*. The returned function takes a single argument *t* and passes any optional *parameters* to the underlying function *type*. For example, the following statements are equivalent:
 
 ```js
-ease(polyIn, 3)(0.2); // 0.008
-polyIn(0.2, 3); // 0.008
-ease(cubicIn)(0.2); // 0.008
-cubicIn(0.2); // 0.008
+ease(polyIn, 3)(0.5); // 0.125
+polyIn(0.5, 3); // 0.125
+ease(cubicIn)(0.5); // 0.125
+cubicIn(0.5); // 0.125
 ```
 
 <a name="linear" href="#linear">#</a> <b>linear</b>(<i>t</i>)
