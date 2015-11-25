@@ -14,11 +14,13 @@ If you use NPM, `npm install d3-ease`. Otherwise, download the [latest release](
 
 <a name="ease" href="#ease">#</a> <b>ease</b>(<i>type</i>[, <i>parameters…</i>])
 
-A convenience function for binding zero or more *parameters* to the specified easing function *type*. If no *parameters* are specified, this function simply returns *type*. The returned function takes a single argument *t* and passes any optional *parameters* to the underlying function *type*. For example, the following two statements are equivalent:
+A convenience function for binding zero or more *parameters* to the specified easing function *type*. If no *parameters* are specified, this function simply returns *type*. The returned function takes a single argument *t* and passes any optional *parameters* to the underlying function *type*. For example, the following statements are equivalent:
 
 ```js
 ease(polyIn, 3)(0.2); // 0.008000000000000002
 polyIn(0.2, 3); // 0.008000000000000002
+ease(cubicIn)(0.2); // 0.008000000000000002
+cubicIn(0.2); // 0.008000000000000002
 ```
 
 <a name="linear" href="#linear">#</a> <b>linear</b>(<i>t</i>)
