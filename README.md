@@ -35,19 +35,19 @@ Linear easing; the identity function. Returns *t*.
 
 Polynomial easing; raises *t* to the specified power *e*. If *e* is not specified, it defaults to 3, equivalent to [cubicIn](#cubicIn).
 
-[![cubicin](https://cloud.githubusercontent.com/assets/230541/11385019/b85665de-92c9-11e5-883e-84f769bfb34d.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#polyIn)
+[![polyin](https://cloud.githubusercontent.com/assets/230541/11389991/6e5263d0-92fa-11e5-84c2-797645dabe1f.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#polyIn)
 
 <a name="polyOut" href="#polyOut">#</a> <b>polyOut</b>(<i>t</i>[, <i>e</i>])
 
 Reverse polynomial easing; equivalent to 1 - [polyIn](#polyIn)(1 - *t*, *e*). If *e* is not specified, it defaults to 3, equivalent to [cubicOut](#cubicOut).
 
-[![cubicout](https://cloud.githubusercontent.com/assets/230541/11385018/b84e363e-92c9-11e5-8402-084bba9a48fd.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#polyOut)
+[![polyout](https://cloud.githubusercontent.com/assets/230541/11389990/6e4bdfb0-92fa-11e5-81f9-177f41096921.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#polyOut)
 
 <a name="polyInOut" href="#polyInOut">#</a> <b>polyInOut</b>(<i>t</i>[, <i>e</i>])
 
 Symmetric polynomial easing; scales [polyIn](#polyIn) for *t* in [0, 0.5] and [polyOut](#polyOut) for *t* in [0.5, 1]. If *e* is not specified, it defaults to 3, equivalent to [cubicInOut](#cubicInOut).
 
-[![cubicinout](https://cloud.githubusercontent.com/assets/230541/11385017/b84d8054-92c9-11e5-9c72-7c0071a7e821.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#polyInOut)
+[![polyinout](https://cloud.githubusercontent.com/assets/230541/11389985/6e3f0fd8-92fa-11e5-965f-aa6d06ae932f.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#polyInOut)
 
 <a name="quad" href="#quad">#</a> <b>quad</b>(<i>t</i>)
 <br><a name="quadIn" href="#quadIn">#</a> <b>quadIn</b>(<i>t</i>)
@@ -149,38 +149,38 @@ Symmetric circular easing; scales [circleIn](#circleIn) for *t* in [0, 0.5] and 
 
 Elastic easing, like a rubber band. The parameters *a* and *p* control the amplitude and period of the oscillation; if not specified, they default to 1 and 0.3, respectively.
 
-[![elasticin](https://cloud.githubusercontent.com/assets/230541/11385002/b81c5416-92c9-11e5-804e-0cdc7bc4fce7.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#elasticIn)
+[![elasticin](https://cloud.githubusercontent.com/assets/230541/11389986/6e3f1ff0-92fa-11e5-8caf-b404dd4e9175.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#elasticIn)
 
 <a name="elasticOut" href="#elasticOut">#</a> <b>elasticOut</b>(<i>t</i>[, <i>a</i>[, <i>p</i>]])
 
 Reverse elastic easing; equivalent to 1 - [elasticIn](#elasticIn)(1 - *t*).
 
-[![elasticout](https://cloud.githubusercontent.com/assets/230541/11385000/b81564a8-92c9-11e5-90d0-2116b2499a0c.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#elasticOut)
+[![elasticout](https://cloud.githubusercontent.com/assets/230541/11389984/6e37c804-92fa-11e5-91ef-4e4d79f0e79b.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#elasticOut)
 
 <a name="elasticInOut" href="#elasticInOut">#</a> <b>elasticInOut</b>(<i>t</i>[, <i>a</i>[, <i>p</i>]])
 
 Symmetric elastic easing; scales [elasticIn](#elasticIn) for *t* in [0, 0.5] and [elasticOut](#elasticOut) for *t* in [0.5, 1].
 
-[![elasticinout](https://cloud.githubusercontent.com/assets/230541/11384999/b802d324-92c9-11e5-8031-0e6aaf75f03a.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#elasticInOut)
+[![elasticinout](https://cloud.githubusercontent.com/assets/230541/11389983/6e2506ce-92fa-11e5-8207-b6f25d3f9e79.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#elasticInOut)
 
 <a name="back" href="#back">#</a> <b>back</b>(<i>t</i>[, <i>s</i>])
 <br><a name="backIn" href="#backIn">#</a> <b>backIn</b>(<i>t</i>[, <i>s</i>])
 
 [Anticipatory](https://en.wikipedia.org/wiki/12_basic_principles_of_animation#Anticipation) easing, like a dancer bending his knees before jumping off the floor. The amount of anticipation (“backing up”) is determined by the parameter *s*; it not specified, it defaults to 1.70158.
 
-[![backin](https://cloud.githubusercontent.com/assets/230541/11385003/b81cb104-92c9-11e5-9f94-d20d28406a57.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#backIn)
+[![backin](https://cloud.githubusercontent.com/assets/230541/11389989/6e422952-92fa-11e5-86fe-6fbc3c2a9917.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#backIn)
 
 <a name="backOut" href="#backOut">#</a> <b>backOut</b>(<i>t</i>[, <i>s</i>])
 
 Reverse anticipatory easing; equivalent to 1 - [backIn](#backIn)(1 - *t*).
 
-[![backout](https://cloud.githubusercontent.com/assets/230541/11385004/b81dce22-92c9-11e5-8ab7-5ecec92aac14.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#backOut)
+[![backout](https://cloud.githubusercontent.com/assets/230541/11389988/6e415770-92fa-11e5-9e48-f3a674f6ade1.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#backOut)
 
 <a name="backInOut" href="#backInOut">#</a> <b>backInOut</b>(<i>t</i>[, <i>s</i>])
 
 Symmetric anticipatory easing; scales [backIn](#backIn) for *t* in [0, 0.5] and [backOut](#backOut) for *t* in [0.5, 1].
 
-[![backinout](https://cloud.githubusercontent.com/assets/230541/11385001/b81acd62-92c9-11e5-8023-43c281e991d3.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#backInOut)
+[![backinout](https://cloud.githubusercontent.com/assets/230541/11389987/6e3ff290-92fa-11e5-98e3-b4f3d941edd3.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#backInOut)
 
 <a name="bounce" href="#bounce">#</a> <b>bounce</b>(<i>t</i>)
 <br><a name="bounceIn" href="#bounceIn">#</a> <b>bounceIn</b>(<i>t</i>)
