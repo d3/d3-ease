@@ -60,7 +60,7 @@ Reverse quadratic easing; equivalent to 1 - [quadIn](#quadIn)(1 - *t*). Also equ
 
 [![quad-out](https://cloud.githubusercontent.com/assets/230541/8026051/eaa14f64-0d1c-11e5-8242-64a93513b7c7.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#quad-out)
 
-<a name="quadInOut" href="#quadInOut">#</a> <b>quadInOut</b>(<i>t</i>[, <i>e</i>])
+<a name="quadInOut" href="#quadInOut">#</a> <b>quadInOut</b>(<i>t</i>)
 
 Symmetric quadratic easing; scales [quadIn](#quadIn) for *t* in [0, 0.5] and [quadOut](#quadOut) for *t* in [0.5, 1]. Also equivalent to [polyInOut](#polyInOut)(*t*, 2).
 
@@ -79,7 +79,7 @@ Reverse cubic easing; equivalent to 1 - [cubicIn](#cubicIn)(1 - *t*). Also equiv
 
 [![cubic-out](https://cloud.githubusercontent.com/assets/230541/8026035/ea6d26da-0d1c-11e5-8d46-04d163704bb0.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#cubic-out)
 
-<a name="cubicInOut" href="#cubicInOut">#</a> <b>cubicInOut</b>(<i>t</i>[, <i>e</i>])
+<a name="cubicInOut" href="#cubicInOut">#</a> <b>cubicInOut</b>(<i>t</i>)
 
 Symmetric cubic easing; scales [cubicIn](#cubicIn) for *t* in [0, 0.5] and [cubicOut](#cubicOut) for *t* in [0.5, 1]. Also equivalent to [polyInOut](#polyInOut)(*t*, 3).
 
@@ -98,7 +98,7 @@ Reverse sinusoidal easing; equivalent to 1 - [sinIn](#sinIn)(1 - *t*).
 
 [![sin-out](https://cloud.githubusercontent.com/assets/230541/8026053/eaa79f18-0d1c-11e5-846d-6bf846207cad.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#sin-out)
 
-<a name="sinInOut" href="#sinInOut">#</a> <b>sinInOut</b>(<i>t</i>[, <i>e</i>])
+<a name="sinInOut" href="#sinInOut">#</a> <b>sinInOut</b>(<i>t</i>)
 
 Symmetric sinusoidal easing; scales [sinIn](#sinIn) for *t* in [0, 0.5] and [sinOut](#sinOut) for *t* in [0.5, 1].
 
@@ -117,7 +117,7 @@ Reverse exponential easing; equivalent to 1 - [expIn](#expIn)(1 - *t*).
 
 [![exp-out](https://cloud.githubusercontent.com/assets/230541/8026039/ea7e241c-0d1c-11e5-8f8d-4015e9872a8f.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#exp-out)
 
-<a name="expInOut" href="#expInOut">#</a> <b>expInOut</b>(<i>t</i>[, <i>e</i>])
+<a name="expInOut" href="#expInOut">#</a> <b>expInOut</b>(<i>t</i>)
 
 Symmetric exponential easing; scales [expIn](#expIn) for *t* in [0, 0.5] and [expOut](#expOut) for *t* in [0.5, 1].
 
@@ -132,25 +132,33 @@ Circular easing.
 
 <a name="circleOut" href="#circleOut">#</a> <b>circleOut</b>(<i>t</i>)
 
-Reverse Circular easing; equivalent to 1 - [circleIn](#circleIn)(1 - *t*).
+Reverse circular easing; equivalent to 1 - [circleIn](#circleIn)(1 - *t*).
 
 [![circle-out](https://cloud.githubusercontent.com/assets/230541/8026033/ea6cb0ba-0d1c-11e5-982e-b67daebe7cb1.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#circle-out)
 
-<a name="circleInOut" href="#circleInOut">#</a> <b>circleInOut</b>(<i>t</i>[, <i>e</i>])
+<a name="circleInOut" href="#circleInOut">#</a> <b>circleInOut</b>(<i>t</i>)
 
-Symmetric Circular easing; scales [circleIn](#circleIn) for *t* in [0, 0.5] and [circleOut](#circleOut) for *t* in [0.5, 1].
+Symmetric circular easing; scales [circleIn](#circleIn) for *t* in [0, 0.5] and [circleOut](#circleOut) for *t* in [0.5, 1].
 
 [![circle-in-out](https://cloud.githubusercontent.com/assets/230541/8026030/ea5b424e-0d1c-11e5-9ea4-cc63017251e6.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#circle-in-out)
 
-<a name="elastic" href="#elastic">#</a> <b>ease</b>("elastic"[, <i>a</i>[, <i>p</i>]])
-<br><a href="#elastic">#</a> <b>ease</b>("elastic-in"[, <i>a</i>[, <i>p</i>]])
-<br><a href="#elastic">#</a> <b>ease</b>("elastic-out"[, <i>a</i>[, <i>p</i>]])
-<br><a href="#elastic">#</a> <b>ease</b>("elastic-in-out"[, <i>a</i>[, <i>p</i>]])
+<a name="elastic" href="#elastic">#</a> <b>elastic</b>(<i>t</i>[, <i>a</i>[, <i>p</i>]])
+<br><a name="elasticIn" href="#elasticIn">#</a> <b>elasticIn</b>(<i>t</i>[, <i>a</i>[, <i>p</i>]])
 
-Simulates an elastic band with parameters *a* and *p*</b> (defaults to 1 and .3, respectively).
+Elastic easing, like a rubber band. The parameters *a* and *p* determine the tension of the band; if not specified, they default to 1 and 0.3, respectively.
 
 [![elastic-in](https://cloud.githubusercontent.com/assets/230541/8026037/ea71d90a-0d1c-11e5-84fb-d03873f70ced.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#elastic-in)
+
+<a name="elasticOut" href="#elasticOut">#</a> <b>elasticOut</b>(<i>t</i>[, <i>a</i>[, <i>p</i>]])
+
+Reverse elastic easing; equivalent to 1 - [elasticIn](#elasticIn)(1 - *t*).
+
 [![elastic-out](https://cloud.githubusercontent.com/assets/230541/8026038/ea7c651e-0d1c-11e5-9cdc-208ad6d78a26.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#elastic-out)
+
+<a name="elasticInOut" href="#elasticInOut">#</a> <b>elasticInOut</b>(<i>t</i>[, <i>a</i>[, <i>p</i>]])
+
+Symmetric elastic easing; scales [elasticIn](#elasticIn) for *t* in [0, 0.5] and [elasticOut](#elasticOut) for *t* in [0.5, 1].
+
 [![elastic-in-out](https://cloud.githubusercontent.com/assets/230541/8026034/ea6d045c-0d1c-11e5-844b-3846dc138fda.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#elastic-in-out)
 
 <a name="back" href="#back">#</a> <b>ease</b>("back"[, <i>s</i>])
