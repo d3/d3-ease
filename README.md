@@ -14,7 +14,7 @@ If you use NPM, `npm install d3-ease`. Otherwise, download the [latest release](
 
 <a name="ease" href="#ease">#</a> <b>ease</b>(<i>type</i>[, <i>parameters…</i>])
 
-A convenience function for binding zero or more *parameters* to the specified easing function *type*. The returned function takes a single argument *t* and passes any optional *parameters* to the underlying function *type*. For example, these two statements are equivalent:
+A convenience function for binding zero or more *parameters* to the specified easing function *type*. The returned function takes a single argument *t* and passes any optional *parameters* to the underlying function *type*. For example, the following two statements are equivalent:
 
 ```js
 ease(polyIn, 3)(0.2); // 0.008000000000000002
