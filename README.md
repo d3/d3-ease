@@ -164,7 +164,7 @@ Symmetric elastic easing; scales [elasticIn](#elasticIn) for *t* in [0, 0.5] and
 <a name="back" href="#back">#</a> <b>back</b>(<i>t</i>[, <i>s</i>])
 <br><a name="backIn" href="#backIn">#</a> <b>backIn</b>(<i>t</i>[, <i>s</i>])
 
-[Anticipatory](https://en.wikipedia.org/wiki/12_basic_principles_of_animation#Anticipation) easing, like a dancer bending his knees before jumping off the floor. The degree of anticipation (“backing up”) is determined by the parameter *s*; it not specified, it defaults to 1.70158.
+[Anticipatory](https://en.wikipedia.org/wiki/12_basic_principles_of_animation#Anticipation) easing, like a dancer bending his knees before jumping off the floor. The amount of anticipation (“backing up”) is determined by the parameter *s*; it not specified, it defaults to 1.70158.
 
 [![back-in](https://cloud.githubusercontent.com/assets/230541/8026025/ea4f94a8-0d1c-11e5-9073-1300e05f7315.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#back-in)
 
