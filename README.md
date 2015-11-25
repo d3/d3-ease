@@ -203,9 +203,7 @@ Symmetric bounce easing; scales [bounceIn](#bounceIn) for *t* in [0, 0.5] and [b
 
 * Easing functions are now referenced symbolically (such as [cubicInOut](#cubicInOut)), rather than by string (`cubic-in-out`).
 
-* The [elastic](#elastic) and [bounce](#bounce) easing types have been reversed for consistency with Penner: in is now out, out is now in, and out-in is now in-out.
-
-* The out-in easing mode has been removed. It didn’t make sense (except for elastic and bounce, which was a bug because they were reversed).
+* The [elastic](#elastic) and [bounce](#bounce) easing types have been reversed for consistency with Penner: in is now out, out is now in, and out-in is now in-out. The out-in easing mode has also been removed: It didn’t make sense (except for elastic and bounce, which were reversed).
 
 * The interpretation of optional parameters to the elastic and back easing functions has been corrected.
 
