@@ -161,26 +161,42 @@ Symmetric elastic easing; scales [elasticIn](#elasticIn) for *t* in [0, 0.5] and
 
 [![elastic-in-out](https://cloud.githubusercontent.com/assets/230541/8026034/ea6d045c-0d1c-11e5-844b-3846dc138fda.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#elastic-in-out)
 
-<a name="back" href="#back">#</a> <b>ease</b>("back"[, <i>s</i>])
-<br><a href="#back">#</a> <b>ease</b>("back-in"[, <i>s</i>])
-<br><a href="#back">#</a> <b>ease</b>("back-out"[, <i>s</i>])
-<br><a href="#back">#</a> <b>ease</b>("back-in-out"[, <i>s</i>])
+<a name="back" href="#back">#</a> <b>back</b>(<i>t</i>[, <i>s</i>])
+<br><a name="backIn" href="#backIn">#</a> <b>backIn</b>(<i>t</i>[, <i>s</i>])
 
-Simulates a car backing into a parking space (???) with parameter *s* (defaults to 1.70158).
+[Anticipatory](https://en.wikipedia.org/wiki/12_basic_principles_of_animation#Anticipation) easing, like a dancer bending his knees before jumping off the floor. The degree of anticipation is determined by the parameter *s*; it not specified, it defaults to 1.70158.
 
 [![back-in](https://cloud.githubusercontent.com/assets/230541/8026025/ea4f94a8-0d1c-11e5-9073-1300e05f7315.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#back-in)
+
+<a name="backOut" href="#backOut">#</a> <b>backOut</b>(<i>t</i>[, <i>a</i>[, <i>p</i>]])
+
+Reverse anticipatory easing; equivalent to 1 - [backIn](#backIn)(1 - *t*).
+
 [![back-out](https://cloud.githubusercontent.com/assets/230541/8026028/ea597ec8-0d1c-11e5-82c7-2bd1b8c993b6.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#back-out)
+
+<a name="backInOut" href="#backInOut">#</a> <b>backInOut</b>(<i>t</i>[, <i>a</i>[, <i>p</i>]])
+
+Symmetric anticipatory easing; scales [backIn](#backIn) for *t* in [0, 0.5] and [backOut](#backOut) for *t* in [0.5, 1].
+
 [![back-in-out](https://cloud.githubusercontent.com/assets/230541/8026024/ea3bb050-0d1c-11e5-8a79-e61004a395f2.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#back-in-out)
 
-<a name="bounce" href="#bounce">#</a> <b>ease</b>("bounce")
-<br><a href="#bounce">#</a> <b>ease</b>("bounce-in")
-<br><a href="#bounce">#</a> <b>ease</b>("bounce-out")
-<br><a href="#bounce">#</a> <b>ease</b>("bounce-in-out")
+<a name="bounce" href="#bounce">#</a> <b>bounce</b>(<i>t</i>)
+<br><a name="bounceIn" href="#bounceIn">#</a> <b>bounceIn</b>(<i>t</i>)
 
-Simulates a bouncy ball.
+Bounce easing, like a rubber ball.
 
 [![bounce-in](https://cloud.githubusercontent.com/assets/230541/8026029/ea5a8782-0d1c-11e5-8862-8fc1594bf74f.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#bounce-in)
+
+<a name="bounceOut" href="#bounceOut">#</a> <b>bounceOut</b>(<i>t</i>[, <i>a</i>[, <i>p</i>]])
+
+Reverse bounce easing; equivalent to 1 - [bounceIn](#bounceIn)(1 - *t*).
+
 [![bounce-out](https://cloud.githubusercontent.com/assets/230541/8026027/ea597c98-0d1c-11e5-8849-80418fb818c9.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#bounce-out)
+
+<a name="bounceInOut" href="#bounceInOut">#</a> <b>bounceInOut</b>(<i>t</i>[, <i>a</i>[, <i>p</i>]])
+
+Symmetric bounce easing; scales [bounceIn](#bounceIn) for *t* in [0, 0.5] and [bounceOut](#bounceOut) for *t* in [0.5, 1].
+
 [![bounce-in-out](https://cloud.githubusercontent.com/assets/230541/8026026/ea59356c-0d1c-11e5-97f1-2b5de30d282d.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#bounce-in-out)
 
 ## Changes from from D3 3.x:
