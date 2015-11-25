@@ -147,7 +147,7 @@ Symmetric circular easing; scales [circleIn](#circleIn) for *t* in [0, 0.5] and 
 <a name="elastic" href="#elastic">#</a> <b>elastic</b>(<i>t</i>[, <i>a</i>[, <i>p</i>]])
 <br><a name="elasticIn" href="#elasticIn">#</a> <b>elasticIn</b>(<i>t</i>[, <i>a</i>[, <i>p</i>]])
 
-Elastic easing, like a rubber band. The parameters *a* and *p* determine the tension of the band; if not specified, they default to 1 and 0.3, respectively.
+Elastic easing, like a rubber band. The parameters *a* and *p* control the amplitude and period of the oscillation; if not specified, they default to 1 and 0.3, respectively.
 
 [![elasticin](https://cloud.githubusercontent.com/assets/230541/11385002/b81c5416-92c9-11e5-804e-0cdc7bc4fce7.png)](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#elasticIn)
 

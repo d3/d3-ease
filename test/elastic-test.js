@@ -1,5 +1,6 @@
 var tape = require("tape"),
-    ease = require("../");
+    ease = require("../"),
+    generic = require("./generic");
 
 require("./inDelta");
 
@@ -100,17 +101,18 @@ tape("elasticIn(t, 1.5, 1) returns the expected results", function(test) {
 });
 
 tape("elasticOut(t) returns the expected results", function(test) {
-  test.inDelta(ease.elasticOut(0.0), 0.000000);
-  test.inDelta(ease.elasticOut(0.1), 1.250000);
-  test.inDelta(ease.elasticOut(0.2), 1.125000);
-  test.inDelta(ease.elasticOut(0.3), 0.875000);
-  test.inDelta(ease.elasticOut(0.4), 1.031250);
-  test.inDelta(ease.elasticOut(0.5), 1.015625);
-  test.inDelta(ease.elasticOut(0.6), 0.984375);
-  test.inDelta(ease.elasticOut(0.7), 1.003906);
-  test.inDelta(ease.elasticOut(0.8), 1.001953);
-  test.inDelta(ease.elasticOut(0.9), 0.998047);
-  test.inDelta(ease.elasticOut(1.0), 1.000488); // Note: not exactly one.
+  var elasticOut = generic.out(ease.elastic);
+  test.inDelta(ease.elasticOut(0.0), elasticOut(0.0));
+  test.inDelta(ease.elasticOut(0.1), elasticOut(0.1));
+  test.inDelta(ease.elasticOut(0.2), elasticOut(0.2));
+  test.inDelta(ease.elasticOut(0.3), elasticOut(0.3));
+  test.inDelta(ease.elasticOut(0.4), elasticOut(0.4));
+  test.inDelta(ease.elasticOut(0.5), elasticOut(0.5));
+  test.inDelta(ease.elasticOut(0.6), elasticOut(0.6));
+  test.inDelta(ease.elasticOut(0.7), elasticOut(0.7));
+  test.inDelta(ease.elasticOut(0.8), elasticOut(0.8));
+  test.inDelta(ease.elasticOut(0.9), elasticOut(0.9));
+  test.inDelta(ease.elasticOut(1.0), elasticOut(1.0));
   test.end();
 });
 
@@ -121,17 +123,18 @@ tape("elasticOut(t) coerces t to a number", function(test) {
 });
 
 tape("elasticInOut returns the expected results", function(test) {
-  test.inDelta(ease.elasticInOut(0.0),  0.000084); // Note: not exactly zero.
-  test.inDelta(ease.elasticInOut(0.1),  0.000339);
-  test.inDelta(ease.elasticInOut(0.2), -0.003906);
-  test.inDelta(ease.elasticInOut(0.3),  0.023939);
-  test.inDelta(ease.elasticInOut(0.4), -0.117462);
-  test.inDelta(ease.elasticInOut(0.5),  0.500000);
-  test.inDelta(ease.elasticInOut(0.6),  1.117462);
-  test.inDelta(ease.elasticInOut(0.7),  0.976061);
-  test.inDelta(ease.elasticInOut(0.8),  1.003906);
-  test.inDelta(ease.elasticInOut(0.9),  0.999661);
-  test.inDelta(ease.elasticInOut(1.0),  0.999915); // Note: not exactly one.
+  var elasticInOut = generic.inOut(ease.elastic);
+  test.inDelta(ease.elasticInOut(0.0), elasticInOut(0.0));
+  test.inDelta(ease.elasticInOut(0.1), elasticInOut(0.1));
+  test.inDelta(ease.elasticInOut(0.2), elasticInOut(0.2));
+  test.inDelta(ease.elasticInOut(0.3), elasticInOut(0.3));
+  test.inDelta(ease.elasticInOut(0.4), elasticInOut(0.4));
+  test.inDelta(ease.elasticInOut(0.5), elasticInOut(0.5));
+  test.inDelta(ease.elasticInOut(0.6), elasticInOut(0.6));
+  test.inDelta(ease.elasticInOut(0.7), elasticInOut(0.7));
+  test.inDelta(ease.elasticInOut(0.8), elasticInOut(0.8));
+  test.inDelta(ease.elasticInOut(0.9), elasticInOut(0.9));
+  test.inDelta(ease.elasticInOut(1.0), elasticInOut(1.0));
   test.end();
 });
 

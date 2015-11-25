@@ -9,14 +9,14 @@ export function elasticIn(t, a, p) {
 export function elasticOut(t, a, p) {
   a = a == null ? 1 : Math.max(1, a);
   p = (p == null ? 0.3 : p) / tau;
-  return a * Math.pow(2, -10 * t) * Math.sin((t - p * Math.asin(1 / a)) / p) + 1;
+  return 1 - a * Math.pow(2, -10 * t) * Math.sin((+t + p * Math.asin(1 / a)) / p);
 };
 
 export function elasticInOut(t, a, p) {
   a = a == null ? 1 : Math.max(1, a);
-  p = (p == null ? 0.3 : p) * 1.5 / tau; // Note: treatment differs from Penner!
+  p = (p == null ? 0.3 : p) / tau;
   var s = p * Math.asin(1 / a);
-  return a * ((t = t * 2 - 1) < 0
-      ? Math.pow(2, 10 * t) * Math.sin((s - t) / p)
-      : Math.pow(2, -10 * t) * Math.sin((t - s) / p) + 2) / 2;
+  return ((t = t * 2 - 1) < 0
+      ? a * Math.pow(2, 10 * t) * Math.sin((s - t) / p)
+      : 2 - a * Math.pow(2, -10 * t) * Math.sin((s + t) / p)) / 2;
 };

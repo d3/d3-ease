@@ -1,5 +1,6 @@
 var tape = require("tape"),
-    ease = require("../");
+    ease = require("../"),
+    generic = require("./generic");
 
 require("./inDelta");
 
@@ -30,17 +31,18 @@ tape("cubicIn(t) coerces t to a number", function(test) {
 });
 
 tape("cubicOut(t) returns the expected results", function(test) {
-  test.inDelta(ease.cubicOut(0.0), 0.000);
-  test.inDelta(ease.cubicOut(0.1), 0.271);
-  test.inDelta(ease.cubicOut(0.2), 0.488);
-  test.inDelta(ease.cubicOut(0.3), 0.657);
-  test.inDelta(ease.cubicOut(0.4), 0.784);
-  test.inDelta(ease.cubicOut(0.5), 0.875);
-  test.inDelta(ease.cubicOut(0.6), 0.936);
-  test.inDelta(ease.cubicOut(0.7), 0.973);
-  test.inDelta(ease.cubicOut(0.8), 0.992);
-  test.inDelta(ease.cubicOut(0.9), 0.999);
-  test.inDelta(ease.cubicOut(1.0), 1.000);
+  var cubicOut = generic.out(ease.cubic);
+  test.inDelta(ease.cubicOut(0.0), cubicOut(0.0));
+  test.inDelta(ease.cubicOut(0.1), cubicOut(0.1));
+  test.inDelta(ease.cubicOut(0.2), cubicOut(0.2));
+  test.inDelta(ease.cubicOut(0.3), cubicOut(0.3));
+  test.inDelta(ease.cubicOut(0.4), cubicOut(0.4));
+  test.inDelta(ease.cubicOut(0.5), cubicOut(0.5));
+  test.inDelta(ease.cubicOut(0.6), cubicOut(0.6));
+  test.inDelta(ease.cubicOut(0.7), cubicOut(0.7));
+  test.inDelta(ease.cubicOut(0.8), cubicOut(0.8));
+  test.inDelta(ease.cubicOut(0.9), cubicOut(0.9));
+  test.inDelta(ease.cubicOut(1.0), cubicOut(1.0));
   test.end();
 });
 
@@ -51,17 +53,18 @@ tape("cubicOut(t) coerces t to a number", function(test) {
 });
 
 tape("cubicInOut(t) returns the expected results", function(test) {
-  test.inDelta(ease.cubicInOut(0.0), 0.000);
-  test.inDelta(ease.cubicInOut(0.1), 0.004);
-  test.inDelta(ease.cubicInOut(0.2), 0.032);
-  test.inDelta(ease.cubicInOut(0.3), 0.108);
-  test.inDelta(ease.cubicInOut(0.4), 0.256);
-  test.inDelta(ease.cubicInOut(0.5), 0.500);
-  test.inDelta(ease.cubicInOut(0.6), 0.744);
-  test.inDelta(ease.cubicInOut(0.7), 0.892);
-  test.inDelta(ease.cubicInOut(0.8), 0.968);
-  test.inDelta(ease.cubicInOut(0.9), 0.996);
-  test.inDelta(ease.cubicInOut(1.0), 1.000);
+  var cubicInOut = generic.inOut(ease.cubic);
+  test.inDelta(ease.cubicInOut(0.0), cubicInOut(0.0));
+  test.inDelta(ease.cubicInOut(0.1), cubicInOut(0.1));
+  test.inDelta(ease.cubicInOut(0.2), cubicInOut(0.2));
+  test.inDelta(ease.cubicInOut(0.3), cubicInOut(0.3));
+  test.inDelta(ease.cubicInOut(0.4), cubicInOut(0.4));
+  test.inDelta(ease.cubicInOut(0.5), cubicInOut(0.5));
+  test.inDelta(ease.cubicInOut(0.6), cubicInOut(0.6));
+  test.inDelta(ease.cubicInOut(0.7), cubicInOut(0.7));
+  test.inDelta(ease.cubicInOut(0.8), cubicInOut(0.8));
+  test.inDelta(ease.cubicInOut(0.9), cubicInOut(0.9));
+  test.inDelta(ease.cubicInOut(1.0), cubicInOut(1.0));
   test.end();
 });
 

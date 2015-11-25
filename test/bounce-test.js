@@ -1,5 +1,6 @@
 var tape = require("tape"),
-    ease = require("../");
+    ease = require("../"),
+    generic = require("./generic");
 
 require("./inDelta");
 
@@ -30,17 +31,18 @@ tape("bounceIn(t) coerces t to a number", function(test) {
 });
 
 tape("bounceOut(t) returns the expected results", function(test) {
-  test.inDelta(ease.bounceOut(0.0), 0.000000);
-  test.inDelta(ease.bounceOut(0.1), 0.075625);
-  test.inDelta(ease.bounceOut(0.2), 0.302500);
-  test.inDelta(ease.bounceOut(0.3), 0.680625);
-  test.inDelta(ease.bounceOut(0.4), 0.910000);
-  test.inDelta(ease.bounceOut(0.5), 0.765625);
-  test.inDelta(ease.bounceOut(0.6), 0.772500);
-  test.inDelta(ease.bounceOut(0.7), 0.930625);
-  test.inDelta(ease.bounceOut(0.8), 0.940000);
-  test.inDelta(ease.bounceOut(0.9), 0.988125);
-  test.inDelta(ease.bounceOut(1.0), 1.000000);
+  var bounceOut = generic.out(ease.bounce);
+  test.inDelta(ease.bounceOut(0.0), bounceOut(0.0));
+  test.inDelta(ease.bounceOut(0.1), bounceOut(0.1));
+  test.inDelta(ease.bounceOut(0.2), bounceOut(0.2));
+  test.inDelta(ease.bounceOut(0.3), bounceOut(0.3));
+  test.inDelta(ease.bounceOut(0.4), bounceOut(0.4));
+  test.inDelta(ease.bounceOut(0.5), bounceOut(0.5));
+  test.inDelta(ease.bounceOut(0.6), bounceOut(0.6));
+  test.inDelta(ease.bounceOut(0.7), bounceOut(0.7));
+  test.inDelta(ease.bounceOut(0.8), bounceOut(0.8));
+  test.inDelta(ease.bounceOut(0.9), bounceOut(0.9));
+  test.inDelta(ease.bounceOut(1.0), bounceOut(1.0));
   test.end();
 });
 
@@ -51,17 +53,18 @@ tape("bounceOut(t) coerces t to a number", function(test) {
 });
 
 tape("bounceInOut(t) returns the expected results", function(test) {
-  test.inDelta(ease.bounceInOut(0.0), 0.000000);
-  test.inDelta(ease.bounceInOut(0.1), 0.030000);
-  test.inDelta(ease.bounceInOut(0.2), 0.113750);
-  test.inDelta(ease.bounceInOut(0.3), 0.045000);
-  test.inDelta(ease.bounceInOut(0.4), 0.348750);
-  test.inDelta(ease.bounceInOut(0.5), 0.500000);
-  test.inDelta(ease.bounceInOut(0.6), 0.651250);
-  test.inDelta(ease.bounceInOut(0.7), 0.955000);
-  test.inDelta(ease.bounceInOut(0.8), 0.886250);
-  test.inDelta(ease.bounceInOut(0.9), 0.970000);
-  test.inDelta(ease.bounceInOut(1.0), 1.000000);
+  var bounceInOut = generic.inOut(ease.bounce);
+  test.inDelta(ease.bounceInOut(0.0), bounceInOut(0.0));
+  test.inDelta(ease.bounceInOut(0.1), bounceInOut(0.1));
+  test.inDelta(ease.bounceInOut(0.2), bounceInOut(0.2));
+  test.inDelta(ease.bounceInOut(0.3), bounceInOut(0.3));
+  test.inDelta(ease.bounceInOut(0.4), bounceInOut(0.4));
+  test.inDelta(ease.bounceInOut(0.5), bounceInOut(0.5));
+  test.inDelta(ease.bounceInOut(0.6), bounceInOut(0.6));
+  test.inDelta(ease.bounceInOut(0.7), bounceInOut(0.7));
+  test.inDelta(ease.bounceInOut(0.8), bounceInOut(0.8));
+  test.inDelta(ease.bounceInOut(0.9), bounceInOut(0.9));
+  test.inDelta(ease.bounceInOut(1.0), bounceInOut(1.0));
   test.end();
 });
 

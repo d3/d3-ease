@@ -1,5 +1,6 @@
 var tape = require("tape"),
-    ease = require("../");
+    ease = require("../"),
+    generic = require("./generic");
 
 require("./inDelta");
 
@@ -99,17 +100,18 @@ tape("polyOut(t, undefined) is the same as polyOut(t, 3.0)", function(test) {
 });
 
 tape("polyOut(t, 2.5) returns the expected results", function(test) {
-  test.inDelta(ease.polyOut(0.0, 2.5), 0.000000);
-  test.inDelta(ease.polyOut(0.1, 2.5), 0.231567);
-  test.inDelta(ease.polyOut(0.2, 2.5), 0.427567);
-  test.inDelta(ease.polyOut(0.3, 2.5), 0.590037);
-  test.inDelta(ease.polyOut(0.4, 2.5), 0.721145);
-  test.inDelta(ease.polyOut(0.5, 2.5), 0.823223);
-  test.inDelta(ease.polyOut(0.6, 2.5), 0.898807);
-  test.inDelta(ease.polyOut(0.7, 2.5), 0.950705);
-  test.inDelta(ease.polyOut(0.8, 2.5), 0.982111);
-  test.inDelta(ease.polyOut(0.9, 2.5), 0.996838);
-  test.inDelta(ease.polyOut(1.0, 2.5), 1.000000);
+  var polyOut = generic.out(ease.ease(ease.poly, 2.5));
+  test.inDelta(ease.polyOut(0.0, 2.5), polyOut(0.0));
+  test.inDelta(ease.polyOut(0.1, 2.5), polyOut(0.1));
+  test.inDelta(ease.polyOut(0.2, 2.5), polyOut(0.2));
+  test.inDelta(ease.polyOut(0.3, 2.5), polyOut(0.3));
+  test.inDelta(ease.polyOut(0.4, 2.5), polyOut(0.4));
+  test.inDelta(ease.polyOut(0.5, 2.5), polyOut(0.5));
+  test.inDelta(ease.polyOut(0.6, 2.5), polyOut(0.6));
+  test.inDelta(ease.polyOut(0.7, 2.5), polyOut(0.7));
+  test.inDelta(ease.polyOut(0.8, 2.5), polyOut(0.8));
+  test.inDelta(ease.polyOut(0.9, 2.5), polyOut(0.9));
+  test.inDelta(ease.polyOut(1.0, 2.5), polyOut(1.0));
   test.end();
 });
 
@@ -141,16 +143,17 @@ tape("polyInOut(t, undefined) is the same as polyInOut(t, 3.0)", function(test) 
 });
 
 tape("polyInOut(t, 2.5) returns the expected results", function(test) {
-  test.inDelta(ease.polyInOut(0.0, 2.5), 0.000000);
-  test.inDelta(ease.polyInOut(0.1, 2.5), 0.008944);
-  test.inDelta(ease.polyInOut(0.2, 2.5), 0.050596);
-  test.inDelta(ease.polyInOut(0.3, 2.5), 0.139427);
-  test.inDelta(ease.polyInOut(0.4, 2.5), 0.286217);
-  test.inDelta(ease.polyInOut(0.5, 2.5), 0.500000);
-  test.inDelta(ease.polyInOut(0.6, 2.5), 0.713783);
-  test.inDelta(ease.polyInOut(0.7, 2.5), 0.860573);
-  test.inDelta(ease.polyInOut(0.8, 2.5), 0.949404);
-  test.inDelta(ease.polyInOut(0.9, 2.5), 0.991056);
-  test.inDelta(ease.polyInOut(1.0, 2.5), 1.000000);
+  var polyInOut = generic.inOut(ease.ease(ease.poly, 2.5));
+  test.inDelta(ease.polyInOut(0.0, 2.5), polyInOut(0.0));
+  test.inDelta(ease.polyInOut(0.1, 2.5), polyInOut(0.1));
+  test.inDelta(ease.polyInOut(0.2, 2.5), polyInOut(0.2));
+  test.inDelta(ease.polyInOut(0.3, 2.5), polyInOut(0.3));
+  test.inDelta(ease.polyInOut(0.4, 2.5), polyInOut(0.4));
+  test.inDelta(ease.polyInOut(0.5, 2.5), polyInOut(0.5));
+  test.inDelta(ease.polyInOut(0.6, 2.5), polyInOut(0.6));
+  test.inDelta(ease.polyInOut(0.7, 2.5), polyInOut(0.7));
+  test.inDelta(ease.polyInOut(0.8, 2.5), polyInOut(0.8));
+  test.inDelta(ease.polyInOut(0.9, 2.5), polyInOut(0.9));
+  test.inDelta(ease.polyInOut(1.0, 2.5), polyInOut(1.0));
   test.end();
 });

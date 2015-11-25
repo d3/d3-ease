@@ -9,6 +9,6 @@ export function backOut(t, s) {
 };
 
 export function backInOut(t, s) {
-  s = s == null ? 2.5949095 : s * 1.525;
+  s = s == null ? 1.70158 : +s;
   return ((t *= 2) < 1 ? t * t * ((s + 1) * t - s) : (t -= 2) * t * ((s + 1) * t + s) + 2) / 2;
 };
