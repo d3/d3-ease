@@ -1,6 +1,6 @@
 # d3-ease
 
-*Easing* is a method of distorting time to control apparent motion in animated transitions. It is most commonly used for [slow-in, slow-out](https://en.wikipedia.org/wiki/12_basic_principles_of_animation#Slow_In_and_Slow_Out). By easing time, [animated transitions](https://github.com/d3/d3-transition) are smoother and exhibit more plausible motion.
+*Easing* is a method of distorting time to control apparent motion in animation. It is most commonly used for [slow-in, slow-out](https://en.wikipedia.org/wiki/12_basic_principles_of_animation#Slow_In_and_Slow_Out). By easing time, [animated transitions](https://github.com/d3/d3-transition) are smoother and exhibit more plausible motion.
 
 An easing function takes a single argument: the time *t*, typically in the normalized range [0,1]. The easing function returns the “eased” time *tʹ*, typically in the same range [0,1]. (Though note that some easing methods, such as [elastic](#elastic), may return eased values somewhat outside the range [0,1].) A good easing function should return 0 if *t* = 0 and 1 if *t* = 1. See the [easing explorer](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4) for a visual demonstration.
 
