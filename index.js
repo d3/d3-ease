@@ -1,4 +1,4 @@
-export {default as ease} from "./src/ease";
+export {default as bind} from "./src/bind";
 export {linearIn as linear, linearIn, linearOut, linearInOut} from "./src/linear";
 export {quadIn as quad, quadIn, quadOut, quadInOut} from "./src/quad";
 export {cubicIn as cubic, cubicIn, cubicOut, cubicInOut} from "./src/cubic";
