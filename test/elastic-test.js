@@ -4,11 +4,6 @@ var tape = require("tape"),
 
 require("./inDelta");
 
-tape("elastic is an alias for elasticIn", function(test) {
-  test.equal(ease.elastic, ease.elasticIn);
-  test.end();
-});
-
 tape("elasticIn(t) returns the expected results", function(test) {
   test.inDelta(ease.elasticIn(0.0), -0.000488); // Note: not exactly zero.
   test.inDelta(ease.elasticIn(0.1),  0.001953);
@@ -101,7 +96,7 @@ tape("elasticIn(t, 1.5, 1) returns the expected results", function(test) {
 });
 
 tape("elasticOut(t) returns the expected results", function(test) {
-  var elasticOut = generic.out(ease.elastic);
+  var elasticOut = generic.out(ease.elasticIn);
   test.inDelta(ease.elasticOut(0.0), elasticOut(0.0));
   test.inDelta(ease.elasticOut(0.1), elasticOut(0.1));
   test.inDelta(ease.elasticOut(0.2), elasticOut(0.2));
@@ -123,7 +118,7 @@ tape("elasticOut(t) coerces t to a number", function(test) {
 });
 
 tape("elasticInOut returns the expected results", function(test) {
-  var elasticInOut = generic.inOut(ease.elastic);
+  var elasticInOut = generic.inOut(ease.elasticIn);
   test.inDelta(ease.elasticInOut(0.0), elasticInOut(0.0));
   test.inDelta(ease.elasticInOut(0.1), elasticInOut(0.1));
   test.inDelta(ease.elasticInOut(0.2), elasticInOut(0.2));

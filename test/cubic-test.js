@@ -4,11 +4,6 @@ var tape = require("tape"),
 
 require("./inDelta");
 
-tape("cubic is an alias for cubicIn", function(test) {
-  test.equal(ease.cubic, ease.cubicIn);
-  test.end();
-});
-
 tape("cubicIn(t) returns the expected results", function(test) {
   test.inDelta(ease.cubicIn(0.0), 0.000);
   test.inDelta(ease.cubicIn(0.1), 0.001);
@@ -31,7 +26,7 @@ tape("cubicIn(t) coerces t to a number", function(test) {
 });
 
 tape("cubicOut(t) returns the expected results", function(test) {
-  var cubicOut = generic.out(ease.cubic);
+  var cubicOut = generic.out(ease.cubicIn);
   test.inDelta(ease.cubicOut(0.0), cubicOut(0.0));
   test.inDelta(ease.cubicOut(0.1), cubicOut(0.1));
   test.inDelta(ease.cubicOut(0.2), cubicOut(0.2));
@@ -53,7 +48,7 @@ tape("cubicOut(t) coerces t to a number", function(test) {
 });
 
 tape("cubicInOut(t) returns the expected results", function(test) {
-  var cubicInOut = generic.inOut(ease.cubic);
+  var cubicInOut = generic.inOut(ease.cubicIn);
   test.inDelta(ease.cubicInOut(0.0), cubicInOut(0.0));
   test.inDelta(ease.cubicInOut(0.1), cubicInOut(0.1));
   test.inDelta(ease.cubicInOut(0.2), cubicInOut(0.2));

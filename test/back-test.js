@@ -4,11 +4,6 @@ var tape = require("tape"),
 
 require("./inDelta");
 
-tape("back is an alias for backIn", function(test) {
-  test.equal(ease.back, ease.backIn);
-  test.end();
-});
-
 tape("backIn(t) returns the expected results", function(test) {
   test.inDelta(ease.backIn(0.0),  0.000000);
   test.inDelta(ease.backIn(0.1), -0.014314);
@@ -31,7 +26,7 @@ tape("backIn(t) coerces t to a number", function(test) {
 });
 
 tape("backOut(t) returns the expected results", function(test) {
-  var backOut = generic.out(ease.back);
+  var backOut = generic.out(ease.backIn);
   test.inDelta(ease.backOut(0.0), backOut(0.0));
   test.inDelta(ease.backOut(0.1), backOut(0.1));
   test.inDelta(ease.backOut(0.2), backOut(0.2));
@@ -53,7 +48,7 @@ tape("backOut(t) coerces t to a number", function(test) {
 });
 
 tape("backInOut(t) returns the expected results", function(test) {
-  var backInOut = generic.inOut(ease.back);
+  var backInOut = generic.inOut(ease.backIn);
   test.inDelta(ease.backInOut(0.0), backInOut(0.0));
   test.inDelta(ease.backInOut(0.1), backInOut(0.1));
   test.inDelta(ease.backInOut(0.2), backInOut(0.2));

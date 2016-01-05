@@ -3,11 +3,6 @@ var tape = require("tape"),
 
 require("./inDelta");
 
-tape("linear is an alias for linearIn", function(test) {
-  test.equal(ease.linear, ease.linearIn);
-  test.end();
-});
-
 tape("linearIn(t) returns the expected results", function(test) {
   test.inDelta(ease.linearIn(0.0), 0.0);
   test.inDelta(ease.linearIn(0.1), 0.1);

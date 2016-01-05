@@ -4,11 +4,6 @@ var tape = require("tape"),
 
 require("./inDelta");
 
-tape("bounce is an alias for bounceIn", function(test) {
-  test.equal(ease.bounce, ease.bounceIn);
-  test.end();
-});
-
 tape("bounceIn(t) returns the expected results", function(test) {
   test.inDelta(ease.bounceIn(0.0), 0.000000);
   test.inDelta(ease.bounceIn(0.1), 0.011875);
@@ -31,7 +26,7 @@ tape("bounceIn(t) coerces t to a number", function(test) {
 });
 
 tape("bounceOut(t) returns the expected results", function(test) {
-  var bounceOut = generic.out(ease.bounce);
+  var bounceOut = generic.out(ease.bounceIn);
   test.inDelta(ease.bounceOut(0.0), bounceOut(0.0));
   test.inDelta(ease.bounceOut(0.1), bounceOut(0.1));
   test.inDelta(ease.bounceOut(0.2), bounceOut(0.2));
@@ -53,7 +48,7 @@ tape("bounceOut(t) coerces t to a number", function(test) {
 });
 
 tape("bounceInOut(t) returns the expected results", function(test) {
-  var bounceInOut = generic.inOut(ease.bounce);
+  var bounceInOut = generic.inOut(ease.bounceIn);
   test.inDelta(ease.bounceInOut(0.0), bounceInOut(0.0));
   test.inDelta(ease.bounceInOut(0.1), bounceInOut(0.1));
   test.inDelta(ease.bounceInOut(0.2), bounceInOut(0.2));

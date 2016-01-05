@@ -4,11 +4,6 @@ var tape = require("tape"),
 
 require("./inDelta");
 
-tape("quad is an alias for quadIn", function(test) {
-  test.equal(ease.quad, ease.quadIn);
-  test.end();
-});
-
 tape("quadIn(t) returns the expected results", function(test) {
   test.inDelta(ease.quadIn(0.0), 0.00);
   test.inDelta(ease.quadIn(0.1), 0.01);
@@ -31,7 +26,7 @@ tape("quadIn(t) coerces t to a number", function(test) {
 });
 
 tape("quadOut(t) returns the expected results", function(test) {
-  var quadOut = generic.out(ease.quad);
+  var quadOut = generic.out(ease.quadIn);
   test.inDelta(ease.quadOut(0.0), quadOut(0.0));
   test.inDelta(ease.quadOut(0.1), quadOut(0.1));
   test.inDelta(ease.quadOut(0.2), quadOut(0.2));
@@ -53,7 +48,7 @@ tape("quadOut(t) coerces t to a number", function(test) {
 });
 
 tape("quadInOut(t) returns the expected results", function(test) {
-  var quadInOut = generic.inOut(ease.quad);
+  var quadInOut = generic.inOut(ease.quadIn);
   test.inDelta(ease.quadInOut(0.0), quadInOut(0.0));
   test.inDelta(ease.quadInOut(0.1), quadInOut(0.1));
   test.inDelta(ease.quadInOut(0.2), quadInOut(0.2));

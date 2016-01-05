@@ -29,17 +29,15 @@ d3_ease.bind(d3_ease.cubicIn)(0.5); // 0.125
 d3_ease.cubicIn(0.5); // 0.125
 ```
 
-<a name="linear" href="#linear">#</a> d3_ease.<b>linear</b>(<i>t</i>)
-<br><a href="#linear">#</a> d3_ease.<b>linearIn</b>(<i>t</i>)
-<br><a href="#linear">#</a> d3_ease.<b>linearOut</b>(<i>t</i>)
-<br><a href="#linear">#</a> d3_ease.<b>linearInOut</b>(<i>t</i>)
+<a href="#linearIn">#</a> d3_ease.<b>linearIn</b>(<i>t</i>)
+<br><a href="#linearOut">#</a> d3_ease.<b>linearOut</b>(<i>t</i>)
+<br><a href="#linearInOut">#</a> d3_ease.<b>linearInOut</b>(<i>t</i>)
 
 Linear easing; the identity function. Returns *t*.
 
 [<img src="https://raw.githubusercontent.com/d3/d3-ease/master/img/linearIn.png" alt="linearIn" width="100%" height="240">](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#linearIn)
 
-<a name="poly" href="#poly">#</a> d3_ease.<b>poly</b>(<i>t</i>[, <i>e</i>])
-<br><a name="polyIn" href="#polyIn">#</a> d3_ease.<b>polyIn</b>(<i>t</i>[, <i>e</i>])
+<a name="polyIn" href="#polyIn">#</a> d3_ease.<b>polyIn</b>(<i>t</i>[, <i>e</i>])
 
 Polynomial easing; raises *t* to the specified power *e*. If *e* is not specified, it defaults to 3, equivalent to [cubicIn](#cubicIn).
 
@@ -57,8 +55,7 @@ Symmetric polynomial easing; scales [polyIn](#polyIn) for *t* in [0, 0.5] and [p
 
 [<img src="https://raw.githubusercontent.com/d3/d3-ease/master/img/polyInOut.png" alt="polyInOut" width="100%" height="240">](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#polyInOut)
 
-<a name="quad" href="#quad">#</a> d3_ease.<b>quad</b>(<i>t</i>)
-<br><a name="quadIn" href="#quadIn">#</a> d3_ease.<b>quadIn</b>(<i>t</i>)
+<a name="quadIn" href="#quadIn">#</a> d3_ease.<b>quadIn</b>(<i>t</i>)
 
 Quadratic easing; equivalent to [polyIn](#polyIn)(*t*, 2).
 
@@ -76,8 +73,7 @@ Symmetric quadratic easing; scales [quadIn](#quadIn) for *t* in [0, 0.5] and [qu
 
 [<img src="https://raw.githubusercontent.com/d3/d3-ease/master/img/quadInOut.png" alt="quadInOut" width="100%" height="240">](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#quadInOut)
 
-<a name="cubic" href="#cubic">#</a> d3_ease.<b>cubic</b>(t)
-<br><a name="cubicIn" href="#cubicIn">#</a> d3_ease.<b>cubicIn</b>(<i>t</i>)
+<a name="cubicIn" href="#cubicIn">#</a> d3_ease.<b>cubicIn</b>(<i>t</i>)
 
 Cubic easing; equivalent to [polyIn](#polyIn)(*t*, 3).
 
@@ -95,8 +91,7 @@ Symmetric cubic easing; scales [cubicIn](#cubicIn) for *t* in [0, 0.5] and [cubi
 
 [<img src="https://raw.githubusercontent.com/d3/d3-ease/master/img/cubicInOut.png" alt="cubicInOut" width="100%" height="240">](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#cubicInOut)
 
-<a name="sin" href="#sin">#</a> d3_ease.<b>sin</b>(<i>t</i>)
-<br><a name="sinIn" href="#sinIn">#</a> d3_ease.<b>sinIn</b>(<i>t</i>)
+<a name="sinIn" href="#sinIn">#</a> d3_ease.<b>sinIn</b>(<i>t</i>)
 
 Sinusoidal easing; returns sin(*t*).
 
@@ -114,8 +109,7 @@ Symmetric sinusoidal easing; scales [sinIn](#sinIn) for *t* in [0, 0.5] and [sin
 
 [<img src="https://raw.githubusercontent.com/d3/d3-ease/master/img/sinInOut.png" alt="sinInOut" width="100%" height="240">](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#sinInOut)
 
-<a name="exp" href="#exp">#</a> d3_ease.<b>exp</b>(<i>t</i>)
-<br><a name="expIn" href="#expIn">#</a> d3_ease.<b>expIn</b>(<i>t</i>)
+<a name="expIn" href="#expIn">#</a> d3_ease.<b>expIn</b>(<i>t</i>)
 
 Exponential easing; raises 2 to the power 10 \* (*t* - 1).
 
@@ -133,8 +127,7 @@ Symmetric exponential easing; scales [expIn](#expIn) for *t* in [0, 0.5] and [ex
 
 [<img src="https://raw.githubusercontent.com/d3/d3-ease/master/img/expInOut.png" alt="expInOut" width="100%" height="240">](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#expInOut)
 
-<a name="circle" href="#circle">#</a> d3_ease.<b>circle</b>(<i>t</i>)
-<br><a name="circleIn" href="#circleIn">#</a> d3_ease.<b>circleIn</b>(<i>t</i>)
+<a name="circleIn" href="#circleIn">#</a> d3_ease.<b>circleIn</b>(<i>t</i>)
 
 Circular easing.
 
@@ -152,8 +145,7 @@ Symmetric circular easing; scales [circleIn](#circleIn) for *t* in [0, 0.5] and 
 
 [<img src="https://raw.githubusercontent.com/d3/d3-ease/master/img/circleInOut.png" alt="circleInOut" width="100%" height="240">](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#circleInOut)
 
-<a name="elastic" href="#elastic">#</a> d3_ease.<b>elastic</b>(<i>t</i>[, <i>a</i>[, <i>p</i>]])
-<br><a name="elasticIn" href="#elasticIn">#</a> d3_ease.<b>elasticIn</b>(<i>t</i>[, <i>a</i>[, <i>p</i>]])
+<a name="elasticIn" href="#elasticIn">#</a> d3_ease.<b>elasticIn</b>(<i>t</i>[, <i>a</i>[, <i>p</i>]])
 
 Elastic easing, like a rubber band. The parameters *a* and *p* control the amplitude and period of the oscillation; if not specified, they default to 1 and 0.3, respectively.
 
@@ -171,8 +163,7 @@ Symmetric elastic easing; scales [elasticIn](#elasticIn) for *t* in [0, 0.5] and
 
 [<img src="https://raw.githubusercontent.com/d3/d3-ease/master/img/elasticInOut.png" alt="elasticInOut" width="100%" height="360">](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#elasticInOut)
 
-<a name="back" href="#back">#</a> d3_ease.<b>back</b>(<i>t</i>[, <i>s</i>])
-<br><a name="backIn" href="#backIn">#</a> d3_ease.<b>backIn</b>(<i>t</i>[, <i>s</i>])
+<a name="backIn" href="#backIn">#</a> d3_ease.<b>backIn</b>(<i>t</i>[, <i>s</i>])
 
 [Anticipatory](https://en.wikipedia.org/wiki/12_basic_principles_of_animation#Anticipation) easing, like a dancer bending his knees before jumping off the floor. The amount of anticipation (“backing up”) is determined by the parameter *s*; it not specified, it defaults to 1.70158.
 
@@ -190,8 +181,7 @@ Symmetric anticipatory easing; scales [backIn](#backIn) for *t* in [0, 0.5] and 
 
 [<img src="https://raw.githubusercontent.com/d3/d3-ease/master/img/backInOut.png" alt="backInOut" width="100%" height="300">](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#backInOut)
 
-<a name="bounce" href="#bounce">#</a> d3_ease.<b>bounce</b>(<i>t</i>)
-<br><a name="bounceIn" href="#bounceIn">#</a> d3_ease.<b>bounceIn</b>(<i>t</i>)
+<a name="bounceIn" href="#bounceIn">#</a> d3_ease.<b>bounceIn</b>(<i>t</i>)
 
 Bounce easing, like a rubber ball.
 

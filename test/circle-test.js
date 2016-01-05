@@ -4,11 +4,6 @@ var tape = require("tape"),
 
 require("./inDelta");
 
-tape("circle is an alias for circleIn", function(test) {
-  test.equal(ease.circle, ease.circleIn);
-  test.end();
-});
-
 tape("circleIn(t) returns the expected results", function(test) {
   test.inDelta(ease.circleIn(0.0), 0.000000);
   test.inDelta(ease.circleIn(0.1), 0.005013);
@@ -31,7 +26,7 @@ tape("circleIn(t) coerces t to a number", function(test) {
 });
 
 tape("circleOut(t) returns the expected results", function(test) {
-  var circleOut = generic.out(ease.circle);
+  var circleOut = generic.out(ease.circleIn);
   test.inDelta(ease.circleOut(0.0), circleOut(0.0));
   test.inDelta(ease.circleOut(0.1), circleOut(0.1));
   test.inDelta(ease.circleOut(0.2), circleOut(0.2));
@@ -53,7 +48,7 @@ tape("circleOut(t) coerces t to a number", function(test) {
 });
 
 tape("circleInOut(t) returns the expected results", function(test) {
-  var circleInOut = generic.inOut(ease.circle);
+  var circleInOut = generic.inOut(ease.circleIn);
   test.inDelta(ease.circleInOut(0.0), circleInOut(0.0));
   test.inDelta(ease.circleInOut(0.1), circleInOut(0.1));
   test.inDelta(ease.circleInOut(0.2), circleInOut(0.2));

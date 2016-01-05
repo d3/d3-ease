@@ -4,11 +4,6 @@ var tape = require("tape"),
 
 require("./inDelta");
 
-tape("sin is an alias for sinIn", function(test) {
-  test.equal(ease.sin, ease.sinIn);
-  test.end();
-});
-
 tape("sinIn(t) returns the expected results", function(test) {
   test.inDelta(ease.sinIn(0.0), 0.000000);
   test.inDelta(ease.sinIn(0.1), 0.012312);
@@ -31,7 +26,7 @@ tape("sinIn(t) coerces t to a number", function(test) {
 });
 
 tape("sinOut(t) returns the expected results", function(test) {
-  var sinOut = generic.out(ease.sin);
+  var sinOut = generic.out(ease.sinIn);
   test.inDelta(ease.sinOut(0.0), sinOut(0.0));
   test.inDelta(ease.sinOut(0.1), sinOut(0.1));
   test.inDelta(ease.sinOut(0.2), sinOut(0.2));
@@ -53,7 +48,7 @@ tape("sinOut(t) coerces t to a number", function(test) {
 });
 
 tape("sinInOut(t) returns the expected results", function(test) {
-  var sinInOut = generic.inOut(ease.sin);
+  var sinInOut = generic.inOut(ease.sinIn);
   test.inDelta(ease.sinInOut(0.0), sinInOut(0.0));
   test.inDelta(ease.sinInOut(0.1), sinInOut(0.1));
   test.inDelta(ease.sinInOut(0.2), sinInOut(0.2));

@@ -4,11 +4,6 @@ var tape = require("tape"),
 
 require("./inDelta");
 
-tape("poly is an alias for polyIn", function(test) {
-  test.equal(ease.poly, ease.polyIn);
-  test.end();
-});
-
 tape("polyIn(t) returns the expected results", function(test) {
   test.inDelta(ease.polyIn(0.0), 0.000);
   test.inDelta(ease.polyIn(0.1), 0.001);
@@ -100,7 +95,7 @@ tape("polyOut(t, undefined) is the same as polyOut(t, 3.0)", function(test) {
 });
 
 tape("polyOut(t, 2.5) returns the expected results", function(test) {
-  var polyOut = generic.out(ease.bind(ease.poly, 2.5));
+  var polyOut = generic.out(ease.bind(ease.polyIn, 2.5));
   test.inDelta(ease.polyOut(0.0, 2.5), polyOut(0.0));
   test.inDelta(ease.polyOut(0.1, 2.5), polyOut(0.1));
   test.inDelta(ease.polyOut(0.2, 2.5), polyOut(0.2));
@@ -143,7 +138,7 @@ tape("polyInOut(t, undefined) is the same as polyInOut(t, 3.0)", function(test) 
 });
 
 tape("polyInOut(t, 2.5) returns the expected results", function(test) {
-  var polyInOut = generic.inOut(ease.bind(ease.poly, 2.5));
+  var polyInOut = generic.inOut(ease.bind(ease.polyIn, 2.5));
   test.inDelta(ease.polyInOut(0.0, 2.5), polyInOut(0.0));
   test.inDelta(ease.polyInOut(0.1, 2.5), polyInOut(0.1));
   test.inDelta(ease.polyInOut(0.2, 2.5), polyInOut(0.2));
