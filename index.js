@@ -1,4 +1,6 @@
-export {default as bind} from "./src/bind";
+export {
+  default as easeBind
+} from "./src/bind";
 
 export {
   linearIn as easeLinearIn,

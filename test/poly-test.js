@@ -95,7 +95,7 @@ tape("easePolyOut(t, undefined) is the same as polyOut(t, 3.0)", function(test) 
 });
 
 tape("easePolyOut(t, 2.5) returns the expected results", function(test) {
-  var polyOut = generic.out(ease.bind(ease.easePolyIn, 2.5));
+  var polyOut = generic.out(ease.easeBind(ease.easePolyIn, 2.5));
   test.inDelta(ease.easePolyOut(0.0, 2.5), polyOut(0.0));
   test.inDelta(ease.easePolyOut(0.1, 2.5), polyOut(0.1));
   test.inDelta(ease.easePolyOut(0.2, 2.5), polyOut(0.2));
@@ -138,7 +138,7 @@ tape("easePolyInOut(t, undefined) is the same as polyInOut(t, 3.0)", function(te
 });
 
 tape("easePolyInOut(t, 2.5) returns the expected results", function(test) {
-  var polyInOut = generic.inOut(ease.bind(ease.easePolyIn, 2.5));
+  var polyInOut = generic.inOut(ease.easeBind(ease.easePolyIn, 2.5));
   test.inDelta(ease.easePolyInOut(0.0, 2.5), polyInOut(0.0));
   test.inDelta(ease.easePolyInOut(0.1, 2.5), polyInOut(0.1));
   test.inDelta(ease.easePolyInOut(0.2, 2.5), polyInOut(0.2));
