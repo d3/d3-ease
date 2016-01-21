@@ -28,4 +28,4 @@ export default function(type, a, b) {
     case 3: return bind2(type, a, b);
     default: return bindN(type, arguments);
   }
-};
+}
