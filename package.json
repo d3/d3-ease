@@ -1,6 +1,6 @@
 {
   "name": "d3-ease",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Easing functions for smooth animation.",
   "keywords": [
     "d3",
@@ -22,13 +22,14 @@
     "url": "https://github.com/d3/d3-ease.git"
   },
   "scripts": {
-    "pretest": "mkdir -p build && node -e 'process.stdout.write(\"var version = \\\"\" + require(\"./package.json\").version + \"\\\"; export * from \\\"../index\\\"; export {version};\");' > build/bundle.js && rollup -f umd -u d3-ease -n d3_ease -o build/d3-ease.js -- build/bundle.js",
+    "pretest": "mkdir -p build && node -e 'process.stdout.write(\"var version = \\\"\" + require(\"./package.json\").version + \"\\\"; export * from \\\"../index\\\"; export {version};\");' > build/bundle.js && rollup -f umd -n d3_ease -o build/d3-ease.js -- build/bundle.js",
     "test": "faucet `find test -name '*-test.js'` && eslint index.js src",
-    "prepublish": "npm run test && uglifyjs build/d3-ease.js -c -m -o build/d3-ease.min.js && rm -f build/d3-ease.zip && zip -j build/d3-ease.zip -- LICENSE README.md build/d3-ease.js build/d3-ease.min.js"
+    "prepublish": "npm run test && uglifyjs build/d3-ease.js -c -m -o build/d3-ease.min.js && rm -f build/d3-ease.zip && zip -j build/d3-ease.zip -- LICENSE README.md build/d3-ease.js build/d3-ease.min.js",
+    "postpublish": "VERSION=`node -e 'console.log(require(\"./package.json\").version)'`; git push && git tag -am \"Release $VERSION.\" v${VERSION} && git push --tags && cp build/d3-ease.js ../d3.github.com/d3-ease.v0.5.js && cp build/d3-ease.min.js ../d3.github.com/d3-ease.v0.5.min.js && cd ../d3.github.com && git add d3-ease.v0.5.js d3-ease.v0.5.min.js && git commit -m \"d3-ease ${VERSION}\" && git push"
   },
   "devDependencies": {
     "faucet": "0.0",
-    "rollup": "0.20.5",
+    "rollup": "0.25",
     "tape": "4",
     "uglify-js": "2"
   }
