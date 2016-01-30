@@ -1,22 +1,38 @@
-var tau = 2 * Math.PI;
+var tau = 2 * Math.PI,
+    amplitude = 1,
+    period = 0.3;
 
-export function elasticIn(t, a, p) {
-  a = a == null ? 1 : Math.max(1, a);
-  p = (p == null ? 0.3 : p) / tau;
-  return a * Math.pow(2, 10 * --t) * Math.sin((p * Math.asin(1 / a) - t) / p);
-}
+export var elasticIn = (function elasticIn(a, p) {
+  var s = Math.asin(1 / (a = Math.max(1, a))) * (p /= tau);
+  return {
+    amplitude: function(a) { return elasticIn(a, p * tau); },
+    period: function(p) { return elasticIn(a, p); },
+    ease: function(t) {
+      return a * Math.pow(2, 10 * --t) * Math.sin((s - t) / p);
+    }
+  };
+})(amplitude, period);
 
-export function elasticOut(t, a, p) {
-  a = a == null ? 1 : Math.max(1, a);
-  p = (p == null ? 0.3 : p) / tau;
-  return 1 - a * Math.pow(2, -10 * t) * Math.sin((+t + p * Math.asin(1 / a)) / p);
-}
+export var elasticOut = (function elasticOut(a, p) {
+  var s = Math.asin(1 / (a = Math.max(1, a))) * (p /= tau);
+  return {
+    amplitude: function(a) { return elasticOut(a, p * tau); },
+    period: function(p) { return elasticOut(a, p); },
+    ease: function(t) {
+      return 1 - a * Math.pow(2, -10 * (t = +t)) * Math.sin((t + s) / p);
+    }
+  };
+})(amplitude, period);
 
-export function elasticInOut(t, a, p) {
-  a = a == null ? 1 : Math.max(1, a);
-  p = (p == null ? 0.3 : p) / tau;
-  var s = p * Math.asin(1 / a);
-  return ((t = t * 2 - 1) < 0
-      ? a * Math.pow(2, 10 * t) * Math.sin((s - t) / p)
-      : 2 - a * Math.pow(2, -10 * t) * Math.sin((s + t) / p)) / 2;
-}
+export var elasticInOut = (function elasticInOut(a, p) {
+  var s = Math.asin(1 / (a = Math.max(1, a))) * (p /= tau);
+  return {
+    amplitude: function(a) { return elasticInOut(a, p * tau); },
+    period: function(p) { return elasticInOut(a, p); },
+    ease: function(t) {
+      return ((t = t * 2 - 1) < 0
+          ? a * Math.pow(2, 10 * t) * Math.sin((s - t) / p)
+          : 2 - a * Math.pow(2, -10 * t) * Math.sin((s + t) / p)) / 2;
+    }
+  };
+})(amplitude, period);

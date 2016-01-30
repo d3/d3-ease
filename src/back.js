@@ -1,14 +1,28 @@
-export function backIn(t, s) {
-  s = s == null ? 1.70158 : +s;
-  return t * t * ((s + 1) * t - s);
-}
+var overshoot = 1.70158;
 
-export function backOut(t, s) {
-  s = s == null ? 1.70158 : +s;
-  return --t * t * ((s + 1) * t + s) + 1;
-}
+export var backIn = (function backIn(s) {
+  return s = +s, {
+    overshoot: backIn,
+    ease: function(t) {
+      return t * t * ((s + 1) * t - s);
+    }
+  };
+})(overshoot);
 
-export function backInOut(t, s) {
-  s = s == null ? 1.70158 : +s;
-  return ((t *= 2) < 1 ? t * t * ((s + 1) * t - s) : (t -= 2) * t * ((s + 1) * t + s) + 2) / 2;
-}
+export var backOut = (function backOut(s) {
+  return s = +s, {
+    overshoot: backOut,
+    ease: function(t) {
+      return --t * t * ((s + 1) * t + s) + 1;
+    }
+  };
+})(overshoot);
+
+export var backInOut = (function backInOut(s) {
+  return s = +s, {
+    overshoot: backInOut,
+    ease: function(t) {
+      return ((t *= 2) < 1 ? t * t * ((s + 1) * t - s) : (t -= 2) * t * ((s + 1) * t + s) + 2) / 2;
+    }
+  };
+})(overshoot);

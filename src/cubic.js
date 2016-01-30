@@ -1,11 +1,17 @@
-export function cubicIn(t) {
-  return t * t * t;
-}
+export var cubicIn = {
+  ease: function(t) {
+    return t * t * t;
+  }
+};
 
-export function cubicOut(t) {
-  return --t * t * t + 1;
-}
+export var cubicOut = {
+  ease: function(t) {
+    return --t * t * t + 1;
+  }
+};
 
-export function cubicInOut(t) {
-  return ((t *= 2) <= 1 ? t * t * t : (t -= 2) * t * t + 2) / 2;
-}
+export var cubicInOut = {
+  ease: function(t) {
+    return ((t *= 2) <= 1 ? t * t * t : (t -= 2) * t * t + 2) / 2;
+  }
+};
