@@ -2,7 +2,7 @@
 
 *Easing* is a method of distorting time to control apparent motion in animation. It is most commonly used for [slow-in, slow-out](https://en.wikipedia.org/wiki/12_basic_principles_of_animation#Slow_In_and_Slow_Out). By easing time, [animated transitions](https://github.com/d3/d3-transition) are smoother and exhibit more plausible motion.
 
-The easing types in this module implement the [ease method](#ease_ease), which takes a single argument: the time *t*, typically in the normalized range [0,1]. The ease method then returns the “eased” time *tʹ*, typically in the same range [0,1]. (Though note that some easing methods, such as [easeElastic](#easeElastic), may return eased values somewhat outside the range [0,1].) A good easing type should return 0 if *t* = 0 and 1 if *t* = 1. See the [easing explorer](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4) for a visual demonstration.
+The easing types in this module implement the [ease method](#ease_ease), which takes the time *t* as an argument, and returns the “eased” time *tʹ*. Both the input time and the eased time are typically in the same range [0,1], though some easing types such as [easeElastic](#easeElastic) may return eased times somewhat outside this range. A good easing type should return 0 if *t* = 0 and 1 if *t* = 1. See the [easing explorer](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4) for a visual demonstration.
 
 These easing types are largely based on work by [Robert Penner](http://robertpenner.com/easing/).
 
@@ -20,7 +20,7 @@ In a vanilla environment, a `d3_ease` global is exported. [Try d3-ease in your b
 
 <a name="ease_ease" href="#ease_ease">#</a> *ease*.<b>ease</b>(<i>t</i>)
 
-Given the specified time *t*, typically in the normalized range [0,1], returns the “eased” time *tʹ*, also typically in the same range [0,1]. A good implementation returns 0 if *t* = 0 and 1 if *t* = 1. See the [easing explorer](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4) for a visual demonstration.
+Given the specified time *t*, typically in the normalized range [0,1], returns the “eased” time *tʹ*, also typically in [0,1]. A good implementation returns 0 if *t* = 0 and 1 if *t* = 1. See the [easing explorer](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4) for a visual demonstration.
 
 <a name="easeLinearIn" href="#easeLinearIn">#</a> d3.<b>easeLinearIn</b>
 <br><a name="easeLinearOut" href="#easeLinearOut">#</a> d3.<b>easeLinearOut</b>
