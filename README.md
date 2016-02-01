@@ -26,14 +26,14 @@ Given the specified normalized time *t*, typically in the range [0,1], returns t
 var te = d3.easeCubicInOut.ease(t);
 ```
 
-Similarly, to apply custom [elasticIn](#easeElasticIn) easing:
+Similarly, to apply custom [elasticOut](#easeElasticOut) easing:
 
 ```js
 // Before the animation starts, create your easing function.
-var customElasticIn = d3.easeElasticIn.period(0.4);
+var customElasticOut = d3.easeElasticOut.period(0.4);
 
 // During the animation, apply the easing function.
-var te = customElasticIn.ease(t);
+var te = customElasticOut.ease(t);
 ```
 
 <a name="easeLinearIn" href="#easeLinearIn">#</a> d3.<b>easeLinearIn</b>
