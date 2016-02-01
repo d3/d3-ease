@@ -26,7 +26,7 @@ Given the specified normalized time *t*, typically in the range [0,1], returns t
 <br><a name="easeLinearOut" href="#easeLinearOut">#</a> d3.<b>easeLinearOut</b>
 <br><a name="easeLinearInOut" href="#easeLinearInOut">#</a> d3.<b>easeLinearInOut</b>
 
-Linear easing; the identity function. Returns *t*.
+Linear easing; the identity function; *linear*.ease(*t*) returns *t*.
 
 [<img src="https://raw.githubusercontent.com/d3/d3-ease/master/img/linearIn.png" alt="linearIn" width="100%" height="240">](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#linearIn)
 
