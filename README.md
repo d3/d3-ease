@@ -20,7 +20,21 @@ In a vanilla environment, a `d3_ease` global is exported. [Try d3-ease in your b
 
 <a name="ease_ease" href="#ease_ease">#</a> *ease*.<b>ease</b>(<i>t</i>)
 
-Given the specified normalized time *t*, typically in the range [0,1], returns the “eased” time *tʹ*, also typically in [0,1]. 0 represents the start of the animation and 1 represents the end. A good implementation returns 0 if *t* = 0 and 1 if *t* = 1. See the [easing explorer](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4) for a visual demonstration.
+Given the specified normalized time *t*, typically in the range [0,1], returns the “eased” time *tʹ*, also typically in [0,1]. 0 represents the start of the animation and 1 represents the end. A good implementation returns 0 if *t* = 0 and 1 if *t* = 1. See the [easing explorer](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4) for a visual demonstration. For example, to apply [cubicInOut](#easeCubicInOut) easing:
+
+```js
+var te = d3.easeCubicInOut.ease(t);
+```
+
+Similarly, to apply custom [elasticIn](#easeElasticIn) easing:
+
+```js
+// Before the animation starts, create your easing function.
+var customElasticIn = d3.easeElasticIn.period(0.4);
+
+// During the animation, apply the easing function.
+var te = customElasticIn.ease(t);
+```
 
 <a name="easeLinearIn" href="#easeLinearIn">#</a> d3.<b>easeLinearIn</b>
 <br><a name="easeLinearOut" href="#easeLinearOut">#</a> d3.<b>easeLinearOut</b>
