@@ -218,7 +218,7 @@ Bounce easing, like a rubber ball.
 
 <a name="easeBounceOut" href="#easeBounceOut">#</a> d3.<b>easeBounceOut</b>
 
-Reverse bounce easing; equivalent to 1 - [bounceIn](#easeBounceIn)(1 - *t*).
+Reverse bounce easing; equivalent to 1 - [bounceIn](#easeBounceIn).ease(1 - *t*).
 
 [<img src="https://raw.githubusercontent.com/d3/d3-ease/master/img/bounceOut.png" alt="bounceOut" width="100%" height="240">](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#bounceOut)
 
