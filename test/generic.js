@@ -1,15 +1,11 @@
 exports.out = function(easeIn) {
-  return {
-    ease: function(t) {
-      return 1 - easeIn.ease(1 - t);
-    }
+  return function(t) {
+    return 1 - easeIn(1 - t);
   };
 };
 
 exports.inOut = function(easeIn) {
-  return {
-    ease: function(t) {
-      return (t < 0.5 ? easeIn.ease(t * 2) : (2 - easeIn.ease((1 - t) * 2))) / 2;
-    }
+  return function(t) {
+    return (t < 0.5 ? easeIn(t * 2) : (2 - easeIn((1 - t) * 2))) / 2;
   };
 };

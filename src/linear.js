@@ -1,5 +1,3 @@
-export var linear = {
-  ease: function(t) {
-    return +t;
-  }
-};
+export function linear(t) {
+  return +t;
+}
