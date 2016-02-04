@@ -23,26 +23,24 @@ In a vanilla environment, a `d3_ease` global is exported. [Try d3-ease in your b
 Given the specified normalized time *t*, typically in the range [0,1], returns the “eased” time *tʹ*, also typically in [0,1]. 0 represents the start of the animation and 1 represents the end. A good implementation returns 0 if *t* = 0 and 1 if *t* = 1. See the [easing explorer](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4) for a visual demonstration. For example, to apply [cubicInOut](#easeCubicInOut) easing:
 
 ```js
-var te = d3.easeCubicInOut.ease(t);
+var te = d3.easeCubic.ease(t);
 ```
 
-Similarly, to apply custom [elasticOut](#easeElasticOut) easing:
+Similarly, to apply custom [elastic](#easeElastic) easing:
 
 ```js
 // Before the animation starts, create your easing function.
-var customElasticOut = d3.easeElasticOut.period(0.4);
+var customElastic = d3.easeElastic.period(0.4);
 
 // During the animation, apply the easing function.
-var te = customElasticOut.ease(t);
+var te = customElastic.ease(t);
 ```
 
-<a name="easeLinearIn" href="#easeLinearIn">#</a> d3.<b>easeLinearIn</b>
-<br><a name="easeLinearOut" href="#easeLinearOut">#</a> d3.<b>easeLinearOut</b>
-<br><a name="easeLinearInOut" href="#easeLinearInOut">#</a> d3.<b>easeLinearInOut</b>
+<a name="easeLinear" href="#easeLinear">#</a> d3.<b>easeLinear</b>
 
 Linear easing; the identity function; *linear*.ease(*t*) returns *t*.
 
-[<img src="https://raw.githubusercontent.com/d3/d3-ease/master/img/linearIn.png" alt="linearIn" width="100%" height="240">](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#linearIn)
+[<img src="https://raw.githubusercontent.com/d3/d3-ease/master/img/linear.png" alt="linear" width="100%" height="240">](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#linear)
 
 <a name="easePolyIn" href="#easePolyIn">#</a> d3.<b>easePolyIn</b>
 
@@ -56,20 +54,21 @@ Reverse polynomial easing; equivalent to 1 - [polyIn](#easePolyIn).ease(1 - *t*)
 
 [<img src="https://raw.githubusercontent.com/d3/d3-ease/master/img/polyOut.png" alt="polyOut" width="100%" height="240">](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#polyOut)
 
-<a name="easePolyInOut" href="#easePolyInOut">#</a> d3.<b>easePolyInOut</b>
+<a name="easePoly" href="#easePoly">#</a> d3.<b>easePoly</b>
+<br><a name="easePolyInOut" href="#easePolyInOut">#</a> d3.<b>easePolyInOut</b>
 
-Symmetric polynomial easing; scales [polyIn](#easePolyIn) for *t* in [0, 0.5] and [polyOut](#easePolyOut) for *t* in [0.5, 1]. If the [exponent](#poly_exponent) is not specified, it defaults to 3, equivalent to [cubicInOut](#easeCubicInOut).
+Symmetric polynomial easing; scales [polyIn](#easePolyIn) for *t* in [0, 0.5] and [polyOut](#easePolyOut) for *t* in [0.5, 1]. If the [exponent](#poly_exponent) is not specified, it defaults to 3, equivalent to [cubic](#easeCubic).
 
 [<img src="https://raw.githubusercontent.com/d3/d3-ease/master/img/polyInOut.png" alt="polyInOut" width="100%" height="240">](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#polyInOut)
 
 <a name="poly_exponent" href="#poly_exponent">#</a> <i>poly</i>.<b>exponent</b>(<i>e</i>)
 
-Returns a new polynomial easing with the specified exponent *e*. For example, to create equivalents of [linearIn](#easeLinearIn), [quadIn](#easeQuadIn), and [cubicIn](#easeCubicIn):
+Returns a new polynomial easing with the specified exponent *e*. For example, to create equivalents of [linear](#easeLinear), [quad](#easeQuad), and [cubic](#easeCubic):
 
 ```js
-var linearIn = d3.easePolyIn.exponent(1),
-    quadIn = d3.easePolyIn.exponent(2),
-    cubicIn = d3.easePolyIn.exponent(3);
+var linear = d3.easePoly.exponent(1),
+    quad = d3.easePoly.exponent(2),
+    cubic = d3.easePoly.exponent(3);
 ```
 
 <a name="easeQuadIn" href="#easeQuadIn">#</a> d3.<b>easeQuadIn</b>
@@ -84,9 +83,10 @@ Reverse quadratic easing; equivalent to 1 - [quadIn](#easeQuadIn).ease(1 - *t*).
 
 [<img src="https://raw.githubusercontent.com/d3/d3-ease/master/img/quadOut.png" alt="quadOut" width="100%" height="240">](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#quadOut)
 
-<a name="easeQuadInOut" href="#easeQuadInOut">#</a> d3.<b>easeQuadInOut</b>
+<a name="easeQuad" href="#easeQuad">#</a> d3.<b>easeQuad</b>
+<br><a name="easeQuadInOut" href="#easeQuadInOut">#</a> d3.<b>easeQuadInOut</b>
 
-Symmetric quadratic easing; scales [quadIn](#easeQuadIn) for *t* in [0, 0.5] and [quadOut](#easeQuadOut) for *t* in [0.5, 1]. Also equivalent to [polyInOut](#easePolyInOut).[exponent](#poly_exponent)(2).
+Symmetric quadratic easing; scales [quadIn](#easeQuadIn) for *t* in [0, 0.5] and [quadOut](#easeQuadOut) for *t* in [0.5, 1]. Also equivalent to [poly](#easePoly).[exponent](#poly_exponent)(2).
 
 [<img src="https://raw.githubusercontent.com/d3/d3-ease/master/img/quadInOut.png" alt="quadInOut" width="100%" height="240">](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#quadInOut)
 
@@ -102,9 +102,10 @@ Reverse cubic easing; equivalent to 1 - [cubicIn](#easeCubicIn).ease(1 - *t*). A
 
 [<img src="https://raw.githubusercontent.com/d3/d3-ease/master/img/cubicOut.png" alt="cubicOut" width="100%" height="240">](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#cubicOut)
 
-<a name="easeCubicInOut" href="#easeCubicInOut">#</a> d3.<b>easeCubicInOut</b>
+<a name="easeCubic" href="#easeCubic">#</a> d3.<b>easeCubic</b>
+<br><a name="easeCubicInOut" href="#easeCubicInOut">#</a> d3.<b>easeCubicInOut</b>
 
-Symmetric cubic easing; scales [cubicIn](#easeCubicIn) for *t* in [0, 0.5] and [cubicOut](#easeCubicOut) for *t* in [0.5, 1]. Also equivalent to [polyInOut](#easePolyInOut).[exponent](#poly_exponent)(3).
+Symmetric cubic easing; scales [cubicIn](#easeCubicIn) for *t* in [0, 0.5] and [cubicOut](#easeCubicOut) for *t* in [0.5, 1]. Also equivalent to [poly](#easePoly).[exponent](#poly_exponent)(3).
 
 [<img src="https://raw.githubusercontent.com/d3/d3-ease/master/img/cubicInOut.png" alt="cubicInOut" width="100%" height="240">](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#cubicInOut)
 
@@ -120,7 +121,8 @@ Reverse sinusoidal easing; equivalent to 1 - [sinIn](#easeSinIn).ease(1 - *t*).
 
 [<img src="https://raw.githubusercontent.com/d3/d3-ease/master/img/sinOut.png" alt="sinOut" width="100%" height="240">](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#sinOut)
 
-<a name="easeSinInOut" href="#easeSinInOut">#</a> d3.<b>easeSinInOut</b>
+<a name="easeSin" href="#easeSin">#</a> d3.<b>easeSin</b>
+<br><a name="easeSinInOut" href="#easeSinInOut">#</a> d3.<b>easeSinInOut</b>
 
 Symmetric sinusoidal easing; scales [sinIn](#easeSinIn) for *t* in [0, 0.5] and [sinOut](#easeSinOut) for *t* in [0.5, 1].
 
@@ -138,7 +140,8 @@ Reverse exponential easing; equivalent to 1 - [expIn](#easeExpIn).ease(1 - *t*).
 
 [<img src="https://raw.githubusercontent.com/d3/d3-ease/master/img/expOut.png" alt="expOut" width="100%" height="240">](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#expOut)
 
-<a name="easeExpInOut" href="#easeExpInOut">#</a> d3.<b>easeExpInOut</b>
+<a name="easeExp" href="#easeExp">#</a> d3.<b>easeExp</b>
+<br><a name="easeExpInOut" href="#easeExpInOut">#</a> d3.<b>easeExpInOut</b>
 
 Symmetric exponential easing; scales [expIn](#easeExpIn) for *t* in [0, 0.5] and [expOut](#easeExpOut) for *t* in [0.5, 1].
 
@@ -156,7 +159,8 @@ Reverse circular easing; equivalent to 1 - [circleIn](#easeCircleIn).ease(1 - *t
 
 [<img src="https://raw.githubusercontent.com/d3/d3-ease/master/img/circleOut.png" alt="circleOut" width="100%" height="240">](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#circleOut)
 
-<a name="easeCircleInOut" href="#easeCircleInOut">#</a> d3.<b>easeCircleInOut</b>
+<a name="easeCircle" href="#easeCircle">#</a> d3.<b>easeCircle</b>
+<br><a name="easeCircleInOut" href="#easeCircleInOut">#</a> d3.<b>easeCircleInOut</b>
 
 Symmetric circular easing; scales [circleIn](#easeCircleIn) for *t* in [0, 0.5] and [circleOut](#easeCircleOut) for *t* in [0.5, 1].
 
@@ -168,7 +172,8 @@ Elastic easing, like a rubber band. The [amplitude](#elastic_amplitude) and [per
 
 [<img src="https://raw.githubusercontent.com/d3/d3-ease/master/img/elasticIn.png" alt="elasticIn" width="100%" height="360">](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#elasticIn)
 
-<a name="easeElasticOut" href="#easeElasticOut">#</a> d3.<b>easeElasticOut</b>
+<a name="easeElastic" href="#easeElastic">#</a> d3.<b>easeElastic</b>
+<br><a name="easeElasticOut" href="#easeElasticOut">#</a> d3.<b>easeElasticOut</b>
 
 Reverse elastic easing; equivalent to 1 - [elasticIn](#easeElasticIn).ease(1 - *t*).
 
@@ -200,7 +205,8 @@ Reverse anticipatory easing; equivalent to 1 - [backIn](#easeBackIn).ease(1 - *t
 
 [<img src="https://raw.githubusercontent.com/d3/d3-ease/master/img/backOut.png" alt="backOut" width="100%" height="300">](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#backOut)
 
-<a name="easeBackInOut" href="#easeBackInOut">#</a> d3.<b>easeBackInOut</b>
+<a name="easeBack" href="#easeBack">#</a> d3.<b>easeBack</b>
+<br><a name="easeBackInOut" href="#easeBackInOut">#</a> d3.<b>easeBackInOut</b>
 
 Symmetric anticipatory easing; scales [backIn](#easeBackIn) for *t* in [0, 0.5] and [backOut](#easeBackOut) for *t* in [0.5, 1].
 
@@ -216,7 +222,8 @@ Bounce easing, like a rubber ball.
 
 [<img src="https://raw.githubusercontent.com/d3/d3-ease/master/img/bounceIn.png" alt="bounceIn" width="100%" height="240">](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#bounceIn)
 
-<a name="easeBounceOut" href="#easeBounceOut">#</a> d3.<b>easeBounceOut</b>
+<a name="easeBounce" href="#easeBounce">#</a> d3.<b>easeBounce</b>
+<br><a name="easeBounceOut" href="#easeBounceOut">#</a> d3.<b>easeBounceOut</b>
 
 Reverse bounce easing; equivalent to 1 - [bounceIn](#easeBounceIn).ease(1 - *t*).
 

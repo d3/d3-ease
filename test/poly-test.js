@@ -4,6 +4,11 @@ var tape = require("tape"),
 
 require("./inDelta");
 
+tape("easePoly is an alias for easePolyInOut", function(test) {
+  test.equal(ease.easePoly, ease.easePolyInOut);
+  test.end();
+});
+
 tape("easePolyIn.ease(t) returns the expected results", function(test) {
   test.inDelta(ease.easePolyIn.ease(0.0), 0.000);
   test.inDelta(ease.easePolyIn.ease(0.1), 0.001);

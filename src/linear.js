@@ -1,10 +1,5 @@
-export var linearIn = {
+export var linear = {
   ease: function(t) {
     return +t;
   }
-};
-
-export {
-  linearIn as linearOut,
-  linearIn as linearInOut
 };

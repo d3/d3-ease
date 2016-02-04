@@ -4,6 +4,11 @@ var tape = require("tape"),
 
 require("./inDelta");
 
+tape("easeBack is an alias for easeBackInOut", function(test) {
+  test.equal(ease.easeBack, ease.easeBackInOut);
+  test.end();
+});
+
 tape("easeBackIn.ease(t) returns the expected results", function(test) {
   test.inDelta(ease.easeBackIn.ease(0.0),  0.000000);
   test.inDelta(ease.easeBackIn.ease(0.1), -0.014314);

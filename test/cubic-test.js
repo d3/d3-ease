@@ -4,6 +4,11 @@ var tape = require("tape"),
 
 require("./inDelta");
 
+tape("easeCubic is an alias for easeCubicInOut", function(test) {
+  test.equal(ease.easeCubic, ease.easeCubicInOut);
+  test.end();
+});
+
 tape("easeCubicIn.ease(t) returns the expected results", function(test) {
   test.inDelta(ease.easeCubicIn.ease(0.0), 0.000);
   test.inDelta(ease.easeCubicIn.ease(0.1), 0.001);
