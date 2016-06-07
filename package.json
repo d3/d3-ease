@@ -9,7 +9,7 @@
     "animation",
     "transition"
   ],
-  "homepage": "https://github.com/d3/d3-ease",
+  "homepage": "https://d3js.org/d3-ease/",
   "license": "BSD-3-Clause",
   "author": {
     "name": "Mike Bostock",
@@ -22,15 +22,15 @@
     "url": "https://github.com/d3/d3-ease.git"
   },
   "scripts": {
-    "pretest": "rm -rf build && mkdir build && json2module package.json > build/package.js && rollup -f umd -n d3_ease -o build/d3-ease.js -- index.js",
+    "pretest": "rm -rf build && mkdir build && rollup --banner \"$(preamble)\" -f umd -n d3 -o build/d3-ease.js -- index.js",
     "test": "tape 'test/**/*-test.js' && eslint index.js src",
-    "prepublish": "npm run test && uglifyjs build/d3-ease.js -c -m -o build/d3-ease.min.js",
-    "postpublish": "VERSION=`node -e 'console.log(require(\"./package.json\").version)'`; git push && git push --tags && cp build/d3-ease.js ../d3.github.com/d3-ease.v0.7.js && cp build/d3-ease.min.js ../d3.github.com/d3-ease.v0.7.min.js && cd ../d3.github.com && git add d3-ease.v0.7.js d3-ease.v0.7.min.js && git commit -m \"d3-ease ${VERSION}\" && git push && cd - && zip -j build/d3-ease.zip -- LICENSE README.md build/d3-ease.js build/d3-ease.min.js"
+    "prepublish": "npm run test && uglifyjs --preamble \"$(preamble)\" build/d3-ease.js -c -m -o build/d3-ease.min.js",
+    "postpublish": "VERSION=`node -e 'console.log(require(\"./package.json\").version)'`; git push && git push --tags && cp build/d3-ease.js ../d3.github.com/d3-ease.v0.8.js && cp build/d3-ease.min.js ../d3.github.com/d3-ease.v0.8.min.js && cd ../d3.github.com && git add d3-ease.v0.8.js d3-ease.v0.8.min.js && git commit -m \"d3-ease ${VERSION}\" && git push && cd - && zip -j build/d3-ease.zip -- LICENSE README.md build/d3-ease.js build/d3-ease.min.js"
   },
   "devDependencies": {
     "eslint": "2",
-    "json2module": "0.0",
-    "rollup": "0.26",
+    "package-preamble": "0.0",
+    "rollup": "0.27",
     "tape": "4",
     "uglify-js": "2"
   }

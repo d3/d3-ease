@@ -1,8 +1,4 @@
 export {
-  version
-} from "./build/package";
-
-export {
   linear as easeLinear
 } from "./src/linear";
 
