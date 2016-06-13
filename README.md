@@ -217,7 +217,7 @@ Symmetric anticipatory easing; scales [backIn](#easeBackIn) for *t* in [0, 0.5] 
 
 [<img src="https://raw.githubusercontent.com/d3/d3-ease/master/img/backInOut.png" alt="backInOut" width="100%" height="300">](http://bl.ocks.org/mbostock/248bac3b8e354a9103c4/#backInOut)
 
-<a name="back_amplitude" href="#back_amplitude">#</a> <i>back</i>.<b>overshoot</b>(<i>s</i>)
+<a name="back_overshoot" href="#back_overshoot">#</a> <i>back</i>.<b>overshoot</b>(<i>s</i>)
 
 Returns a new back easing with the specified overshoot *s*.
 
