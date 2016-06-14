@@ -1,6 +1,6 @@
 {
   "name": "d3-ease",
-  "version": "0.8.0",
+  "version": "1.0.0",
   "description": "Easing functions for smooth animation.",
   "keywords": [
     "d3",
