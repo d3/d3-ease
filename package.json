@@ -30,9 +30,9 @@
     "postpublish": "VERSION=`node -e 'console.log(require(\"./package.json\").version)'`; git push && git push --tags && cd ../d3.github.com && git pull && cp ../d3-ease/build/d3-ease.js d3-ease.v1.js && cp ../d3-ease/build/d3-ease.min.js d3-ease.v1.min.js && git add d3-ease.v1.js d3-ease.v1.min.js && git commit -m \"d3-ease ${VERSION}\" && git push && cd - && zip -j build/d3-ease.zip -- LICENSE README.md build/d3-ease.js build/d3-ease.min.js"
   },
   "devDependencies": {
-    "eslint": "2",
+    "eslint": "3",
     "package-preamble": "0.0",
-    "rollup": "0.34",
+    "rollup": "0.36",
     "tape": "4",
     "uglify-js": "2"
   }
