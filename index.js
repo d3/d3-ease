@@ -64,3 +64,7 @@ export {
   elasticOut as easeElasticOut,
   elasticInOut as easeElasticInOut
 } from "./src/elastic";
+
+export {
+  cubicBezier as easeCubicBezier,
+} from "./src/bezier";
