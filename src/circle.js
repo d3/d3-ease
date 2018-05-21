@@ -3,7 +3,7 @@ export function circleIn(t) {
 }
 
 export function circleOut(t) {
-  return Math.sqrt(1 - --t * t);
+  return Math.sqrt(1 - (t-=1) * t);
 }
 
 export function circleInOut(t) {
