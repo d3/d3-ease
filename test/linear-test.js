@@ -4,7 +4,7 @@ var tape = require("tape"),
 require("./inDelta");
 
 tape("easeLinear(t) returns the expected results", function(test) {
-  test.inDelta(ease.easeLinear(0.0), 0.0);
+  test.equal(ease.easeLinear(0.0), 0.0);
   test.inDelta(ease.easeLinear(0.1), 0.1);
   test.inDelta(ease.easeLinear(0.2), 0.2);
   test.inDelta(ease.easeLinear(0.3), 0.3);
@@ -14,7 +14,7 @@ tape("easeLinear(t) returns the expected results", function(test) {
   test.inDelta(ease.easeLinear(0.7), 0.7);
   test.inDelta(ease.easeLinear(0.8), 0.8);
   test.inDelta(ease.easeLinear(0.9), 0.9);
-  test.inDelta(ease.easeLinear(1.0), 1.0);
+  test.equal(ease.easeLinear(1.0), 1.0);
   test.end();
 });
 

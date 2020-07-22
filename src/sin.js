@@ -2,7 +2,7 @@ var pi = Math.PI,
     halfPi = pi / 2;
 
 export function sinIn(t) {
-  return 1 - Math.cos(t * halfPi);
+  return (+t === 1) ? 1 : 1 - Math.cos(t * halfPi);
 }
 
 export function sinOut(t) {
