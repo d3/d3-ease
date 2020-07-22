@@ -10,17 +10,17 @@ tape("easeExp is an alias for easeExpInOut", function(test) {
 });
 
 tape("easeExpIn(t) returns the expected results", function(test) {
-  test.inDelta(ease.easeExpIn(0.0), 0.000976); // Note: not exactly zero.
-  test.inDelta(ease.easeExpIn(0.1), 0.001953);
-  test.inDelta(ease.easeExpIn(0.2), 0.003906);
-  test.inDelta(ease.easeExpIn(0.3), 0.007813);
-  test.inDelta(ease.easeExpIn(0.4), 0.015625);
-  test.inDelta(ease.easeExpIn(0.5), 0.031250);
-  test.inDelta(ease.easeExpIn(0.6), 0.062500);
-  test.inDelta(ease.easeExpIn(0.7), 0.125000);
-  test.inDelta(ease.easeExpIn(0.8), 0.250000);
-  test.inDelta(ease.easeExpIn(0.9), 0.500000);
-  test.inDelta(ease.easeExpIn(1.0), 1.000000);
+  test.equal(ease.easeExpIn(0.0), 0.000000);
+  test.inDelta(ease.easeExpIn(0.1), 0.000978);
+  test.inDelta(ease.easeExpIn(0.2), 0.002933);
+  test.inDelta(ease.easeExpIn(0.3), 0.006843);
+  test.inDelta(ease.easeExpIn(0.4), 0.014663);
+  test.inDelta(ease.easeExpIn(0.5), 0.030303);
+  test.inDelta(ease.easeExpIn(0.6), 0.061584);
+  test.inDelta(ease.easeExpIn(0.7), 0.124145);
+  test.inDelta(ease.easeExpIn(0.8), 0.249267);
+  test.inDelta(ease.easeExpIn(0.9), 0.499511);
+  test.equal(ease.easeExpIn(1.0), 1.000000);
   test.end();
 });
 
@@ -54,7 +54,7 @@ tape("easeExpOut(t) coerces t to a number", function(test) {
 
 tape("easeExpInOut(t) returns the expected results", function(test) {
   var expInOut = generic.inOut(ease.easeExpIn);
-  test.inDelta(ease.easeExpInOut(0.0), expInOut(0.0));
+  test.equal(ease.easeExpInOut(0.0), expInOut(0.0));
   test.inDelta(ease.easeExpInOut(0.1), expInOut(0.1));
   test.inDelta(ease.easeExpInOut(0.2), expInOut(0.2));
   test.inDelta(ease.easeExpInOut(0.3), expInOut(0.3));
@@ -64,7 +64,7 @@ tape("easeExpInOut(t) returns the expected results", function(test) {
   test.inDelta(ease.easeExpInOut(0.7), expInOut(0.7));
   test.inDelta(ease.easeExpInOut(0.8), expInOut(0.8));
   test.inDelta(ease.easeExpInOut(0.9), expInOut(0.9));
-  test.inDelta(ease.easeExpInOut(1.0), expInOut(1.0));
+  test.equal(ease.easeExpInOut(1.0), expInOut(1.0));
   test.end();
 });
 

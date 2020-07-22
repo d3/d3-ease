@@ -10,17 +10,17 @@ tape("easeElastic is an alias for easeElasticOut", function(test) {
 });
 
 tape("easeElasticIn(t) returns the expected results", function(test) {
-  test.inDelta(ease.easeElasticIn(0.0), -0.000488); // Note: not exactly zero.
-  test.inDelta(ease.easeElasticIn(0.1),  0.001953);
-  test.inDelta(ease.easeElasticIn(0.2), -0.001953);
-  test.inDelta(ease.easeElasticIn(0.3), -0.003906);
-  test.inDelta(ease.easeElasticIn(0.4),  0.015625);
-  test.inDelta(ease.easeElasticIn(0.5), -0.015625);
-  test.inDelta(ease.easeElasticIn(0.6), -0.031250);
-  test.inDelta(ease.easeElasticIn(0.7),  0.125000);
-  test.inDelta(ease.easeElasticIn(0.8), -0.125000);
-  test.inDelta(ease.easeElasticIn(0.9), -0.250000);
-  test.inDelta(ease.easeElasticIn(1.0),  1.000000);
+  test.equal(ease.easeElasticIn(0.0), 0.000000);
+  test.inDelta(ease.easeElasticIn(0.1),  0.000978);
+  test.inDelta(ease.easeElasticIn(0.2), -0.001466);
+  test.inDelta(ease.easeElasticIn(0.3), -0.003421);
+  test.inDelta(ease.easeElasticIn(0.4),  0.014663);
+  test.inDelta(ease.easeElasticIn(0.5), -0.015152);
+  test.inDelta(ease.easeElasticIn(0.6), -0.030792);
+  test.inDelta(ease.easeElasticIn(0.7),  0.124145);
+  test.inDelta(ease.easeElasticIn(0.8), -0.124633);
+  test.inDelta(ease.easeElasticIn(0.9), -0.249756);
+  test.equal(ease.easeElasticIn(1.0),  1.000000);
   test.end();
 });
 
@@ -51,38 +51,38 @@ tape("easeElasticIn.amplitude(a).period(p)(t) coerces t, a and p to numbers", fu
 });
 
 tape("easeElasticIn.amplitude(1.3)(t) returns the expected results", function(test) {
-  test.inDelta(ease.easeElasticIn.amplitude(1.3)(0.0),  0.000214); // Note: not exactly zero.
-  test.inDelta(ease.easeElasticIn.amplitude(1.3)(0.1),  0.001953);
-  test.inDelta(ease.easeElasticIn.amplitude(1.3)(0.2), -0.004763);
-  test.inDelta(ease.easeElasticIn.amplitude(1.3)(0.3),  0.001714);
-  test.inDelta(ease.easeElasticIn.amplitude(1.3)(0.4),  0.015625);
-  test.inDelta(ease.easeElasticIn.amplitude(1.3)(0.5), -0.038105);
-  test.inDelta(ease.easeElasticIn.amplitude(1.3)(0.6),  0.013711);
-  test.inDelta(ease.easeElasticIn.amplitude(1.3)(0.7),  0.125000);
-  test.inDelta(ease.easeElasticIn.amplitude(1.3)(0.8), -0.304844);
-  test.inDelta(ease.easeElasticIn.amplitude(1.3)(0.9),  0.109687);
-  test.inDelta(ease.easeElasticIn.amplitude(1.3)(1.0),  1.000000);
+  test.equal(ease.easeElasticIn.amplitude(1.3)(0.0),  0.000000);
+  test.inDelta(ease.easeElasticIn.amplitude(1.3)(0.1),  0.000978);
+  test.inDelta(ease.easeElasticIn.amplitude(1.3)(0.2), -0.003576);
+  test.inDelta(ease.easeElasticIn.amplitude(1.3)(0.3),  0.001501);
+  test.inDelta(ease.easeElasticIn.amplitude(1.3)(0.4),  0.014663);
+  test.inDelta(ease.easeElasticIn.amplitude(1.3)(0.5), -0.036951);
+  test.inDelta(ease.easeElasticIn.amplitude(1.3)(0.6),  0.013510);
+  test.inDelta(ease.easeElasticIn.amplitude(1.3)(0.7),  0.124145);
+  test.inDelta(ease.easeElasticIn.amplitude(1.3)(0.8), -0.303950);
+  test.inDelta(ease.easeElasticIn.amplitude(1.3)(0.9),  0.109580);
+  test.equal(ease.easeElasticIn.amplitude(1.3)(1.0),  1.000000);
   test.end();
 });
 
 tape("easeElasticIn.amplitude(1.5).period(1)(t) returns the expected results", function(test) {
-  test.inDelta(ease.easeElasticIn.amplitude(1.5).period(1)(0.0),  0.000977); // Note: not exactly zero.
-  test.inDelta(ease.easeElasticIn.amplitude(1.5).period(1)(0.1),  0.000297);
-  test.inDelta(ease.easeElasticIn.amplitude(1.5).period(1)(0.2), -0.002946);
-  test.inDelta(ease.easeElasticIn.amplitude(1.5).period(1)(0.3), -0.010721);
-  test.inDelta(ease.easeElasticIn.amplitude(1.5).period(1)(0.4), -0.022909);
-  test.inDelta(ease.easeElasticIn.amplitude(1.5).period(1)(0.5), -0.031250);
-  test.inDelta(ease.easeElasticIn.amplitude(1.5).period(1)(0.6), -0.009491);
-  test.inDelta(ease.easeElasticIn.amplitude(1.5).period(1)(0.7),  0.094287);
-  test.inDelta(ease.easeElasticIn.amplitude(1.5).period(1)(0.8),  0.343083);
-  test.inDelta(ease.easeElasticIn.amplitude(1.5).period(1)(0.9),  0.733090);
-  test.inDelta(ease.easeElasticIn.amplitude(1.5).period(1)(1.0),  1.000000);
+  test.equal(ease.easeElasticIn.amplitude(1.5).period(1)(0.0),  0.000000);
+  test.inDelta(ease.easeElasticIn.amplitude(1.5).period(1)(0.1),  0.000148);
+  test.inDelta(ease.easeElasticIn.amplitude(1.5).period(1)(0.2), -0.002212);
+  test.inDelta(ease.easeElasticIn.amplitude(1.5).period(1)(0.3), -0.009390);
+  test.inDelta(ease.easeElasticIn.amplitude(1.5).period(1)(0.4), -0.021498);
+  test.inDelta(ease.easeElasticIn.amplitude(1.5).period(1)(0.5), -0.030303);
+  test.inDelta(ease.easeElasticIn.amplitude(1.5).period(1)(0.6), -0.009352);
+  test.inDelta(ease.easeElasticIn.amplitude(1.5).period(1)(0.7),  0.093642);
+  test.inDelta(ease.easeElasticIn.amplitude(1.5).period(1)(0.8),  0.342077);
+  test.inDelta(ease.easeElasticIn.amplitude(1.5).period(1)(0.9),  0.732374);
+  test.equal(ease.easeElasticIn.amplitude(1.5).period(1)(1.0),  1.000000);
   test.end();
 });
 
 tape("easeElasticOut(t) returns the expected results", function(test) {
   var elasticOut = generic.out(ease.easeElasticIn);
-  test.inDelta(ease.easeElasticOut(0.0), elasticOut(0.0));
+  test.equal(ease.easeElasticOut(0.0), elasticOut(0.0));
   test.inDelta(ease.easeElasticOut(0.1), elasticOut(0.1));
   test.inDelta(ease.easeElasticOut(0.2), elasticOut(0.2));
   test.inDelta(ease.easeElasticOut(0.3), elasticOut(0.3));
@@ -92,7 +92,7 @@ tape("easeElasticOut(t) returns the expected results", function(test) {
   test.inDelta(ease.easeElasticOut(0.7), elasticOut(0.7));
   test.inDelta(ease.easeElasticOut(0.8), elasticOut(0.8));
   test.inDelta(ease.easeElasticOut(0.9), elasticOut(0.9));
-  test.inDelta(ease.easeElasticOut(1.0), elasticOut(1.0));
+  test.equal(ease.easeElasticOut(1.0), elasticOut(1.0));
   test.end();
 });
 
@@ -104,7 +104,7 @@ tape("easeElasticOut.amplitude(a).period(p)(t) coerces t, a and p to numbers", f
 
 tape("easeElasticInOut(t) returns the expected results", function(test) {
   var elasticInOut = generic.inOut(ease.easeElasticIn);
-  test.inDelta(ease.easeElasticInOut(0.0), elasticInOut(0.0));
+  test.equal(ease.easeElasticInOut(0.0), elasticInOut(0.0));
   test.inDelta(ease.easeElasticInOut(0.1), elasticInOut(0.1));
   test.inDelta(ease.easeElasticInOut(0.2), elasticInOut(0.2));
   test.inDelta(ease.easeElasticInOut(0.3), elasticInOut(0.3));
@@ -114,7 +114,7 @@ tape("easeElasticInOut(t) returns the expected results", function(test) {
   test.inDelta(ease.easeElasticInOut(0.7), elasticInOut(0.7));
   test.inDelta(ease.easeElasticInOut(0.8), elasticInOut(0.8));
   test.inDelta(ease.easeElasticInOut(0.9), elasticInOut(0.9));
-  test.inDelta(ease.easeElasticInOut(1.0), elasticInOut(1.0));
+  test.equal(ease.easeElasticInOut(1.0), elasticInOut(1.0));
   test.end();
 });
 
