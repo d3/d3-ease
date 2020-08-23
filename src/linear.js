@@ -1,3 +1,1 @@
-export function linear(t) {
-  return +t;
-}
+export const linear = t => +t;
