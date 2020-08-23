@@ -10,7 +10,7 @@ tape("easeCircle is an alias for easeCircleInOut", function(test) {
 });
 
 tape("easeCircleIn(t) returns the expected results", function(test) {
-  test.inDelta(ease.easeCircleIn(0.0), 0.000000);
+  test.equal(ease.easeCircleIn(0.0), 0.000000);
   test.inDelta(ease.easeCircleIn(0.1), 0.005013);
   test.inDelta(ease.easeCircleIn(0.2), 0.020204);
   test.inDelta(ease.easeCircleIn(0.3), 0.046061);
@@ -20,7 +20,7 @@ tape("easeCircleIn(t) returns the expected results", function(test) {
   test.inDelta(ease.easeCircleIn(0.7), 0.285857);
   test.inDelta(ease.easeCircleIn(0.8), 0.400000);
   test.inDelta(ease.easeCircleIn(0.9), 0.564110);
-  test.inDelta(ease.easeCircleIn(1.0), 1.000000);
+  test.equal(ease.easeCircleIn(1.0), 1.000000);
   test.end();
 });
 
@@ -32,7 +32,7 @@ tape("easeCircleIn(t) coerces t to a number", function(test) {
 
 tape("easeCircleOut(t) returns the expected results", function(test) {
   var circleOut = generic.out(ease.easeCircleIn);
-  test.inDelta(ease.easeCircleOut(0.0), circleOut(0.0));
+  test.equal(ease.easeCircleOut(0.0), circleOut(0.0));
   test.inDelta(ease.easeCircleOut(0.1), circleOut(0.1));
   test.inDelta(ease.easeCircleOut(0.2), circleOut(0.2));
   test.inDelta(ease.easeCircleOut(0.3), circleOut(0.3));
@@ -42,7 +42,7 @@ tape("easeCircleOut(t) returns the expected results", function(test) {
   test.inDelta(ease.easeCircleOut(0.7), circleOut(0.7));
   test.inDelta(ease.easeCircleOut(0.8), circleOut(0.8));
   test.inDelta(ease.easeCircleOut(0.9), circleOut(0.9));
-  test.inDelta(ease.easeCircleOut(1.0), circleOut(1.0));
+  test.equal(ease.easeCircleOut(1.0), circleOut(1.0));
   test.end();
 });
 
@@ -54,7 +54,7 @@ tape("easeCircleOut(t) coerces t to a number", function(test) {
 
 tape("easeCircleInOut(t) returns the expected results", function(test) {
   var circleInOut = generic.inOut(ease.easeCircleIn);
-  test.inDelta(ease.easeCircleInOut(0.0), circleInOut(0.0));
+  test.equal(ease.easeCircleInOut(0.0), circleInOut(0.0));
   test.inDelta(ease.easeCircleInOut(0.1), circleInOut(0.1));
   test.inDelta(ease.easeCircleInOut(0.2), circleInOut(0.2));
   test.inDelta(ease.easeCircleInOut(0.3), circleInOut(0.3));
@@ -64,7 +64,7 @@ tape("easeCircleInOut(t) returns the expected results", function(test) {
   test.inDelta(ease.easeCircleInOut(0.7), circleInOut(0.7));
   test.inDelta(ease.easeCircleInOut(0.8), circleInOut(0.8));
   test.inDelta(ease.easeCircleInOut(0.9), circleInOut(0.9));
-  test.inDelta(ease.easeCircleInOut(1.0), circleInOut(1.0));
+  test.equal(ease.easeCircleInOut(1.0), circleInOut(1.0));
   test.end();
 });
 

@@ -10,7 +10,7 @@ tape("easeQuad is an alias for easeQuadInOut", function(test) {
 });
 
 tape("easeQuadIn(t) returns the expected results", function(test) {
-  test.inDelta(ease.easeQuadIn(0.0), 0.00);
+  test.equal(ease.easeQuadIn(0.0), 0.00);
   test.inDelta(ease.easeQuadIn(0.1), 0.01);
   test.inDelta(ease.easeQuadIn(0.2), 0.04);
   test.inDelta(ease.easeQuadIn(0.3), 0.09);
@@ -20,7 +20,7 @@ tape("easeQuadIn(t) returns the expected results", function(test) {
   test.inDelta(ease.easeQuadIn(0.7), 0.49);
   test.inDelta(ease.easeQuadIn(0.8), 0.64);
   test.inDelta(ease.easeQuadIn(0.9), 0.81);
-  test.inDelta(ease.easeQuadIn(1.0), 1.00);
+  test.equal(ease.easeQuadIn(1.0), 1.00);
   test.end();
 });
 

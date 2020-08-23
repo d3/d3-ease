@@ -10,7 +10,7 @@ tape("easeSin is an alias for easeSinInOut", function(test) {
 });
 
 tape("easeSinIn(t) returns the expected results", function(test) {
-  test.inDelta(ease.easeSinIn(0.0), 0.000000);
+  test.equal(ease.easeSinIn(0.0), 0.000000);
   test.inDelta(ease.easeSinIn(0.1), 0.012312);
   test.inDelta(ease.easeSinIn(0.2), 0.048943);
   test.inDelta(ease.easeSinIn(0.3), 0.108993);
@@ -20,7 +20,7 @@ tape("easeSinIn(t) returns the expected results", function(test) {
   test.inDelta(ease.easeSinIn(0.7), 0.546010);
   test.inDelta(ease.easeSinIn(0.8), 0.690983);
   test.inDelta(ease.easeSinIn(0.9), 0.843566);
-  test.inDelta(ease.easeSinIn(1.0), 1.000000);
+  test.equal(ease.easeSinIn(1.0), 1.000000);
   test.end();
 });
 

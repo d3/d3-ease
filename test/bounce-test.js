@@ -10,7 +10,7 @@ tape("easeBounce is an alias for easeBounceOut", function(test) {
 });
 
 tape("easeBounceIn(t) returns the expected results", function(test) {
-  test.inDelta(ease.easeBounceIn(0.0), 0.000000);
+  test.equal(ease.easeBounceIn(0.0), 0.000000);
   test.inDelta(ease.easeBounceIn(0.1), 0.011875);
   test.inDelta(ease.easeBounceIn(0.2), 0.060000);
   test.inDelta(ease.easeBounceIn(0.3), 0.069375);
@@ -20,7 +20,7 @@ tape("easeBounceIn(t) returns the expected results", function(test) {
   test.inDelta(ease.easeBounceIn(0.7), 0.319375);
   test.inDelta(ease.easeBounceIn(0.8), 0.697500);
   test.inDelta(ease.easeBounceIn(0.9), 0.924375);
-  test.inDelta(ease.easeBounceIn(1.0), 1.000000);
+  test.equal(ease.easeBounceIn(1.0), 1.000000);
   test.end();
 });
 
@@ -32,7 +32,7 @@ tape("easeBounceIn(t) coerces t to a number", function(test) {
 
 tape("easeBounceOut(t) returns the expected results", function(test) {
   var bounceOut = generic.out(ease.easeBounceIn);
-  test.inDelta(ease.easeBounceOut(0.0), bounceOut(0.0));
+  test.equal(ease.easeBounceOut(0.0), bounceOut(0.0));
   test.inDelta(ease.easeBounceOut(0.1), bounceOut(0.1));
   test.inDelta(ease.easeBounceOut(0.2), bounceOut(0.2));
   test.inDelta(ease.easeBounceOut(0.3), bounceOut(0.3));
@@ -42,7 +42,7 @@ tape("easeBounceOut(t) returns the expected results", function(test) {
   test.inDelta(ease.easeBounceOut(0.7), bounceOut(0.7));
   test.inDelta(ease.easeBounceOut(0.8), bounceOut(0.8));
   test.inDelta(ease.easeBounceOut(0.9), bounceOut(0.9));
-  test.inDelta(ease.easeBounceOut(1.0), bounceOut(1.0));
+  test.equal(ease.easeBounceOut(1.0), bounceOut(1.0));
   test.end();
 });
 
@@ -54,7 +54,7 @@ tape("easeBounceOut(t) coerces t to a number", function(test) {
 
 tape("easeBounceInOut(t) returns the expected results", function(test) {
   var bounceInOut = generic.inOut(ease.easeBounceIn);
-  test.inDelta(ease.easeBounceInOut(0.0), bounceInOut(0.0));
+  test.equal(ease.easeBounceInOut(0.0), bounceInOut(0.0));
   test.inDelta(ease.easeBounceInOut(0.1), bounceInOut(0.1));
   test.inDelta(ease.easeBounceInOut(0.2), bounceInOut(0.2));
   test.inDelta(ease.easeBounceInOut(0.3), bounceInOut(0.3));
@@ -64,7 +64,7 @@ tape("easeBounceInOut(t) returns the expected results", function(test) {
   test.inDelta(ease.easeBounceInOut(0.7), bounceInOut(0.7));
   test.inDelta(ease.easeBounceInOut(0.8), bounceInOut(0.8));
   test.inDelta(ease.easeBounceInOut(0.9), bounceInOut(0.9));
-  test.inDelta(ease.easeBounceInOut(1.0), bounceInOut(1.0));
+  test.equal(ease.easeBounceInOut(1.0), bounceInOut(1.0));
   test.end();
 });
 
