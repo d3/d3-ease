@@ -6,11 +6,11 @@ import _inDelta from "./inDelta.js";
 const inDelta = _inDelta(assert);
 
 it("easeQuad is an alias for easeQuadInOut", () => {
-  assert.equal(d3.easeQuad, d3.easeQuadInOut);
+  assert.strictEqual(d3.easeQuad, d3.easeQuadInOut);
 });
 
 it("easeQuadIn(t) returns the expected results", () => {
-  assert.equal(d3.easeQuadIn(0.0), 0.00);
+  assert.strictEqual(d3.easeQuadIn(0.0), 0.00);
   inDelta(d3.easeQuadIn(0.1), 0.01);
   inDelta(d3.easeQuadIn(0.2), 0.04);
   inDelta(d3.easeQuadIn(0.3), 0.09);
@@ -20,7 +20,7 @@ it("easeQuadIn(t) returns the expected results", () => {
   inDelta(d3.easeQuadIn(0.7), 0.49);
   inDelta(d3.easeQuadIn(0.8), 0.64);
   inDelta(d3.easeQuadIn(0.9), 0.81);
-  assert.equal(d3.easeQuadIn(1.0), 1.00);
+  assert.strictEqual(d3.easeQuadIn(1.0), 1.00);
 });
 
 it("easeQuadIn(t) coerces t to a number", () => {

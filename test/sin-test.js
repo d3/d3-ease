@@ -6,11 +6,11 @@ import _inDelta from "./inDelta.js";
 const inDelta = _inDelta(assert);
 
 it("easeSin is an alias for easeSinInOut", () => {
-  assert.equal(d3.easeSin, d3.easeSinInOut);
+  assert.strictEqual(d3.easeSin, d3.easeSinInOut);
 });
 
 it("easeSinIn(t) returns the expected results", () => {
-  assert.equal(d3.easeSinIn(0.0), 0.000000);
+  assert.strictEqual(d3.easeSinIn(0.0), 0.000000);
   inDelta(d3.easeSinIn(0.1), 0.012312);
   inDelta(d3.easeSinIn(0.2), 0.048943);
   inDelta(d3.easeSinIn(0.3), 0.108993);
@@ -20,7 +20,7 @@ it("easeSinIn(t) returns the expected results", () => {
   inDelta(d3.easeSinIn(0.7), 0.546010);
   inDelta(d3.easeSinIn(0.8), 0.690983);
   inDelta(d3.easeSinIn(0.9), 0.843566);
-  assert.equal(d3.easeSinIn(1.0), 1.000000);
+  assert.strictEqual(d3.easeSinIn(1.0), 1.000000);
 });
 
 it("easeSinIn(t) coerces t to a number", () => {

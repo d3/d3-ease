@@ -6,11 +6,11 @@ import _inDelta from "./inDelta.js";
 const inDelta = _inDelta(assert);
 
 it("easeCircle is an alias for easeCircleInOut", () => {
-  assert.equal(d3.easeCircle, d3.easeCircleInOut);
+  assert.strictEqual(d3.easeCircle, d3.easeCircleInOut);
 });
 
 it("easeCircleIn(t) returns the expected results", () => {
-  assert.equal(d3.easeCircleIn(0.0), 0.000000);
+  assert.strictEqual(d3.easeCircleIn(0.0), 0.000000);
   inDelta(d3.easeCircleIn(0.1), 0.005013);
   inDelta(d3.easeCircleIn(0.2), 0.020204);
   inDelta(d3.easeCircleIn(0.3), 0.046061);
@@ -20,7 +20,7 @@ it("easeCircleIn(t) returns the expected results", () => {
   inDelta(d3.easeCircleIn(0.7), 0.285857);
   inDelta(d3.easeCircleIn(0.8), 0.400000);
   inDelta(d3.easeCircleIn(0.9), 0.564110);
-  assert.equal(d3.easeCircleIn(1.0), 1.000000);
+  assert.strictEqual(d3.easeCircleIn(1.0), 1.000000);
 });
 
 it("easeCircleIn(t) coerces t to a number", () => {
@@ -30,7 +30,7 @@ it("easeCircleIn(t) coerces t to a number", () => {
 
 it("easeCircleOut(t) returns the expected results", () => {
   var circleOut = generic.out(d3.easeCircleIn);
-  assert.equal(d3.easeCircleOut(0.0), circleOut(0.0));
+  assert.strictEqual(d3.easeCircleOut(0.0), circleOut(0.0));
   inDelta(d3.easeCircleOut(0.1), circleOut(0.1));
   inDelta(d3.easeCircleOut(0.2), circleOut(0.2));
   inDelta(d3.easeCircleOut(0.3), circleOut(0.3));
@@ -40,7 +40,7 @@ it("easeCircleOut(t) returns the expected results", () => {
   inDelta(d3.easeCircleOut(0.7), circleOut(0.7));
   inDelta(d3.easeCircleOut(0.8), circleOut(0.8));
   inDelta(d3.easeCircleOut(0.9), circleOut(0.9));
-  assert.equal(d3.easeCircleOut(1.0), circleOut(1.0));
+  assert.strictEqual(d3.easeCircleOut(1.0), circleOut(1.0));
 });
 
 it("easeCircleOut(t) coerces t to a number", () => {
@@ -50,7 +50,7 @@ it("easeCircleOut(t) coerces t to a number", () => {
 
 it("easeCircleInOut(t) returns the expected results", () => {
   var circleInOut = generic.inOut(d3.easeCircleIn);
-  assert.equal(d3.easeCircleInOut(0.0), circleInOut(0.0));
+  assert.strictEqual(d3.easeCircleInOut(0.0), circleInOut(0.0));
   inDelta(d3.easeCircleInOut(0.1), circleInOut(0.1));
   inDelta(d3.easeCircleInOut(0.2), circleInOut(0.2));
   inDelta(d3.easeCircleInOut(0.3), circleInOut(0.3));
@@ -60,7 +60,7 @@ it("easeCircleInOut(t) returns the expected results", () => {
   inDelta(d3.easeCircleInOut(0.7), circleInOut(0.7));
   inDelta(d3.easeCircleInOut(0.8), circleInOut(0.8));
   inDelta(d3.easeCircleInOut(0.9), circleInOut(0.9));
-  assert.equal(d3.easeCircleInOut(1.0), circleInOut(1.0));
+  assert.strictEqual(d3.easeCircleInOut(1.0), circleInOut(1.0));
 });
 
 it("easeCircleInOut(t) coerces t to a number", () => {

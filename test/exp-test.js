@@ -6,11 +6,11 @@ import _inDelta from "./inDelta.js";
 const inDelta = _inDelta(assert);
 
 it("easeExp is an alias for easeExpInOut", () => {
-  assert.equal(d3.easeExp, d3.easeExpInOut);
+  assert.strictEqual(d3.easeExp, d3.easeExpInOut);
 });
 
 it("easeExpIn(t) returns the expected results", () => {
-  assert.equal(d3.easeExpIn(0.0), 0.000000);
+  assert.strictEqual(d3.easeExpIn(0.0), 0.000000);
   inDelta(d3.easeExpIn(0.1), 0.000978);
   inDelta(d3.easeExpIn(0.2), 0.002933);
   inDelta(d3.easeExpIn(0.3), 0.006843);
@@ -20,7 +20,7 @@ it("easeExpIn(t) returns the expected results", () => {
   inDelta(d3.easeExpIn(0.7), 0.124145);
   inDelta(d3.easeExpIn(0.8), 0.249267);
   inDelta(d3.easeExpIn(0.9), 0.499511);
-  assert.equal(d3.easeExpIn(1.0), 1.000000);
+  assert.strictEqual(d3.easeExpIn(1.0), 1.000000);
 });
 
 it("easeExpIn(t) coerces t to a number", () => {
@@ -50,7 +50,7 @@ it("easeExpOut(t) coerces t to a number", () => {
 
 it("easeExpInOut(t) returns the expected results", () => {
   var expInOut = generic.inOut(d3.easeExpIn);
-  assert.equal(d3.easeExpInOut(0.0), expInOut(0.0));
+  assert.strictEqual(d3.easeExpInOut(0.0), expInOut(0.0));
   inDelta(d3.easeExpInOut(0.1), expInOut(0.1));
   inDelta(d3.easeExpInOut(0.2), expInOut(0.2));
   inDelta(d3.easeExpInOut(0.3), expInOut(0.3));
@@ -60,7 +60,7 @@ it("easeExpInOut(t) returns the expected results", () => {
   inDelta(d3.easeExpInOut(0.7), expInOut(0.7));
   inDelta(d3.easeExpInOut(0.8), expInOut(0.8));
   inDelta(d3.easeExpInOut(0.9), expInOut(0.9));
-  assert.equal(d3.easeExpInOut(1.0), expInOut(1.0));
+  assert.strictEqual(d3.easeExpInOut(1.0), expInOut(1.0));
 });
 
 it("easeExpInOut(t) coerces t to a number", () => {
