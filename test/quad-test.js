@@ -1,75 +1,69 @@
-var tape = require("tape"),
-    ease = require("../"),
-    generic = require("./generic");
+import assert from "assert";
+import * as d3 from "../src/index.js";
+import * as generic from "./generic.js";
 
-require("./inDelta");
+import _inDelta from "./inDelta.js";
+const inDelta = _inDelta(assert);
 
-tape("easeQuad is an alias for easeQuadInOut", function(test) {
-  test.equal(ease.easeQuad, ease.easeQuadInOut);
-  test.end();
+it("easeQuad is an alias for easeQuadInOut", () => {
+  assert.equal(d3.easeQuad, d3.easeQuadInOut);
 });
 
-tape("easeQuadIn(t) returns the expected results", function(test) {
-  test.equal(ease.easeQuadIn(0.0), 0.00);
-  test.inDelta(ease.easeQuadIn(0.1), 0.01);
-  test.inDelta(ease.easeQuadIn(0.2), 0.04);
-  test.inDelta(ease.easeQuadIn(0.3), 0.09);
-  test.inDelta(ease.easeQuadIn(0.4), 0.16);
-  test.inDelta(ease.easeQuadIn(0.5), 0.25);
-  test.inDelta(ease.easeQuadIn(0.6), 0.36);
-  test.inDelta(ease.easeQuadIn(0.7), 0.49);
-  test.inDelta(ease.easeQuadIn(0.8), 0.64);
-  test.inDelta(ease.easeQuadIn(0.9), 0.81);
-  test.equal(ease.easeQuadIn(1.0), 1.00);
-  test.end();
+it("easeQuadIn(t) returns the expected results", () => {
+  assert.equal(d3.easeQuadIn(0.0), 0.00);
+  inDelta(d3.easeQuadIn(0.1), 0.01);
+  inDelta(d3.easeQuadIn(0.2), 0.04);
+  inDelta(d3.easeQuadIn(0.3), 0.09);
+  inDelta(d3.easeQuadIn(0.4), 0.16);
+  inDelta(d3.easeQuadIn(0.5), 0.25);
+  inDelta(d3.easeQuadIn(0.6), 0.36);
+  inDelta(d3.easeQuadIn(0.7), 0.49);
+  inDelta(d3.easeQuadIn(0.8), 0.64);
+  inDelta(d3.easeQuadIn(0.9), 0.81);
+  assert.equal(d3.easeQuadIn(1.0), 1.00);
 });
 
-tape("easeQuadIn(t) coerces t to a number", function(test) {
-  test.strictEqual(ease.easeQuadIn(".9"), ease.easeQuadIn(0.9));
-  test.strictEqual(ease.easeQuadIn({valueOf: function() { return 0.9; }}), ease.easeQuadIn(0.9));
-  test.end();
+it("easeQuadIn(t) coerces t to a number", () => {
+  assert.strictEqual(d3.easeQuadIn(".9"), d3.easeQuadIn(0.9));
+  assert.strictEqual(d3.easeQuadIn({valueOf: function() { return 0.9; }}), d3.easeQuadIn(0.9));
 });
 
-tape("easeQuadOut(t) returns the expected results", function(test) {
-  var quadOut = generic.out(ease.easeQuadIn);
-  test.inDelta(ease.easeQuadOut(0.0), quadOut(0.0));
-  test.inDelta(ease.easeQuadOut(0.1), quadOut(0.1));
-  test.inDelta(ease.easeQuadOut(0.2), quadOut(0.2));
-  test.inDelta(ease.easeQuadOut(0.3), quadOut(0.3));
-  test.inDelta(ease.easeQuadOut(0.4), quadOut(0.4));
-  test.inDelta(ease.easeQuadOut(0.5), quadOut(0.5));
-  test.inDelta(ease.easeQuadOut(0.6), quadOut(0.6));
-  test.inDelta(ease.easeQuadOut(0.7), quadOut(0.7));
-  test.inDelta(ease.easeQuadOut(0.8), quadOut(0.8));
-  test.inDelta(ease.easeQuadOut(0.9), quadOut(0.9));
-  test.inDelta(ease.easeQuadOut(1.0), quadOut(1.0));
-  test.end();
+it("easeQuadOut(t) returns the expected results", () => {
+  var quadOut = generic.out(d3.easeQuadIn);
+  inDelta(d3.easeQuadOut(0.0), quadOut(0.0));
+  inDelta(d3.easeQuadOut(0.1), quadOut(0.1));
+  inDelta(d3.easeQuadOut(0.2), quadOut(0.2));
+  inDelta(d3.easeQuadOut(0.3), quadOut(0.3));
+  inDelta(d3.easeQuadOut(0.4), quadOut(0.4));
+  inDelta(d3.easeQuadOut(0.5), quadOut(0.5));
+  inDelta(d3.easeQuadOut(0.6), quadOut(0.6));
+  inDelta(d3.easeQuadOut(0.7), quadOut(0.7));
+  inDelta(d3.easeQuadOut(0.8), quadOut(0.8));
+  inDelta(d3.easeQuadOut(0.9), quadOut(0.9));
+  inDelta(d3.easeQuadOut(1.0), quadOut(1.0));
 });
 
-tape("easeQuadOut(t) coerces t to a number", function(test) {
-  test.strictEqual(ease.easeQuadOut(".9"), ease.easeQuadOut(0.9));
-  test.strictEqual(ease.easeQuadOut({valueOf: function() { return 0.9; }}), ease.easeQuadOut(0.9));
-  test.end();
+it("easeQuadOut(t) coerces t to a number", () => {
+  assert.strictEqual(d3.easeQuadOut(".9"), d3.easeQuadOut(0.9));
+  assert.strictEqual(d3.easeQuadOut({valueOf: function() { return 0.9; }}), d3.easeQuadOut(0.9));
 });
 
-tape("easeQuadInOut(t) returns the expected results", function(test) {
-  var quadInOut = generic.inOut(ease.easeQuadIn);
-  test.inDelta(ease.easeQuadInOut(0.0), quadInOut(0.0));
-  test.inDelta(ease.easeQuadInOut(0.1), quadInOut(0.1));
-  test.inDelta(ease.easeQuadInOut(0.2), quadInOut(0.2));
-  test.inDelta(ease.easeQuadInOut(0.3), quadInOut(0.3));
-  test.inDelta(ease.easeQuadInOut(0.4), quadInOut(0.4));
-  test.inDelta(ease.easeQuadInOut(0.5), quadInOut(0.5));
-  test.inDelta(ease.easeQuadInOut(0.6), quadInOut(0.6));
-  test.inDelta(ease.easeQuadInOut(0.7), quadInOut(0.7));
-  test.inDelta(ease.easeQuadInOut(0.8), quadInOut(0.8));
-  test.inDelta(ease.easeQuadInOut(0.9), quadInOut(0.9));
-  test.inDelta(ease.easeQuadInOut(1.0), quadInOut(1.0));
-  test.end();
+it("easeQuadInOut(t) returns the expected results", () => {
+  var quadInOut = generic.inOut(d3.easeQuadIn);
+  inDelta(d3.easeQuadInOut(0.0), quadInOut(0.0));
+  inDelta(d3.easeQuadInOut(0.1), quadInOut(0.1));
+  inDelta(d3.easeQuadInOut(0.2), quadInOut(0.2));
+  inDelta(d3.easeQuadInOut(0.3), quadInOut(0.3));
+  inDelta(d3.easeQuadInOut(0.4), quadInOut(0.4));
+  inDelta(d3.easeQuadInOut(0.5), quadInOut(0.5));
+  inDelta(d3.easeQuadInOut(0.6), quadInOut(0.6));
+  inDelta(d3.easeQuadInOut(0.7), quadInOut(0.7));
+  inDelta(d3.easeQuadInOut(0.8), quadInOut(0.8));
+  inDelta(d3.easeQuadInOut(0.9), quadInOut(0.9));
+  inDelta(d3.easeQuadInOut(1.0), quadInOut(1.0));
 });
 
-tape("easeQuadInOut(t) coerces t to a number", function(test) {
-  test.strictEqual(ease.easeQuadInOut(".9"), ease.easeQuadInOut(0.9));
-  test.strictEqual(ease.easeQuadInOut({valueOf: function() { return 0.9; }}), ease.easeQuadInOut(0.9));
-  test.end();
+it("easeQuadInOut(t) coerces t to a number", () => {
+  assert.strictEqual(d3.easeQuadInOut(".9"), d3.easeQuadInOut(0.9));
+  assert.strictEqual(d3.easeQuadInOut({valueOf: function() { return 0.9; }}), d3.easeQuadInOut(0.9));
 });
