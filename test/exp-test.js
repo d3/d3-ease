@@ -1,75 +1,67 @@
-var tape = require("tape"),
-    ease = require("../"),
-    generic = require("./generic");
+import assert from "assert";
+import {easeExp, easeExpIn, easeExpInOut, easeExpOut} from "../src/index.js";
+import {out, inOut} from "./generic.js";
+import {assertInDelta} from "./asserts.js";
 
-require("./inDelta");
-
-tape("easeExp is an alias for easeExpInOut", function(test) {
-  test.equal(ease.easeExp, ease.easeExpInOut);
-  test.end();
+it("easeExp is an alias for easeExpInOut", () => {
+  assert.strictEqual(easeExp, easeExpInOut);
 });
 
-tape("easeExpIn(t) returns the expected results", function(test) {
-  test.equal(ease.easeExpIn(0.0), 0.000000);
-  test.inDelta(ease.easeExpIn(0.1), 0.000978);
-  test.inDelta(ease.easeExpIn(0.2), 0.002933);
-  test.inDelta(ease.easeExpIn(0.3), 0.006843);
-  test.inDelta(ease.easeExpIn(0.4), 0.014663);
-  test.inDelta(ease.easeExpIn(0.5), 0.030303);
-  test.inDelta(ease.easeExpIn(0.6), 0.061584);
-  test.inDelta(ease.easeExpIn(0.7), 0.124145);
-  test.inDelta(ease.easeExpIn(0.8), 0.249267);
-  test.inDelta(ease.easeExpIn(0.9), 0.499511);
-  test.equal(ease.easeExpIn(1.0), 1.000000);
-  test.end();
+it("easeExpIn(t) returns the expected results", () => {
+  assert.strictEqual(easeExpIn(0.0), 0.000000);
+  assertInDelta(easeExpIn(0.1), 0.000978);
+  assertInDelta(easeExpIn(0.2), 0.002933);
+  assertInDelta(easeExpIn(0.3), 0.006843);
+  assertInDelta(easeExpIn(0.4), 0.014663);
+  assertInDelta(easeExpIn(0.5), 0.030303);
+  assertInDelta(easeExpIn(0.6), 0.061584);
+  assertInDelta(easeExpIn(0.7), 0.124145);
+  assertInDelta(easeExpIn(0.8), 0.249267);
+  assertInDelta(easeExpIn(0.9), 0.499511);
+  assert.strictEqual(easeExpIn(1.0), 1.000000);
 });
 
-tape("easeExpIn(t) coerces t to a number", function(test) {
-  test.strictEqual(ease.easeExpIn(".9"), ease.easeExpIn(0.9));
-  test.strictEqual(ease.easeExpIn({valueOf: function() { return 0.9; }}), ease.easeExpIn(0.9));
-  test.end();
+it("easeExpIn(t) coerces t to a number", () => {
+  assert.strictEqual(easeExpIn(".9"), easeExpIn(0.9));
+  assert.strictEqual(easeExpIn({valueOf: function() { return 0.9; }}), easeExpIn(0.9));
 });
 
-tape("easeExpOut(t) returns the expected results", function(test) {
-  var expOut = generic.out(ease.easeExpIn);
-  test.inDelta(ease.easeExpOut(0.0), expOut(0.0));
-  test.inDelta(ease.easeExpOut(0.1), expOut(0.1));
-  test.inDelta(ease.easeExpOut(0.2), expOut(0.2));
-  test.inDelta(ease.easeExpOut(0.3), expOut(0.3));
-  test.inDelta(ease.easeExpOut(0.4), expOut(0.4));
-  test.inDelta(ease.easeExpOut(0.5), expOut(0.5));
-  test.inDelta(ease.easeExpOut(0.6), expOut(0.6));
-  test.inDelta(ease.easeExpOut(0.7), expOut(0.7));
-  test.inDelta(ease.easeExpOut(0.8), expOut(0.8));
-  test.inDelta(ease.easeExpOut(0.9), expOut(0.9));
-  test.inDelta(ease.easeExpOut(1.0), expOut(1.0));
-  test.end();
+it("easeExpOut(t) returns the expected results", () => {
+  const expOut = out(easeExpIn);
+  assertInDelta(easeExpOut(0.0), expOut(0.0));
+  assertInDelta(easeExpOut(0.1), expOut(0.1));
+  assertInDelta(easeExpOut(0.2), expOut(0.2));
+  assertInDelta(easeExpOut(0.3), expOut(0.3));
+  assertInDelta(easeExpOut(0.4), expOut(0.4));
+  assertInDelta(easeExpOut(0.5), expOut(0.5));
+  assertInDelta(easeExpOut(0.6), expOut(0.6));
+  assertInDelta(easeExpOut(0.7), expOut(0.7));
+  assertInDelta(easeExpOut(0.8), expOut(0.8));
+  assertInDelta(easeExpOut(0.9), expOut(0.9));
+  assertInDelta(easeExpOut(1.0), expOut(1.0));
 });
 
-tape("easeExpOut(t) coerces t to a number", function(test) {
-  test.strictEqual(ease.easeExpOut(".9"), ease.easeExpOut(0.9));
-  test.strictEqual(ease.easeExpOut({valueOf: function() { return 0.9; }}), ease.easeExpOut(0.9));
-  test.end();
+it("easeExpOut(t) coerces t to a number", () => {
+  assert.strictEqual(easeExpOut(".9"), easeExpOut(0.9));
+  assert.strictEqual(easeExpOut({valueOf: function() { return 0.9; }}), easeExpOut(0.9));
 });
 
-tape("easeExpInOut(t) returns the expected results", function(test) {
-  var expInOut = generic.inOut(ease.easeExpIn);
-  test.equal(ease.easeExpInOut(0.0), expInOut(0.0));
-  test.inDelta(ease.easeExpInOut(0.1), expInOut(0.1));
-  test.inDelta(ease.easeExpInOut(0.2), expInOut(0.2));
-  test.inDelta(ease.easeExpInOut(0.3), expInOut(0.3));
-  test.inDelta(ease.easeExpInOut(0.4), expInOut(0.4));
-  test.inDelta(ease.easeExpInOut(0.5), expInOut(0.5));
-  test.inDelta(ease.easeExpInOut(0.6), expInOut(0.6));
-  test.inDelta(ease.easeExpInOut(0.7), expInOut(0.7));
-  test.inDelta(ease.easeExpInOut(0.8), expInOut(0.8));
-  test.inDelta(ease.easeExpInOut(0.9), expInOut(0.9));
-  test.equal(ease.easeExpInOut(1.0), expInOut(1.0));
-  test.end();
+it("easeExpInOut(t) returns the expected results", () => {
+  const expInOut = inOut(easeExpIn);
+  assert.strictEqual(easeExpInOut(0.0), expInOut(0.0));
+  assertInDelta(easeExpInOut(0.1), expInOut(0.1));
+  assertInDelta(easeExpInOut(0.2), expInOut(0.2));
+  assertInDelta(easeExpInOut(0.3), expInOut(0.3));
+  assertInDelta(easeExpInOut(0.4), expInOut(0.4));
+  assertInDelta(easeExpInOut(0.5), expInOut(0.5));
+  assertInDelta(easeExpInOut(0.6), expInOut(0.6));
+  assertInDelta(easeExpInOut(0.7), expInOut(0.7));
+  assertInDelta(easeExpInOut(0.8), expInOut(0.8));
+  assertInDelta(easeExpInOut(0.9), expInOut(0.9));
+  assert.strictEqual(easeExpInOut(1.0), expInOut(1.0));
 });
 
-tape("easeExpInOut(t) coerces t to a number", function(test) {
-  test.strictEqual(ease.easeExpInOut(".9"), ease.easeExpInOut(0.9));
-  test.strictEqual(ease.easeExpInOut({valueOf: function() { return 0.9; }}), ease.easeExpInOut(0.9));
-  test.end();
+it("easeExpInOut(t) coerces t to a number", () => {
+  assert.strictEqual(easeExpInOut(".9"), easeExpInOut(0.9));
+  assert.strictEqual(easeExpInOut({valueOf: function() { return 0.9; }}), easeExpInOut(0.9));
 });
