@@ -37,8 +37,8 @@
   "devDependencies": {
     "eslint": "7",
     "mocha": "8",
-    "rollup": "1",
-    "rollup-plugin-terser": "5"
+    "rollup": "2",
+    "rollup-plugin-terser": "7"
   },
   "scripts": {
     "test": "mocha 'test/**/*-test.js' && eslint src test",
