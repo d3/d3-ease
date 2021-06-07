@@ -3,6 +3,13 @@ export {
 } from "./linear.js";
 
 export {
+  bezierIn as easeBezier,
+  bezierIn as easeBezierIn,
+  bezierOut as easeBezierOut,
+  bezierInOut as easeBezierInOut
+} from "./bezier.js";
+
+export {
   quadInOut as easeQuad,
   quadIn as easeQuadIn,
   quadOut as easeQuadOut,
