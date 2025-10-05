@@ -1,22 +1,57 @@
-var b1 = 4 / 11,
-    b2 = 6 / 11,
-    b3 = 8 / 11,
-    b4 = 3 / 4,
-    b5 = 9 / 11,
-    b6 = 10 / 11,
-    b7 = 15 / 16,
-    b8 = 21 / 22,
-    b9 = 63 / 64,
-    b0 = 1 / b1 / b1;
+var amplitude = 0.5,
+    bounces = 3;
 
-export function bounceIn(t) {
-  return 1 - bounceOut(1 - t);
-}
+export var bounceIn = (function custom(a, b) {
+  var amp = a + 0.5,
+      bnc = 12 - 8/(2**b);
 
-export function bounceOut(t) {
-  return (t = +t) < b1 ? b0 * t * t : t < b3 ? b0 * (t -= b2) * t + b4 : t < b6 ? b0 * (t -= b5) * t + b7 : b0 * (t -= b8) * t + b9;
-}
+  function bounceIn(t) {
+    var r = Math.floor(4 - Math.log2(12 - bnc * (1 - t)));
+    // would the following allow cpu caching of c1 and c2?
+    var c1 = 3 * (2**r - 1)/2**r,
+        c2 = (4**r - 1)/4**r;
+    return 1 - (((bnc * (1 - t) / 4) - c1)**2 + c2)**amp;
+  }
 
-export function bounceInOut(t) {
-  return ((t *= 2) <= 1 ? 1 - bounceOut(1 - t) : bounceOut(t - 1) + 1) / 2;
-}
+  bounceIn.amplitude = function(a) { return custom(a, b); };
+  bounceIn.bounces = function(b) { return custom(a, b); };
+
+  return bounceIn;
+})(amplitude, bounces);
+
+export var bounceOut = (function custom(a, b) {
+  var amp = a + 0.5,
+      bnc = 12 - 8/(2**b);
+
+  function bounceOut(t) {
+    var r = Math.floor(4 - Math.log2(12 - bnc * t));
+    // would the following allow cpu caching of c1 and c2?
+    var c1 = 3 * (2**r - 1)/2**r,
+        c2 = (4**r - 1)/4**r;
+    return (((bnc * t / 4) - c1)**2 + c2)**amp;
+  }
+
+  bounceOut.amplitude = function(a) { return custom(a, b); };
+  bounceOut.bounces = function(b) { return custom(a, b); };
+
+  return bounceOut;
+})(amplitude, bounces);
+
+export var bounceInOut = (function custom(a, b) {
+  var amp = a + 0.5,
+      bnc = 12 - 8/(2**b);
+
+  function bounceInOut(t) {
+    if(t <= 0.5) {
+      var rIn =  Math.floor(4 - Math.log2(12 - bnc * (1 - (2 * t))));
+      return 0.5 - ((((bnc * (1 - (2 * t)) / 4) - (3 * (2**rIn - 1)/2**rIn))**2 + ((4**rIn - 1)/4**rIn))**amp) / 2;
+    }
+    var rOut = Math.floor(4 - Math.log2(12 - bnc * (t - 0.5) * 2));
+    return 0.5 + ((((bnc * (t - 0.5) * 2 / 4) - (3 * (2**rOut - 1)/2**rOut))**2 + ((4**rOut - 1)/4**rOut))**amp) / 2;
+  }
+
+  bounceInOut.amplitude = function(a) { return custom(a, b); };
+  bounceInOut.bounces = function(b) { return custom(a, b); };
+
+  return bounceInOut;
+})(amplitude, bounces);
