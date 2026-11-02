@@ -7,6 +7,6 @@ _Easing_ is a method of distorting time to control apparent motion in animation.
 ## Resources
 
 - [Documentation](https://d3js.org/d3-ease)
-- [Examples](https://observablehq.com/collection/@d3/d3-ease)
+- [Examples](https://observablehq.com/@d3/-/collection/d3-ease)
 - [Releases](https://github.com/d3/d3-ease/releases)
 - [Getting help](https://d3js.org/community)
