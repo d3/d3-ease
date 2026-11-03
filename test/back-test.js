@@ -1,5 +1,5 @@
+import assert from "node:assert";
 import {it} from "vitest";
-import assert from "assert";
 import {easeBack, easeBackIn, easeBackInOut, easeBackOut} from "../src/index.js";
 import {out, inOut} from "./generic.js"
 import {assertInDelta} from "./asserts.js";
