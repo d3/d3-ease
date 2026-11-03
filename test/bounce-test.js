@@ -1,13 +1,14 @@
+import {test} from "vitest";
 import assert from "assert";
 import {easeBounce, easeBounceIn, easeBounceInOut, easeBounceOut} from "../src/index.js";
 import {out, inOut} from "./generic.js"
 import {assertInDelta} from "./asserts.js";
 
-it("easeBounce is an alias for easeBounceOut", () => {
+test("easeBounce is an alias for easeBounceOut", () => {
   assert.strictEqual(easeBounce, easeBounceOut);
 });
 
-it("easeBounceIn(t) returns the expected results", () => {
+test("easeBounceIn(t) returns the expected results", () => {
   assert.strictEqual(easeBounceIn(0.0), 0.000000);
   assertInDelta(easeBounceIn(0.1), 0.011875);
   assertInDelta(easeBounceIn(0.2), 0.060000);
@@ -21,12 +22,12 @@ it("easeBounceIn(t) returns the expected results", () => {
   assert.strictEqual(easeBounceIn(1.0), 1.000000);
 });
 
-it("easeBounceIn(t) coerces t to a number", () => {
+test("easeBounceIn(t) coerces t to a number", () => {
   assert.strictEqual(easeBounceIn(".9"), easeBounceIn(0.9));
   assert.strictEqual(easeBounceIn({valueOf: function() { return 0.9; }}), easeBounceIn(0.9));
 });
 
-it("easeBounceOut(t) returns the expected results", () => {
+test("easeBounceOut(t) returns the expected results", () => {
   const bounceOut = out(easeBounceIn);
   assert.strictEqual(easeBounceOut(0.0), bounceOut(0.0));
   assertInDelta(easeBounceOut(0.1), bounceOut(0.1));
@@ -41,12 +42,12 @@ it("easeBounceOut(t) returns the expected results", () => {
   assert.strictEqual(easeBounceOut(1.0), bounceOut(1.0));
 });
 
-it("easeBounceOut(t) coerces t to a number", () => {
+test("easeBounceOut(t) coerces t to a number", () => {
   assert.strictEqual(easeBounceOut(".9"), easeBounceOut(0.9));
   assert.strictEqual(easeBounceOut({valueOf: function() { return 0.9; }}), easeBounceOut(0.9));
 });
 
-it("easeBounceInOut(t) returns the expected results", () => {
+test("easeBounceInOut(t) returns the expected results", () => {
   const bounceInOut = inOut(easeBounceIn);
   assert.strictEqual(easeBounceInOut(0.0), bounceInOut(0.0));
   assertInDelta(easeBounceInOut(0.1), bounceInOut(0.1));
@@ -61,7 +62,7 @@ it("easeBounceInOut(t) returns the expected results", () => {
   assert.strictEqual(easeBounceInOut(1.0), bounceInOut(1.0));
 });
 
-it("easeBounceInOut(t) coerces t to a number", () => {
+test("easeBounceInOut(t) coerces t to a number", () => {
   assert.strictEqual(easeBounceInOut(".9"), easeBounceInOut(0.9));
   assert.strictEqual(easeBounceInOut({valueOf: function() { return 0.9; }}), easeBounceInOut(0.9));
 });

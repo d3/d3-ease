@@ -1,13 +1,14 @@
+import {test} from "vitest";
 import assert from "assert";
 import {easeQuad, easeQuadIn, easeQuadInOut, easeQuadOut} from "../src/index.js";
 import {out, inOut} from "./generic.js"
 import {assertInDelta} from "./asserts.js";
 
-it("easeQuad is an alias for easeQuadInOut", () => {
+test("easeQuad is an alias for easeQuadInOut", () => {
   assert.strictEqual(easeQuad, easeQuadInOut);
 });
 
-it("easeQuadIn(t) returns the expected results", () => {
+test("easeQuadIn(t) returns the expected results", () => {
   assert.strictEqual(easeQuadIn(0.0), 0.00);
   assertInDelta(easeQuadIn(0.1), 0.01);
   assertInDelta(easeQuadIn(0.2), 0.04);
@@ -21,12 +22,12 @@ it("easeQuadIn(t) returns the expected results", () => {
   assert.strictEqual(easeQuadIn(1.0), 1.00);
 });
 
-it("easeQuadIn(t) coerces t to a number", () => {
+test("easeQuadIn(t) coerces t to a number", () => {
   assert.strictEqual(easeQuadIn(".9"), easeQuadIn(0.9));
   assert.strictEqual(easeQuadIn({valueOf: function() { return 0.9; }}), easeQuadIn(0.9));
 });
 
-it("easeQuadOut(t) returns the expected results", () => {
+test("easeQuadOut(t) returns the expected results", () => {
   var quadOut = out(easeQuadIn);
   assertInDelta(easeQuadOut(0.0), quadOut(0.0));
   assertInDelta(easeQuadOut(0.1), quadOut(0.1));
@@ -41,12 +42,12 @@ it("easeQuadOut(t) returns the expected results", () => {
   assertInDelta(easeQuadOut(1.0), quadOut(1.0));
 });
 
-it("easeQuadOut(t) coerces t to a number", () => {
+test("easeQuadOut(t) coerces t to a number", () => {
   assert.strictEqual(easeQuadOut(".9"), easeQuadOut(0.9));
   assert.strictEqual(easeQuadOut({valueOf: function() { return 0.9; }}), easeQuadOut(0.9));
 });
 
-it("easeQuadInOut(t) returns the expected results", () => {
+test("easeQuadInOut(t) returns the expected results", () => {
   var quadInOut = inOut(easeQuadIn);
   assertInDelta(easeQuadInOut(0.0), quadInOut(0.0));
   assertInDelta(easeQuadInOut(0.1), quadInOut(0.1));
@@ -61,7 +62,7 @@ it("easeQuadInOut(t) returns the expected results", () => {
   assertInDelta(easeQuadInOut(1.0), quadInOut(1.0));
 });
 
-it("easeQuadInOut(t) coerces t to a number", () => {
+test("easeQuadInOut(t) coerces t to a number", () => {
   assert.strictEqual(easeQuadInOut(".9"), easeQuadInOut(0.9));
   assert.strictEqual(easeQuadInOut({valueOf: function() { return 0.9; }}), easeQuadInOut(0.9));
 });

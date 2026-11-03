@@ -1,13 +1,14 @@
+import {test} from "vitest";
 import assert from "assert";
 import {easeExp, easeExpIn, easeExpInOut, easeExpOut} from "../src/index.js";
 import {out, inOut} from "./generic.js";
 import {assertInDelta} from "./asserts.js";
 
-it("easeExp is an alias for easeExpInOut", () => {
+test("easeExp is an alias for easeExpInOut", () => {
   assert.strictEqual(easeExp, easeExpInOut);
 });
 
-it("easeExpIn(t) returns the expected results", () => {
+test("easeExpIn(t) returns the expected results", () => {
   assert.strictEqual(easeExpIn(0.0), 0.000000);
   assertInDelta(easeExpIn(0.1), 0.000978);
   assertInDelta(easeExpIn(0.2), 0.002933);
@@ -21,12 +22,12 @@ it("easeExpIn(t) returns the expected results", () => {
   assert.strictEqual(easeExpIn(1.0), 1.000000);
 });
 
-it("easeExpIn(t) coerces t to a number", () => {
+test("easeExpIn(t) coerces t to a number", () => {
   assert.strictEqual(easeExpIn(".9"), easeExpIn(0.9));
   assert.strictEqual(easeExpIn({valueOf: function() { return 0.9; }}), easeExpIn(0.9));
 });
 
-it("easeExpOut(t) returns the expected results", () => {
+test("easeExpOut(t) returns the expected results", () => {
   const expOut = out(easeExpIn);
   assertInDelta(easeExpOut(0.0), expOut(0.0));
   assertInDelta(easeExpOut(0.1), expOut(0.1));
@@ -41,12 +42,12 @@ it("easeExpOut(t) returns the expected results", () => {
   assertInDelta(easeExpOut(1.0), expOut(1.0));
 });
 
-it("easeExpOut(t) coerces t to a number", () => {
+test("easeExpOut(t) coerces t to a number", () => {
   assert.strictEqual(easeExpOut(".9"), easeExpOut(0.9));
   assert.strictEqual(easeExpOut({valueOf: function() { return 0.9; }}), easeExpOut(0.9));
 });
 
-it("easeExpInOut(t) returns the expected results", () => {
+test("easeExpInOut(t) returns the expected results", () => {
   const expInOut = inOut(easeExpIn);
   assert.strictEqual(easeExpInOut(0.0), expInOut(0.0));
   assertInDelta(easeExpInOut(0.1), expInOut(0.1));
@@ -61,7 +62,7 @@ it("easeExpInOut(t) returns the expected results", () => {
   assert.strictEqual(easeExpInOut(1.0), expInOut(1.0));
 });
 
-it("easeExpInOut(t) coerces t to a number", () => {
+test("easeExpInOut(t) coerces t to a number", () => {
   assert.strictEqual(easeExpInOut(".9"), easeExpInOut(0.9));
   assert.strictEqual(easeExpInOut({valueOf: function() { return 0.9; }}), easeExpInOut(0.9));
 });
