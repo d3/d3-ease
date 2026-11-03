@@ -1,5 +1,6 @@
-import assert from "assert";
-import {easePoly, easePolyIn, easePolyInOut, easePolyOut} from "../src/index.js";
+import assert from "node:assert";
+import {it} from "vitest";
+import {easePoly, easePolyIn, easePolyInOut, easePolyOut} from "d3-ease";
 import {out, inOut} from "./generic.js"
 import {assertInDelta} from "./asserts.js";
 

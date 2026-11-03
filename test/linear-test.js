@@ -1,5 +1,6 @@
-import assert from "assert";
-import {easeLinear} from "../src/index.js";
+import assert from "node:assert";
+import {it} from "vitest";
+import {easeLinear} from "d3-ease";
 import {assertInDelta} from "./asserts.js";
 
 it("easeLinear(t) returns the expected results", () => {
