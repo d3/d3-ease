@@ -1,6 +1,6 @@
 import assert from "node:assert";
 import {it} from "vitest";
-import {easeCubic, easeCubicIn, easeCubicInOut, easeCubicOut} from "../src/index.js";
+import {easeCubic, easeCubicIn, easeCubicInOut, easeCubicOut} from "d3-ease";
 import {out, inOut} from "./generic.js";
 import {assertInDelta} from "./asserts.js";
 
