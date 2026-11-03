@@ -1,14 +1,14 @@
-import {test} from "vitest";
+import {it} from "vitest";
 import assert from "assert";
 import {easePoly, easePolyIn, easePolyInOut, easePolyOut} from "../src/index.js";
 import {out, inOut} from "./generic.js"
 import {assertInDelta} from "./asserts.js";
 
-test("easePoly is an alias for easePolyInOut", () => {
+it("easePoly is an alias for easePolyInOut", () => {
   assert.strictEqual(easePoly, easePolyInOut);
 });
 
-test("easePolyIn(t) returns the expected results", () => {
+it("easePolyIn(t) returns the expected results", () => {
   assert.strictEqual(easePolyIn(0.0), 0.000);
   assertInDelta(easePolyIn(0.1), 0.001);
   assertInDelta(easePolyIn(0.2), 0.008);
@@ -22,23 +22,23 @@ test("easePolyIn(t) returns the expected results", () => {
   assert.strictEqual(easePolyIn(1.0), 1.000);
 });
 
-test("easePolyIn(t) coerces t to a number", () => {
+it("easePolyIn(t) coerces t to a number", () => {
   assert.strictEqual(easePolyIn(".9"), easePolyIn(0.9));
   assert.strictEqual(easePolyIn({valueOf: function() { return 0.9; }}), easePolyIn(0.9));
 });
 
-test("easePolyIn(t) is the same as polyIn.exponent(3)(t)", () => {
+it("easePolyIn(t) is the same as polyIn.exponent(3)(t)", () => {
   assert.strictEqual(easePolyIn(0.1), easePolyIn.exponent(3)(0.1));
   assert.strictEqual(easePolyIn(0.2), easePolyIn.exponent(3)(0.2));
   assert.strictEqual(easePolyIn(0.3), easePolyIn.exponent(3)(0.3));
 });
 
-test("easePolyIn.exponent(e)(t) coerces t and e to numbers", () => {
+it("easePolyIn.exponent(e)(t) coerces t and e to numbers", () => {
   assert.strictEqual(easePolyIn.exponent("1.3")(".9"), easePolyIn.exponent(1.3)(0.9));
   assert.strictEqual(easePolyIn.exponent({valueOf: function() { return 1.3; }})({valueOf: function() { return 0.9; }}), easePolyIn.exponent(1.3)(0.9));
 });
 
-test("easePolyIn.exponent(2.5)(t) returns the expected results", () => {
+it("easePolyIn.exponent(2.5)(t) returns the expected results", () => {
   assert.strictEqual(easePolyIn.exponent(2.5)(0.0), 0.000000);
   assertInDelta(easePolyIn.exponent(2.5)(0.1), 0.003162);
   assertInDelta(easePolyIn.exponent(2.5)(0.2), 0.017889);
@@ -52,30 +52,30 @@ test("easePolyIn.exponent(2.5)(t) returns the expected results", () => {
   assert.strictEqual(easePolyIn.exponent(2.5)(1.0), 1.000000);
 });
 
-test("easePolyOut.exponent(e)(t) coerces t and e to numbers", () => {
+it("easePolyOut.exponent(e)(t) coerces t and e to numbers", () => {
   assert.strictEqual(easePolyOut.exponent("1.3")(".9"), easePolyOut.exponent(1.3)(0.9));
   assert.strictEqual(easePolyOut.exponent({valueOf: function() { return 1.3; }})({valueOf: function() { return 0.9; }}), easePolyOut.exponent(1.3)(0.9));
 });
 
-test("easePolyOut(t) is the same as polyOut.exponent(3)(t)", () => {
+it("easePolyOut(t) is the same as polyOut.exponent(3)(t)", () => {
   assert.strictEqual(easePolyOut(0.1), easePolyOut.exponent(3)(0.1));
   assert.strictEqual(easePolyOut(0.2), easePolyOut.exponent(3)(0.2));
   assert.strictEqual(easePolyOut(0.3), easePolyOut.exponent(3)(0.3));
 });
 
-test("easePolyOut(t, null) is the same as polyOut.exponent(3)(t)", () => {
+it("easePolyOut(t, null) is the same as polyOut.exponent(3)(t)", () => {
   assert.strictEqual(easePolyOut(0.1, null), easePolyOut.exponent(3)(0.1));
   assert.strictEqual(easePolyOut(0.2, null), easePolyOut.exponent(3)(0.2));
   assert.strictEqual(easePolyOut(0.3, null), easePolyOut.exponent(3)(0.3));
 });
 
-test("easePolyOut(t, undefined) is the same as polyOut.exponent(3)(t)", () => {
+it("easePolyOut(t, undefined) is the same as polyOut.exponent(3)(t)", () => {
   assert.strictEqual(easePolyOut(0.1, undefined), easePolyOut.exponent(3)(0.1));
   assert.strictEqual(easePolyOut(0.2, undefined), easePolyOut.exponent(3)(0.2));
   assert.strictEqual(easePolyOut(0.3, undefined), easePolyOut.exponent(3)(0.3));
 });
 
-test("easePolyOut.exponent(2.5)(t) returns the expected results", () => {
+it("easePolyOut.exponent(2.5)(t) returns the expected results", () => {
   const polyOut = out(easePolyIn.exponent(2.5));
   assert.strictEqual(easePolyOut.exponent(2.5)(0.0), polyOut(0.0));
   assertInDelta(easePolyOut.exponent(2.5)(0.1), polyOut(0.1));
@@ -90,18 +90,18 @@ test("easePolyOut.exponent(2.5)(t) returns the expected results", () => {
   assert.strictEqual(easePolyOut.exponent(2.5)(1.0), polyOut(1.0));
 });
 
-test("easePolyInOut.exponent(e)(t) coerces t and e to numbers", () => {
+it("easePolyInOut.exponent(e)(t) coerces t and e to numbers", () => {
   assert.strictEqual(easePolyInOut.exponent("1.3")(".9"), easePolyInOut.exponent(1.3)(0.9));
   assert.strictEqual(easePolyInOut.exponent({valueOf: function() { return 1.3; }})({valueOf: function() { return 0.9; }}), easePolyInOut.exponent(1.3)(0.9));
 });
 
-test("easePolyInOut(t) is the same as polyInOut.exponent(3)(t)", () => {
+it("easePolyInOut(t) is the same as polyInOut.exponent(3)(t)", () => {
   assert.strictEqual(easePolyInOut(0.1), easePolyInOut.exponent(3)(0.1));
   assert.strictEqual(easePolyInOut(0.2), easePolyInOut.exponent(3)(0.2));
   assert.strictEqual(easePolyInOut(0.3), easePolyInOut.exponent(3)(0.3));
 });
 
-test("easePolyInOut.exponent(2.5)(t) returns the expected results", () => {
+it("easePolyInOut.exponent(2.5)(t) returns the expected results", () => {
   const polyInOut = inOut(easePolyIn.exponent(2.5));
   assertInDelta(easePolyInOut.exponent(2.5)(0.0), polyInOut(0.0));
   assertInDelta(easePolyInOut.exponent(2.5)(0.1), polyInOut(0.1));

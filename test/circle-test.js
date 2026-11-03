@@ -1,14 +1,14 @@
-import {test} from "vitest";
+import {it} from "vitest";
 import assert from "assert";
 import {easeCircle, easeCircleIn, easeCircleInOut, easeCircleOut} from "../src/index.js";
 import {out, inOut} from "./generic.js"
 import {assertInDelta} from "./asserts.js"
 
-test("easeCircle is an alias for easeCircleInOut", () => {
+it("easeCircle is an alias for easeCircleInOut", () => {
   assert.strictEqual(easeCircle, easeCircleInOut);
 });
 
-test("easeCircleIn(t) returns the expected results", () => {
+it("easeCircleIn(t) returns the expected results", () => {
   assert.strictEqual(easeCircleIn(0.0), 0.000000);
   assertInDelta(easeCircleIn(0.1), 0.005013);
   assertInDelta(easeCircleIn(0.2), 0.020204);
@@ -22,12 +22,12 @@ test("easeCircleIn(t) returns the expected results", () => {
   assert.strictEqual(easeCircleIn(1.0), 1.000000);
 });
 
-test("easeCircleIn(t) coerces t to a number", () => {
+it("easeCircleIn(t) coerces t to a number", () => {
   assert.strictEqual(easeCircleIn(".9"), easeCircleIn(0.9));
   assert.strictEqual(easeCircleIn({valueOf: function() { return 0.9; }}), easeCircleIn(0.9));
 });
 
-test("easeCircleOut(t) returns the expected results", () => {
+it("easeCircleOut(t) returns the expected results", () => {
   var circleOut = out(easeCircleIn);
   assert.strictEqual(easeCircleOut(0.0), circleOut(0.0));
   assertInDelta(easeCircleOut(0.1), circleOut(0.1));
@@ -42,12 +42,12 @@ test("easeCircleOut(t) returns the expected results", () => {
   assert.strictEqual(easeCircleOut(1.0), circleOut(1.0));
 });
 
-test("easeCircleOut(t) coerces t to a number", () => {
+it("easeCircleOut(t) coerces t to a number", () => {
   assert.strictEqual(easeCircleOut(".9"), easeCircleOut(0.9));
   assert.strictEqual(easeCircleOut({valueOf: function() { return 0.9; }}), easeCircleOut(0.9));
 });
 
-test("easeCircleInOut(t) returns the expected results", () => {
+it("easeCircleInOut(t) returns the expected results", () => {
   var circleInOut = inOut(easeCircleIn);
   assert.strictEqual(easeCircleInOut(0.0), circleInOut(0.0));
   assertInDelta(easeCircleInOut(0.1), circleInOut(0.1));
@@ -62,7 +62,7 @@ test("easeCircleInOut(t) returns the expected results", () => {
   assert.strictEqual(easeCircleInOut(1.0), circleInOut(1.0));
 });
 
-test("easeCircleInOut(t) coerces t to a number", () => {
+it("easeCircleInOut(t) coerces t to a number", () => {
   assert.strictEqual(easeCircleInOut(".9"), easeCircleInOut(0.9));
   assert.strictEqual(easeCircleInOut({valueOf: function() { return 0.9; }}), easeCircleInOut(0.9));
 });

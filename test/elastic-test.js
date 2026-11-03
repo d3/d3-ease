@@ -1,14 +1,14 @@
-import {test} from "vitest";
+import {it} from "vitest";
 import assert from "assert";
 import {easeElastic, easeElasticIn, easeElasticInOut, easeElasticOut} from "../src/index.js";
 import {out, inOut} from "./generic.js";
 import {assertInDelta} from "./asserts.js";
 
-test("easeElastic is an alias for easeElasticOut", () => {
+it("easeElastic is an alias for easeElasticOut", () => {
   assert.strictEqual(easeElastic, easeElasticOut);
 });
 
-test("easeElasticIn(t) returns the expected results", () => {
+it("easeElasticIn(t) returns the expected results", () => {
   assert.strictEqual(Math.abs(easeElasticIn(0.0)), 0.000000);
   assertInDelta(easeElasticIn(0.1),  0.000978);
   assertInDelta(easeElasticIn(0.2), -0.001466);
@@ -22,29 +22,29 @@ test("easeElasticIn(t) returns the expected results", () => {
   assert.strictEqual(easeElasticIn(1.0),  1.000000);
 });
 
-test("easeElasticIn(t) coerces t to a number", () => {
+it("easeElasticIn(t) coerces t to a number", () => {
   assert.strictEqual(easeElasticIn(".9"), easeElasticIn(0.9));
   assert.strictEqual(easeElasticIn({valueOf: function() { return 0.9; }}), easeElasticIn(0.9));
 });
 
-test("easeElasticIn(t) is the same as elasticIn.amplitude(1).period(0.3)(t)", () => {
+it("easeElasticIn(t) is the same as elasticIn.amplitude(1).period(0.3)(t)", () => {
   assert.strictEqual(easeElasticIn(0.1), easeElasticIn.amplitude(1).period(0.3)(0.1));
   assert.strictEqual(easeElasticIn(0.2), easeElasticIn.amplitude(1).period(0.3)(0.2));
   assert.strictEqual(easeElasticIn(0.3), easeElasticIn.amplitude(1).period(0.3)(0.3));
 });
 
-test("easeElasticIn.amplitude(a)(t) is the same as elasticIn(t) if a <= 1", () => {
+it("easeElasticIn.amplitude(a)(t) is the same as elasticIn(t) if a <= 1", () => {
   assert.strictEqual(easeElasticIn.amplitude(-1.0)(0.1), easeElasticIn(0.1));
   assert.strictEqual(easeElasticIn.amplitude(+0.4)(0.2), easeElasticIn(0.2));
   assert.strictEqual(easeElasticIn.amplitude(+0.8)(0.3), easeElasticIn(0.3));
 });
 
-test("easeElasticIn.amplitude(a).period(p)(t) coerces t, a and p to numbers", () => {
+it("easeElasticIn.amplitude(a).period(p)(t) coerces t, a and p to numbers", () => {
   assert.strictEqual(easeElasticIn.amplitude("1.3").period("0.2")(".9"), easeElasticIn.amplitude(1.3).period(0.2)(.9));
   assert.strictEqual(easeElasticIn.amplitude({valueOf: function() { return 1.3; }}).period({valueOf: function() { return 0.2; }})({valueOf: function() { return .9; }}), easeElasticIn.amplitude(1.3).period(0.2)(.9));
 });
 
-test("easeElasticIn.amplitude(1.3)(t) returns the expected results", () => {
+it("easeElasticIn.amplitude(1.3)(t) returns the expected results", () => {
   assert.strictEqual(easeElasticIn.amplitude(1.3)(0.0),  0.000000);
   assertInDelta(easeElasticIn.amplitude(1.3)(0.1),  0.000978);
   assertInDelta(easeElasticIn.amplitude(1.3)(0.2), -0.003576);
@@ -58,7 +58,7 @@ test("easeElasticIn.amplitude(1.3)(t) returns the expected results", () => {
   assert.strictEqual(easeElasticIn.amplitude(1.3)(1.0),  1.000000);
 });
 
-test("easeElasticIn.amplitude(1.5).period(1)(t) returns the expected results", () => {
+it("easeElasticIn.amplitude(1.5).period(1)(t) returns the expected results", () => {
   assert.strictEqual(easeElasticIn.amplitude(1.5).period(1)(0.0),  0.000000);
   assertInDelta(easeElasticIn.amplitude(1.5).period(1)(0.1),  0.000148);
   assertInDelta(easeElasticIn.amplitude(1.5).period(1)(0.2), -0.002212);
@@ -72,7 +72,7 @@ test("easeElasticIn.amplitude(1.5).period(1)(t) returns the expected results", (
   assert.strictEqual(easeElasticIn.amplitude(1.5).period(1)(1.0),  1.000000);
 });
 
-test("easeElasticOut(t) returns the expected results", () => {
+it("easeElasticOut(t) returns the expected results", () => {
   const elasticOut = out(easeElasticIn);
   assert.strictEqual(easeElasticOut(0.0), elasticOut(0.0));
   assertInDelta(easeElasticOut(0.1), elasticOut(0.1));
@@ -87,12 +87,12 @@ test("easeElasticOut(t) returns the expected results", () => {
   assert.strictEqual(easeElasticOut(1.0), elasticOut(1.0));
 });
 
-test("easeElasticOut.amplitude(a).period(p)(t) coerces t, a and p to numbers", () => {
+it("easeElasticOut.amplitude(a).period(p)(t) coerces t, a and p to numbers", () => {
   assert.strictEqual(easeElasticOut.amplitude("1.3").period("0.2")(".9"), easeElasticOut.amplitude(1.3).period(0.2)(.9));
   assert.strictEqual(easeElasticOut.amplitude({valueOf: function() { return 1.3; }}).period({valueOf: function() { return 0.2; }})({valueOf: function() { return .9; }}), easeElasticOut.amplitude(1.3).period(0.2)(.9));
 });
 
-test("easeElasticInOut(t) returns the expected results", () => {
+it("easeElasticInOut(t) returns the expected results", () => {
   const elasticInOut = inOut(easeElasticIn);
   assert.strictEqual(easeElasticInOut(0.0), elasticInOut(0.0));
   assertInDelta(easeElasticInOut(0.1), elasticInOut(0.1));
@@ -107,7 +107,7 @@ test("easeElasticInOut(t) returns the expected results", () => {
   assert.strictEqual(easeElasticInOut(1.0), elasticInOut(1.0));
 });
 
-test("easeElasticInOut.amplitude(a).period(p)(t) coerces t, a and p to numbers", () => {
+it("easeElasticInOut.amplitude(a).period(p)(t) coerces t, a and p to numbers", () => {
   assert.strictEqual(easeElasticInOut.amplitude("1.3").period("0.2")(".9"), easeElasticInOut.amplitude(1.3).period(0.2)(.9));
   assert.strictEqual(easeElasticInOut.amplitude({valueOf: function() { return 1.3; }}).period({valueOf: function() { return 0.2; }})({valueOf: function() { return .9; }}), easeElasticInOut.amplitude(1.3).period(0.2)(.9));
 });

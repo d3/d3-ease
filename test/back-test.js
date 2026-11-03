@@ -1,14 +1,14 @@
-import {test} from "vitest";
+import {it} from "vitest";
 import assert from "assert";
 import {easeBack, easeBackIn, easeBackInOut, easeBackOut} from "../src/index.js";
 import {out, inOut} from "./generic.js"
 import {assertInDelta} from "./asserts.js";
 
-test("easeBack is an alias for easeBackInOut", () => {
+it("easeBack is an alias for easeBackInOut", () => {
   assert.strictEqual(easeBack, easeBackInOut);
 });
 
-test("easeBackIn(t) returns the expected results", () => {
+it("easeBackIn(t) returns the expected results", () => {
   assert.strictEqual(Math.abs(easeBackIn(0.0)),  0.000000);
   assertInDelta(easeBackIn(0.1), -0.014314);
   assertInDelta(easeBackIn(0.2), -0.046451);
@@ -22,12 +22,12 @@ test("easeBackIn(t) returns the expected results", () => {
   assert.strictEqual(easeBackIn(1.0), +1.000000);
 });
 
-test("easeBackIn(t) coerces t to a number", () => {
+it("easeBackIn(t) coerces t to a number", () => {
   assert.strictEqual(easeBackIn(".9"), easeBackIn(0.9));
   assert.strictEqual(easeBackIn({valueOf: function() { return 0.9; }}), easeBackIn(0.9));
 });
 
-test("easeBackOut(t) returns the expected results", () => {
+it("easeBackOut(t) returns the expected results", () => {
   const backOut = out(easeBackIn);
   assert.strictEqual(easeBackOut(0.0), backOut(0.0));
   assertInDelta(easeBackOut(0.1), backOut(0.1));
@@ -42,12 +42,12 @@ test("easeBackOut(t) returns the expected results", () => {
   assert.strictEqual(easeBackOut(1.0), backOut(1.0));
 });
 
-test("easeBackOut(t) coerces t to a number", () => {
+it("easeBackOut(t) coerces t to a number", () => {
   assert.strictEqual(easeBackOut(".9"), easeBackOut(0.9));
   assert.strictEqual(easeBackOut({valueOf: function() { return 0.9; }}), easeBackOut(0.9));
 });
 
-test("easeBackInOut(t) returns the expected results", () => {
+it("easeBackInOut(t) returns the expected results", () => {
   const backInOut = inOut(easeBackIn);
   assert.strictEqual(easeBackInOut(0.0), backInOut(0.0));
   assertInDelta(easeBackInOut(0.1), backInOut(0.1));
@@ -62,7 +62,7 @@ test("easeBackInOut(t) returns the expected results", () => {
   assert.strictEqual(easeBackInOut(1.0), backInOut(1.0));
 });
 
-test("easeBackInOut(t) coerces t to a number", () => {
+it("easeBackInOut(t) coerces t to a number", () => {
   assert.strictEqual(easeBackInOut(".9"), easeBackInOut(0.9));
   assert.strictEqual(easeBackInOut({valueOf: function() { return 0.9; }}), easeBackInOut(0.9));
 });

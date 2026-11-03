@@ -1,14 +1,14 @@
-import {test} from "vitest";
+import {it} from "vitest";
 import assert from "assert";
 import {easeCubic, easeCubicIn, easeCubicInOut, easeCubicOut} from "../src/index.js";
 import {out, inOut} from "./generic.js";
 import {assertInDelta} from "./asserts.js";
 
-test("easeCubic is an alias for easeCubicInOut", () => {
+it("easeCubic is an alias for easeCubicInOut", () => {
   assert.strictEqual(easeCubic, easeCubicInOut);
 });
 
-test("easeCubicIn(t) returns the expected results", () => {
+it("easeCubicIn(t) returns the expected results", () => {
   assert.strictEqual(easeCubicIn(0.0), 0.000);
   assertInDelta(easeCubicIn(0.1), 0.001);
   assertInDelta(easeCubicIn(0.2), 0.008);
@@ -22,12 +22,12 @@ test("easeCubicIn(t) returns the expected results", () => {
   assert.strictEqual(easeCubicIn(1.0), 1.000);
 });
 
-test("easeCubicIn(t) coerces t to a number", () => {
+it("easeCubicIn(t) coerces t to a number", () => {
   assert.strictEqual(easeCubicIn(".9"), easeCubicIn(0.9));
   assert.strictEqual(easeCubicIn({valueOf: function() { return 0.9; }}), easeCubicIn(0.9));
 });
 
-test("easeCubicOut(t) returns the expected results", () => {
+it("easeCubicOut(t) returns the expected results", () => {
   const cubicOut = out(easeCubicIn);
   assert.strictEqual(easeCubicOut(0.0), cubicOut(0.0));
   assertInDelta(easeCubicOut(0.1), cubicOut(0.1));
@@ -42,12 +42,12 @@ test("easeCubicOut(t) returns the expected results", () => {
   assert.strictEqual(easeCubicOut(1.0), cubicOut(1.0));
 });
 
-test("easeCubicOut(t) coerces t to a number", () => {
+it("easeCubicOut(t) coerces t to a number", () => {
   assert.strictEqual(easeCubicOut(".9"), easeCubicOut(0.9));
   assert.strictEqual(easeCubicOut({valueOf: function() { return 0.9; }}), easeCubicOut(0.9));
 });
 
-test("easeCubicInOut(t) returns the expected results", () => {
+it("easeCubicInOut(t) returns the expected results", () => {
   const cubicInOut = inOut(easeCubicIn);
   assert.strictEqual(easeCubicInOut(0.0), cubicInOut(0.0));
   assertInDelta(easeCubicInOut(0.1), cubicInOut(0.1));
@@ -62,7 +62,7 @@ test("easeCubicInOut(t) returns the expected results", () => {
   assert.strictEqual(easeCubicInOut(1.0), cubicInOut(1.0));
 });
 
-test("easeCubicInOut(t) coerces t to a number", () => {
+it("easeCubicInOut(t) coerces t to a number", () => {
   assert.strictEqual(easeCubicInOut(".9"), easeCubicInOut(0.9));
   assert.strictEqual(easeCubicInOut({valueOf: function() { return 0.9; }}), easeCubicInOut(0.9));
 });

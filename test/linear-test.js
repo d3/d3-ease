@@ -1,9 +1,9 @@
-import {test} from "vitest";
+import {it} from "vitest";
 import assert from "assert";
 import {easeLinear} from "../src/index.js";
 import {assertInDelta} from "./asserts.js";
 
-test("easeLinear(t) returns the expected results", () => {
+it("easeLinear(t) returns the expected results", () => {
   assert.strictEqual(easeLinear(0.0), 0.0);
   assertInDelta(easeLinear(0.1), 0.1);
   assertInDelta(easeLinear(0.2), 0.2);
@@ -17,7 +17,7 @@ test("easeLinear(t) returns the expected results", () => {
   assert.strictEqual(easeLinear(1.0), 1.0);
 });
 
-test("easeLinear(t) coerces t to a number", () => {
+it("easeLinear(t) coerces t to a number", () => {
   assert.strictEqual(easeLinear(".9"), easeLinear(0.9));
   assert.strictEqual(easeLinear({valueOf: function() { return 0.9; }}), easeLinear(0.9));
 });
